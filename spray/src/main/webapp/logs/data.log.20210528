@@ -1,0 +1,28 @@
+[2021-05-28 17:34:10][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 14508 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-28 17:34:10][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-28 17:34:11][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-28 17:34:11][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-28 17:34:13][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-28 17:34:16][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-28 17:34:16][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-28 17:34:16][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-28 17:34:16][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-28 17:34:16][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-28 17:34:16][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 5850 ms
+[2021-05-28 17:34:18][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-28 17:34:18][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d4166af, org.springframework.security.web.context.SecurityContextPersistenceFilter@478dd2cf, org.springframework.security.web.header.HeaderWriterFilter@1118424a, org.springframework.security.web.csrf.CsrfFilter@55f42705, org.springframework.security.web.authentication.logout.LogoutFilter@2ad74f94, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4aeb7217, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@364f2e04, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@439d827b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c7e2f98, org.springframework.security.web.session.SessionManagementFilter@24d67a01, org.springframework.security.web.access.ExceptionTranslationFilter@37610efb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44980b90]
+[2021-05-28 17:34:18][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-28 17:34:19][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-28 17:34:19][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-28 17:34:19][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-28 17:34:19][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-28 17:34:19][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 9.999 seconds (JVM running for 11.467)
+[2021-05-28 17:34:20][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-28 17:34:20][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-28 17:34:20][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 5 ms
+[2021-05-28 17:34:20][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-28 17:44:55][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-28 17:52:45][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-28 17:54:12][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-28 17:56:41][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-28 17:58:57][INFO ][MainController.java]index_test(30) 프로필 페이지 접속

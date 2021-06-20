@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🐷🐷🐷Spray🐷🐷🐷</title>
+    <meta name="_csrf"        content="{{_csrf.token}}"     />
+    <meta name="_csrf_header" content="{{_csrf.headerName}}"/>
+    <link rel="stylesheet" href="/css/spray/nav.css"/> 
+    <link rel="stylesheet" href="/css/spray/boardFrontContent.css"/>
+    <style>
+        .return-button { float: right; }
+    </style>
+    {{>spray/layout/header}}
+</head>
+<body>
+{{>spray/nav//menu}}
+{{>spray/board/boardInner/boardFrontInner}}
+<script>
+
+    let title = document.getElementsByClassName('title');
+
+    $('.title').on('click', e => {
+        location.href = '/spray/board/boardContent' + '/' + e.originalEvent.currentTarget.previousElementSibling.innerText;
+    });
+
+     document.querySelector('.return-button').addEventListener('click', e => {
+        location.href = '/spray/board/boardWrite'
+    });
+
+
+    $(document).ready(function()
+    {
+
+    });
+
+   </script>
+
+<div id="bbs"></div>
+</body>
+
+</html>

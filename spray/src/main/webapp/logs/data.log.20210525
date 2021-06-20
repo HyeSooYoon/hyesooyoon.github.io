@@ -1,0 +1,487 @@
+[2021-05-18 10:27:12][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 17536 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-18 10:27:12][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-18 10:27:12][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-18 10:27:12][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-18 10:27:14][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-18 10:27:16][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-18 10:27:16][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-18 10:27:16][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-18 10:27:16][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-18 10:27:16][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-18 10:27:16][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3819 ms
+[2021-05-18 10:27:17][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-18 10:27:17][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4aeb7217, org.springframework.security.web.context.SecurityContextPersistenceFilter@14d4c80d, org.springframework.security.web.header.HeaderWriterFilter@960482, org.springframework.security.web.csrf.CsrfFilter@7a6578b2, org.springframework.security.web.authentication.logout.LogoutFilter@210d4325, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6658339f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@215e5e5c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@567c1047, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d4166af, org.springframework.security.web.session.SessionManagementFilter@1bffa953, org.springframework.security.web.access.ExceptionTranslationFilter@69cc642e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22904ecf]
+[2021-05-18 10:27:18][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-18 10:27:18][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-18 10:27:18][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-18 10:27:18][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-18 10:27:18][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-18 10:27:18][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 7.648 seconds (JVM running for 8.826)
+[2021-05-18 10:29:10][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-18 10:29:10][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-18 10:29:10][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 1 ms
+[2021-05-18 10:29:10][INFO ][MainController.java]index(22) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:29:10][WARN ][DirectJDKLog.java]log(173) Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [313] milliseconds.
+[2021-05-18 10:29:16][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-18 10:29:16][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-18 10:29:16][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:29:20][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:29:20][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:29:20][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:29:20][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:29:35][INFO ][BoardController.java]boardContent(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:29:35][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 10:29:35][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 11(String)
+[2021-05-18 10:29:35][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:29:37][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:29:37][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:29:37][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:29:37][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:29:41][INFO ][BoardController.java]boardContent(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:29:41][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 10:29:41][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 15(String)
+[2021-05-18 10:29:41][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:29:44][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:29:44][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:29:44][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:29:44][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:29:47][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:29:47][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:29:47][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:29:47][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:33:01][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:33:01][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:33:01][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:33:01][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:33:03][INFO ][BoardController.java]boardContent(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:33:03][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 10:33:03][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 17(String)
+[2021-05-18 10:33:03][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:33:05][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:33:05][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:33:05][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:33:05][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:33:10][INFO ][BoardController.java]boardContent(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:33:10][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 10:33:10][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 28(String)
+[2021-05-18 10:33:10][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:33:14][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:33:14][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:33:14][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:33:14][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:41:04][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 17792 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-18 10:41:04][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-18 10:41:04][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-18 10:41:04][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-18 10:41:07][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-18 10:41:09][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-18 10:41:09][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-18 10:41:09][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-18 10:41:09][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-18 10:41:09][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-18 10:41:09][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 4725 ms
+[2021-05-18 10:41:10][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-18 10:41:10][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ce6167d, org.springframework.security.web.context.SecurityContextPersistenceFilter@259c926b, org.springframework.security.web.header.HeaderWriterFilter@24a07e21, org.springframework.security.web.csrf.CsrfFilter@439d827b, org.springframework.security.web.authentication.logout.LogoutFilter@5ab3b739, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44c93556, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68d870a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55570aa9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ddfb7fd, org.springframework.security.web.session.SessionManagementFilter@15e6b041, org.springframework.security.web.access.ExceptionTranslationFilter@71fa14d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e5ea247]
+[2021-05-18 10:41:11][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-18 10:41:11][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-18 10:41:12][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-18 10:41:12][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-18 10:41:12][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-18 10:41:12][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 9.451 seconds (JVM running for 10.811)
+[2021-05-18 10:41:23][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-18 10:41:23][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-18 10:41:23][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 1 ms
+[2021-05-18 10:41:23][WARN ][DirectJDKLog.java]log(173) Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [410] milliseconds.
+[2021-05-18 10:41:23][INFO ][MainController.java]index(22) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:41:26][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-18 10:41:26][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-18 10:41:26][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:41:30][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:41:30][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:41:30][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:41:30][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:41:32][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 10:41:38][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:41:38][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:41:38][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:41:38][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 26
+[2021-05-18 10:41:39][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: ï¿½ï¿½(String), ï¿½ï¿½ï¿½ï¿½(String), ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(String)
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 10:41:47][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:41:47][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 27
+[2021-05-18 10:41:50][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 10:41:50][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 10:41:50][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 29(String)
+[2021-05-18 10:41:50][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 10:41:52][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 10:41:52][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 10:41:52][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 10:41:52][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 27
+[2021-05-18 10:43:01][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: (String), (String), (String)
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:01:33][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:01:33][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 28
+[2021-05-18 11:01:35][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:01:35][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:01:35][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 30(String)
+[2021-05-18 11:01:35][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:01:37][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:01:37][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:01:37][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:01:37][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 28
+[2021-05-18 11:01:38][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:42:14][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:42:25][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:42:25][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: f(String), f(String), (String)
+[2021-05-18 11:42:25][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:42:25][INFO ][MainController.java]index(22) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:42:56][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-18 11:42:56][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-18 11:42:56][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:42:59][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:42:59][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:42:59][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:42:59][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 29
+[2021-05-18 11:43:02][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:43:58][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:43:58][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:43:58][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:43:58][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 29
+[2021-05-18 11:44:00][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:44:06][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:44:06][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:44:06][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:44:06][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 29
+[2021-05-18 11:44:10][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: d(String), f(String), ssssssssssssssss(String)
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:44:27][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:44:27][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:45:23][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:45:23][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:45:23][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:45:23][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:45:26][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:45:28][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:45:28][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:45:28][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:45:28][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:45:30][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:45:30][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:45:30][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 16(String)
+[2021-05-18 11:45:30][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:45:31][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:45:31][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:45:31][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:45:31][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:45:39][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:45:43][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:45:43][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:45:43][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:45:43][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:45:47][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:45:47][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:45:47][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 10(String)
+[2021-05-18 11:45:47][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:46:17][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:46:17][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:46:17][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:46:17][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:46:34][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:46:34][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:46:34][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 25(String)
+[2021-05-18 11:46:34][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:46:35][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:46:35][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:46:35][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:46:35][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 30
+[2021-05-18 11:47:38][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:47:38][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:47:38][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:47:38][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 0
+[2021-05-18 11:47:40][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:47:54][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:47:54][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: Ã¹ ï¿½ï¿½(String), Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½(String), Ã¹ ï¿½ï¿½ï¿½ï¿½ï¿½(String)
+[2021-05-18 11:47:54][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:48:11][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:11][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:11][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:11][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:48:13][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:48:16][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:48:16][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: ï¿½ï¿½ï¿½ï¿½(String), ï¿½ï¿½(String), ï¿½ï¿½(String)
+[2021-05-18 11:48:16][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:48:41][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:41][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:41][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:41][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 2
+[2021-05-18 11:48:42][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: INSERT INTO boardList_tb (title, writer, content) VALUES (?, ?, ?)
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: ï¿½ï¿½ï¿½ï¿½(String), ï¿½ï¿½ï¿½ï¿½(String), ï¿½ï¿½ï¿½ï¿½(String)
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) <==    Updates: 1
+[2021-05-18 11:48:45][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:45][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 11:48:48][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:48:48][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:48:48][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 33(String)
+[2021-05-18 11:48:48][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:48:50][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:50][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:50][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:50][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 11:48:51][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:48:51][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:48:51][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 35(String)
+[2021-05-18 11:48:51][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:48:52][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:52][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:52][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:52][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 11:48:54][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 11:48:54][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 11:48:54][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 34(String)
+[2021-05-18 11:48:54][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 11:48:56][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:48:56][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:48:56][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:48:56][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 11:49:24][INFO ][BoardController.java]boardWrite(38) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+[2021-05-18 11:49:25][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 11:49:25][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 11:49:25][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 11:49:25][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 14:16:31][INFO ][MainController.java]index(22) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 14:16:34][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-18 14:16:34][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-18 14:16:34][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 14:16:37][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 14:16:37][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 14:16:37][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 14:16:37][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 14:17:33][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 14:17:33][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 14:17:33][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 33(String)
+[2021-05-18 14:17:33][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 14:17:35][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 14:17:35][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 14:17:35][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 14:17:35][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 14:29:52][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 15168 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-18 14:29:52][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-18 14:29:52][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-18 14:29:52][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-18 14:29:54][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-18 14:29:56][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-18 14:29:56][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-18 14:29:56][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-18 14:29:56][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-18 14:29:56][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-18 14:29:56][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 4108 ms
+[2021-05-18 14:29:57][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-18 14:29:57][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e4fa755, org.springframework.security.web.context.SecurityContextPersistenceFilter@607a2be, org.springframework.security.web.header.HeaderWriterFilter@2270c350, org.springframework.security.web.csrf.CsrfFilter@3a506d18, org.springframework.security.web.authentication.logout.LogoutFilter@76d54b46, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@607df297, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2098013f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48cea091, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29ef148d, org.springframework.security.web.session.SessionManagementFilter@5a9d0dab, org.springframework.security.web.access.ExceptionTranslationFilter@1f9aa5b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7499e941]
+[2021-05-18 14:29:57][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-18 14:29:58][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-18 14:29:58][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-18 14:29:58][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-18 14:29:58][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-18 14:29:58][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 7.404 seconds (JVM running for 8.442)
+[2021-05-18 14:30:04][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-18 14:30:04][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-18 14:30:04][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 2 ms
+[2021-05-18 14:30:04][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 14:30:05][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 14:30:05][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 33(String)
+[2021-05-18 14:30:06][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 14:30:06][WARN ][DirectJDKLog.java]log(173) Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [353] milliseconds.
+[2021-05-18 14:30:13][INFO ][MainController.java]index(22) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 14:30:14][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-18 14:30:14][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-18 14:30:14][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 14:30:18][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 14:30:18][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 14:30:18][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 14:30:18][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-18 14:30:20][INFO ][BoardController.java]boardContent(44) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+[2021-05-18 14:30:20][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-18 14:30:20][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 33(String)
+[2021-05-18 14:30:20][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-18 14:30:22][INFO ][BoardController.java]boardList(31) ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+[2021-05-18 14:30:22][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-18 14:30:22][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-18 14:30:22][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-25 20:42:27][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 9796 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 20:42:28][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 20:42:28][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-25 20:42:28][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-25 20:42:30][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 20:42:31][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 20:42:31][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 20:42:31][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 20:42:31][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 20:42:31][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 20:42:31][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3657 ms
+[2021-05-25 20:42:32][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 20:42:33][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e36febd, org.springframework.security.web.context.SecurityContextPersistenceFilter@11d66054, org.springframework.security.web.header.HeaderWriterFilter@2d6ccfbe, org.springframework.security.web.csrf.CsrfFilter@7b9bce62, org.springframework.security.web.authentication.logout.LogoutFilter@77b37afb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7d579fc3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55e84554, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e2410a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54197deb, org.springframework.security.web.session.SessionManagementFilter@2101fa6b, org.springframework.security.web.access.ExceptionTranslationFilter@50e892dd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e2748e6]
+[2021-05-25 20:42:33][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 20:42:33][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 20:42:33][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 20:42:33][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 20:42:34][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 20:42:34][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 6.983 seconds (JVM running for 7.93)
+[2021-05-25 20:42:43][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-25 20:42:43][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-25 20:42:43][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 2 ms
+[2021-05-25 20:42:43][INFO ][MainController.java]index(22) ¸ÞÀÎ ÆäÀÌÁö Á¢¼Ó
+[2021-05-25 20:42:44][WARN ][DirectJDKLog.java]log(173) Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [367] milliseconds.
+[2021-05-25 20:42:50][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-25 20:42:50][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-25 20:42:51][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-25 20:42:53][INFO ][BoardController.java]boardList(31) °Ô½ÃÆÇ ¸ñ·Ï Á¶È¸
+[2021-05-25 20:42:53][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-25 20:42:53][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-25 20:42:53][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-25 20:43:07][INFO ][BoardController.java]boardContent(44) °Ô½ÃÆÇ »ó¼¼ ³»¿ë
+[2021-05-25 20:43:07][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT t0.* FROM boardList_tb t0 WHERE t0.no = ?
+[2021-05-25 20:43:07][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 33(String)
+[2021-05-25 20:43:07][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-25 20:43:08][INFO ][BoardController.java]boardList(31) °Ô½ÃÆÇ ¸ñ·Ï Á¶È¸
+[2021-05-25 20:43:08][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-25 20:43:08][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-25 20:43:08][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-25 21:20:29][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 13200 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 21:20:29][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 21:20:29][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-25 21:20:29][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-25 21:20:31][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 21:20:32][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 21:20:32][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:20:32][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 21:20:32][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 21:20:33][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 21:20:33][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3299 ms
+[2021-05-25 21:20:34][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 21:20:34][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dded915, org.springframework.security.web.context.SecurityContextPersistenceFilter@280d38cb, org.springframework.security.web.header.HeaderWriterFilter@298a577d, org.springframework.security.web.csrf.CsrfFilter@406f1ef3, org.springframework.security.web.authentication.logout.LogoutFilter@51b5edc3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a3ea9d6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@392eac99, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d6ccfbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cc2aca7, org.springframework.security.web.session.SessionManagementFilter@7c164f74, org.springframework.security.web.access.ExceptionTranslationFilter@7be303d5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1715f41b]
+[2021-05-25 21:20:34][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:20:35][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 21:20:35][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 21:20:35][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:20:35][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 21:20:35][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 7.364 seconds (JVM running for 8.316)
+[2021-05-25 21:21:12][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-25 21:21:12][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-25 21:21:12][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 2 ms
+[2021-05-25 21:21:12][INFO ][MainController.java]index_test(33) ¸ÞÀÎ ÆäÀÌÁö Á¢¼Ó
+[2021-05-25 21:21:51][INFO ][ExecutorConfigurationSupport.java]shutdown(218) Shutting down ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:21:52][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 13200 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 21:21:52][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 21:21:53][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 21:21:53][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 21:21:53][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:21:53][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 21:21:53][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 21:21:53][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 21:21:53][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 1149 ms
+[2021-05-25 21:21:53][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 21:21:53][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6370ec36, org.springframework.security.web.context.SecurityContextPersistenceFilter@441cfc3e, org.springframework.security.web.header.HeaderWriterFilter@7b7f7cb9, org.springframework.security.web.csrf.CsrfFilter@3987bf01, org.springframework.security.web.authentication.logout.LogoutFilter@3435fdd5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7566fc18, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e0baf0c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e919cc0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c4819e3, org.springframework.security.web.session.SessionManagementFilter@40e73c94, org.springframework.security.web.access.ExceptionTranslationFilter@704b4ec7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c715879]
+[2021-05-25 21:21:53][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:21:53][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 21:21:53][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 21:21:53][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:21:53][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 21:21:53][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 1.943 seconds (JVM running for 86.515)
+[2021-05-25 21:21:53][INFO ][ConditionEvaluationDeltaLoggingListener.java]onApplicationEvent(63) Condition evaluation unchanged
+[2021-05-25 21:21:57][INFO ][ExecutorConfigurationSupport.java]shutdown(218) Shutting down ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:21:57][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 13200 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 21:21:57][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 21:21:58][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 21:21:58][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 21:21:58][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:21:58][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 21:21:58][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 21:21:58][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 21:21:58][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 864 ms
+[2021-05-25 21:21:58][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 21:21:58][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bf6b689, org.springframework.security.web.context.SecurityContextPersistenceFilter@77625425, org.springframework.security.web.header.HeaderWriterFilter@1473b804, org.springframework.security.web.csrf.CsrfFilter@e69fd7f, org.springframework.security.web.authentication.logout.LogoutFilter@2a30a19e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51f5542c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e992d98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@772319d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23a14aec, org.springframework.security.web.session.SessionManagementFilter@36a1c58b, org.springframework.security.web.access.ExceptionTranslationFilter@6c5cb5c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5fb2f39e]
+[2021-05-25 21:21:58][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:21:58][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 21:21:58][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 21:21:58][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:21:58][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 21:21:58][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 1.289 seconds (JVM running for 91.086)
+[2021-05-25 21:21:58][INFO ][ConditionEvaluationDeltaLoggingListener.java]onApplicationEvent(63) Condition evaluation unchanged
+[2021-05-25 21:22:46][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-25 21:22:46][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-25 21:22:46][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 1 ms
+[2021-05-25 21:23:39][INFO ][ExecutorConfigurationSupport.java]shutdown(218) Shutting down ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:23:40][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 13200 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 21:23:40][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 21:23:40][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 21:23:40][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 21:23:40][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:23:40][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 21:23:40][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 21:23:40][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 21:23:40][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 928 ms
+[2021-05-25 21:23:41][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 21:23:41][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22c11817, org.springframework.security.web.context.SecurityContextPersistenceFilter@68c4b3ce, org.springframework.security.web.header.HeaderWriterFilter@16147b53, org.springframework.security.web.csrf.CsrfFilter@5f700067, org.springframework.security.web.authentication.logout.LogoutFilter@71ef747f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b87e473, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79684490, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c93660d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@189fc38f, org.springframework.security.web.session.SessionManagementFilter@3768fe7c, org.springframework.security.web.access.ExceptionTranslationFilter@1bc15f91, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e5a47e4]
+[2021-05-25 21:23:41][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:23:41][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 21:23:41][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 21:23:41][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:23:41][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 21:23:41][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 1.505 seconds (JVM running for 194.023)
+[2021-05-25 21:23:41][INFO ][ConditionEvaluationDeltaLoggingListener.java]onApplicationEvent(63) Condition evaluation unchanged
+[2021-05-25 21:23:44][INFO ][ExecutorConfigurationSupport.java]shutdown(218) Shutting down ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:23:44][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 13200 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-25 21:23:44][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-25 21:23:45][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-25 21:23:45][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-25 21:23:45][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:23:45][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-25 21:23:45][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-25 21:23:45][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-25 21:23:45][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 972 ms
+[2021-05-25 21:23:46][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-25 21:23:46][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b189484, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e032842, org.springframework.security.web.header.HeaderWriterFilter@123da1f9, org.springframework.security.web.csrf.CsrfFilter@2078458, org.springframework.security.web.authentication.logout.LogoutFilter@d6c26d3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@279ab618, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17270ded, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@686a4499, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a3fccc6, org.springframework.security.web.session.SessionManagementFilter@7098574d, org.springframework.security.web.access.ExceptionTranslationFilter@58f021be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@60463fa1]
+[2021-05-25 21:23:46][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-25 21:23:46][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-25 21:23:46][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-25 21:23:46][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-25 21:23:46][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-25 21:23:46][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 1.371 seconds (JVM running for 198.69)
+[2021-05-25 21:23:46][INFO ][ConditionEvaluationDeltaLoggingListener.java]onApplicationEvent(63) Condition evaluation unchanged
+[2021-05-25 21:25:23][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-25 21:25:23][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-25 21:25:23][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 1 ms
+[2021-05-25 21:25:23][WARN ][DirectJDKLog.java]log(173) Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [348] milliseconds.
+[2021-05-25 21:25:23][INFO ][MainController.java]index(20) ë©”ì¸ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:25:26][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT S1.* FROM ( SELECT T1.*, T2.authority_name authorityName FROM users_tb T1 LEFT JOIN authority_tb T2 ON T1.tel = T2.tel WHERE T1.tel = ? UNION ALL SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName FROM DUAL ORDER BY 1 ) S1 LIMIT 1
+[2021-05-25 21:25:26][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 01050561790(String)
+[2021-05-25 21:25:26][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 1
+[2021-05-25 21:25:30][INFO ][BoardController.java]boardList(31) °Ô½ÃÆÇ ¸ñ·Ï Á¶È¸
+[2021-05-25 21:25:30][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-25 21:25:30][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-25 21:25:30][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-25 21:36:35][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:40:24][INFO ][BoardController.java]boardList(31) °Ô½ÃÆÇ ¸ñ·Ï Á¶È¸
+[2021-05-25 21:40:24][DEBUG][BaseJdbcLogger.java]debug(137) ==>  Preparing: SELECT no , title , writer , regdte , updte , readcnt FROM boardList_tb
+[2021-05-25 21:40:24][DEBUG][BaseJdbcLogger.java]debug(137) ==> Parameters: 
+[2021-05-25 21:40:24][DEBUG][BaseJdbcLogger.java]debug(137) <==      Total: 3
+[2021-05-25 21:41:55][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:41:57][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:41:59][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:42:07][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†
+[2021-05-25 21:43:05][INFO ][MainController.java]index_test(30) ?”„ë¡œí•„ ?Ž˜?´ì§? ? ‘?†

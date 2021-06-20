@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🐷🐷🐷Spray🐷🐷🐷</title>
+    <meta name="_csrf"        content="{{_csrf.token}}"     />
+    <meta name="_csrf_header" content="{{_csrf.headerName}}"/>
+    <link rel="stylesheet" href="/css/spray/nav.css"/>
+    <link rel="stylesheet" href="/css/spray/boardFrontContent.css"/>    
+    {{>spray/layout/header}}
+    <script src="/js/spray/vue/boardContentInnerVue.js"></script>
+    <script src="/js/spray/cosmeticList/cosmetics.js"></script>
+</head>
+<body>
+{{>spray/nav//menu}}
+<div id="boardContent">     
+    <boardcontentinner-view :title="title" :writer="writer" :regdte="regdte" :readcnt="readcnt" :content="content"></boardcontentinner-view>    
+</div>
+  <script>
+
+    new Vue({
+      el: '#boardContent', 
+      component: 'boardcontentinner-view',
+      data: () => ({
+        title  : '{{boardDetail.title}}',
+        writer : '{{boardDetail.writer}}',
+        regdte : '{{boardDetail.regdte}}',
+        readcnt: '{{boardDetail.readcnt}}',
+        content: '{{boardDetail.content}}'
+    }),
+    });  
+
+   </script> 
+</body>
+</html>

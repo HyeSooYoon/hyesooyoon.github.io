@@ -1,0 +1,37 @@
+<header>
+    <div class="toggle-menu-home" style="float: left;">
+        <ul>
+            <a href="#" class="nav" onclick="location.href='/spray/sprayMain/'">🐷🐷🐷Spray🐷🐷🐷</a>
+        </ul>            
+    </div>
+    <div class="menu-links"> 
+        <ul class="toggle-menu">
+            <li class="toggle">
+                <span class="toggle-menu-bar"></span>
+                <span class="toggle-menu-bar"></span>
+                <span class="toggle-menu-bar"></span>
+            </li>
+            <li class="content" style="display: none;">
+                <ul>
+                    <li><a href="#" class="nav" id="boardFrontMenu">it</a></li>
+                    <li><a href="#" class="nav">music</a></li>
+                    <li><a href="#" class="nav">movie</a></li>
+                    <li><a href="#" class="nav">game</a></li>
+                    <li><a href="#" class="nav">travel</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<script>
+    jQuery(document).ready(function($){
+  $("li.content").hide();
+  $("ul.toggle-menu").delegate("li.toggle", "click", function() {
+  $(this).next().toggle("fast").siblings(".content").hide("fast");
+    });
+});
+
+document.querySelector('#boardFrontMenu').addEventListener('click', e => {
+        location.href = '/spray/board/boardFrontMenu';
+    });
+</script>

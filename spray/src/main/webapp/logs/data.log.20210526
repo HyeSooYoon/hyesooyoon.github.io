@@ -1,0 +1,117 @@
+[2021-05-26 20:57:12][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 8948 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-26 20:57:12][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-26 20:57:12][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-26 20:57:12][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-26 20:57:14][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-26 20:57:16][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-26 20:57:16][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-26 20:57:16][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-26 20:57:16][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-26 20:57:16][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-26 20:57:16][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 4337 ms
+[2021-05-26 20:57:19][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-26 20:57:19][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d9a8028, org.springframework.security.web.context.SecurityContextPersistenceFilter@9a8e7a0, org.springframework.security.web.header.HeaderWriterFilter@51d4db38, org.springframework.security.web.csrf.CsrfFilter@22743a02, org.springframework.security.web.authentication.logout.LogoutFilter@69fbda20, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c9b7a57, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f6ab23, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@153f13c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7853cd97, org.springframework.security.web.session.SessionManagementFilter@53546e00, org.springframework.security.web.access.ExceptionTranslationFilter@3824db11, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ef91024]
+[2021-05-26 20:57:19][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-26 20:57:20][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-26 20:57:20][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-26 20:57:20][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-26 20:57:20][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-26 20:57:20][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 9.876 seconds (JVM running for 11.111)
+[2021-05-26 20:57:21][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-26 20:57:21][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-26 20:57:21][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 9 ms
+[2021-05-26 20:57:21][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:00:58][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:02:56][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:05:25][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:07:58][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:08:36][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:09:06][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:10:24][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:15:55][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:16:27][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:18:06][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:19:29][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:23:02][INFO ][MainController.java]index_test(30) 프로필 페이지 접속
+[2021-05-26 21:26:43][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 6396 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-26 21:26:43][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-26 21:26:44][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-26 21:26:44][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-26 21:26:45][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-26 21:26:46][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-26 21:26:47][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:26:47][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-26 21:26:47][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-26 21:26:47][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-26 21:26:47][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3068 ms
+[2021-05-26 21:26:48][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-26 21:26:48][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e2748e6, org.springframework.security.web.context.SecurityContextPersistenceFilter@447c055a, org.springframework.security.web.header.HeaderWriterFilter@392eac99, org.springframework.security.web.csrf.CsrfFilter@638f7d4e, org.springframework.security.web.authentication.logout.LogoutFilter@c3b4cb8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@64b055f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50e892dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55e84554, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@502c2812, org.springframework.security.web.session.SessionManagementFilter@166e1abe, org.springframework.security.web.access.ExceptionTranslationFilter@280d38cb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@dded915]
+[2021-05-26 21:26:48][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-26 21:26:49][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-26 21:26:49][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-26 21:26:49][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:26:49][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-26 21:26:49][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 6.552 seconds (JVM running for 7.8)
+[2021-05-26 21:30:22][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 18288 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-26 21:30:22][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-26 21:30:22][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-26 21:30:22][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-26 21:30:24][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-26 21:30:25][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-26 21:30:25][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:30:25][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-26 21:30:25][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-26 21:30:26][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-26 21:30:26][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3316 ms
+[2021-05-26 21:30:27][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-26 21:30:27][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1cc2aca7, org.springframework.security.web.context.SecurityContextPersistenceFilter@770d20e3, org.springframework.security.web.header.HeaderWriterFilter@1f880afb, org.springframework.security.web.csrf.CsrfFilter@1177759e, org.springframework.security.web.authentication.logout.LogoutFilter@5fd4448e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@dded915, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5764bbf9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@356bf861, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@594c7c38, org.springframework.security.web.session.SessionManagementFilter@53c7bc71, org.springframework.security.web.access.ExceptionTranslationFilter@5eae3a15, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62cc47bf]
+[2021-05-26 21:30:27][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-26 21:30:27][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-26 21:30:28][WARN ][OptionalLiveReloadServer.java]startServer(61) Unable to start LiveReload server
+[2021-05-26 21:30:28][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:30:28][WARN ][AbstractApplicationContext.java]refresh(596) Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[2021-05-26 21:30:28][INFO ][ExecutorConfigurationSupport.java]shutdown(218) Shutting down ExecutorService 'applicationTaskExecutor'
+[2021-05-26 21:30:28][INFO ][DirectJDKLog.java]log(173) Pausing ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:30:28][INFO ][DirectJDKLog.java]log(173) Stopping service [Tomcat]
+[2021-05-26 21:30:28][INFO ][DirectJDKLog.java]log(173) Stopping ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:30:28][INFO ][DirectJDKLog.java]log(173) Destroying ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:30:28][INFO ][ConditionEvaluationReportLoggingListener.java]logMessage(136) 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2021-05-26 21:30:28][ERROR][LoggingFailureAnalysisReporter.java]report(40) 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[2021-05-26 21:32:10][INFO ][StartupInfoLogger.java]logStarting(55) Starting DemoApplication using Java 14.0.1 on DESKTOP-87MUIM1 with PID 14456 (C:\Users\HYESOOYOON\IdeaProjects\demo\build\classes\java\main started by HYESOOYOON in C:\Users\HYESOOYOON\IdeaProjects\demo)
+[2021-05-26 21:32:10][INFO ][SpringApplication.java]logStartupProfileInfo(660) No active profile set, falling back to default profiles: default
+[2021-05-26 21:32:11][INFO ][DeferredLog.java]logTo(255) Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2021-05-26 21:32:11][INFO ][DeferredLog.java]logTo(255) For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2021-05-26 21:32:12][WARN ][Logger.java]warn(44) No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+[2021-05-26 21:32:14][INFO ][TomcatWebServer.java]initialize(108) Tomcat initialized with port(s): 8080 (http)
+[2021-05-26 21:32:14][INFO ][DirectJDKLog.java]log(173) Initializing ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:32:14][INFO ][DirectJDKLog.java]log(173) Starting service [Tomcat]
+[2021-05-26 21:32:14][INFO ][DirectJDKLog.java]log(173) Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2021-05-26 21:32:14][INFO ][DirectJDKLog.java]log(173) Initializing Spring embedded WebApplicationContext
+[2021-05-26 21:32:14][INFO ][ServletWebServerApplicationContext.java]prepareWebApplicationContext(289) Root WebApplicationContext: initialization completed in 3146 ms
+[2021-05-26 21:32:15][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure Ant [pattern='/favicon.ico'] with []
+[2021-05-26 21:32:15][INFO ][DefaultSecurityFilterChain.java]<init>(51) Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1cc2aca7, org.springframework.security.web.context.SecurityContextPersistenceFilter@770d20e3, org.springframework.security.web.header.HeaderWriterFilter@1f880afb, org.springframework.security.web.csrf.CsrfFilter@1177759e, org.springframework.security.web.authentication.logout.LogoutFilter@5fd4448e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@dded915, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5764bbf9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@356bf861, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@594c7c38, org.springframework.security.web.session.SessionManagementFilter@53c7bc71, org.springframework.security.web.access.ExceptionTranslationFilter@5eae3a15, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62cc47bf]
+[2021-05-26 21:32:16][INFO ][ExecutorConfigurationSupport.java]initialize(181) Initializing ExecutorService 'applicationTaskExecutor'
+[2021-05-26 21:32:16][INFO ][WelcomePageHandlerMapping.java]<init>(57) Adding welcome page template: index
+[2021-05-26 21:32:16][INFO ][OptionalLiveReloadServer.java]startServer(58) LiveReload server is running on port 35729
+[2021-05-26 21:32:16][INFO ][DirectJDKLog.java]log(173) Starting ProtocolHandler ["http-nio-8080"]
+[2021-05-26 21:32:16][INFO ][TomcatWebServer.java]start(220) Tomcat started on port(s): 8080 (http) with context path ''
+[2021-05-26 21:32:16][INFO ][StartupInfoLogger.java]logStarted(61) Started DemoApplication in 6.874 seconds (JVM running for 8.033)
+[2021-05-26 21:32:29][INFO ][DirectJDKLog.java]log(173) Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2021-05-26 21:32:29][INFO ][FrameworkServlet.java]initServletBean(525) Initializing Servlet 'dispatcherServlet'
+[2021-05-26 21:32:29][INFO ][FrameworkServlet.java]initServletBean(547) Completed initialization in 1 ms
+[2021-05-26 21:32:29][INFO ][MainController.java]index_test(30) 프로필 페이지 접속

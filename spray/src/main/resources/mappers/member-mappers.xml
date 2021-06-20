@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sprayou.spray.mapper.UserMapper">
+    <select id="selectUserInfo" parameterType="String" resultType="userDto">
+        SELECT S1.* FROM
+        ( SELECT T1.*, T2.authority_name authorityName
+           FROM users_tb T1
+           LEFT JOIN authority_tb T2 ON T1.tel = T2.tel
+           WHERE T1.tel = #{tel}
+           UNION ALL
+          SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName
+           FROM DUAL
+           ORDER BY 1
+        ) S1
+        LIMIT 1
+    </select>
+
+    <select id="list" parameterType="String" resultType="userDto">
+        SELECT * FROM users_tb
+    </select>
+
+    <insert id="insert" parameterType="userDto">
+        INSERT INTO users_tb
+        VALUES (#{no}, #{name}, #{det}, #{addr}, #{tel})
+    </insert>
+
+    <insert id="insertUserName" parameterType="map">
+        INSERT INTO users_tb (no, name)
+        VALUE (#{no}, #{name})
+    </insert>
+
+    <delete id="delete">
+        delete from test
+        where name = #{name}
+    </delete>
+
+    <update id="update" parameterType="com.sprayou.spray.dto.UserDto">
+        update test
+        set name = #{name}
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>HyeSoo Yoon</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/spray/portfolioMain.css" rel="stylesheet">
+    <!-- Fonts CSS--> 
+    <link rel="stylesheet" href="css/spray/portfolioMainFont.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <style>
+        .pre-line { white-space: pre-line; }
+        .pre-line.lead.contents { text-align: center; font-size: 1.05em;}
+    </style>
+</head>
+<body id="page-top">
+{{>portfolioMainInner}}
+<script>
+<!--화장품 정보 공유 게시판 이동-->
+        new Vue({
+          el: '.col-lg-8',
+          methods:{
+            link: function() {
+              location.href = '/spray/login/sprayLogin';
+            }
+          }
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Join</title>
+    <meta name="_csrf"        content="{{_csrf.token}}"     />
+    <meta name="_csrf_header" content="{{_csrf.headerName}}"/>
+    <link rel="stylesheet" href="/css/spray/sprayLogin.css"/>
+    {{>spray/layout/header}}
+</head>
+<body>
+{{>spray/board/boardInner/sprayLoginInner}}
+<script>
+     let auth = '{{#auth}}{{auth}}{{/auth}}';
+
+     document.querySelector('#sign_up').addEventListener('click', e => {
+
+        // 신규 회원 입력 정보 셋팅
+        userInfo.name = document.querySelector('#join_name').value;
+        userInfo.det  = document.querySelector('#join_det').value;
+        userInfo.addr = document.querySelector('#join_addr').value;
+        userInfo.tel  = document.querySelector('#join_tel').value;
+
+        // 메소드 타입, 타이틀, 메시지 셋팅
+        let initInfo    = _.find(apiInitInfo, { 'methodType': 'checkUser'});
+        init.title      = initInfo.title;
+        init.type       = initInfo.type;
+        init.msg        = initInfo.msg;
+
+        // 회원가입 여부 확인
+        init.checkUser().then(function(data) {
+          if(data.data.tel!=='')
+          {
+              Swal.fire({
+              icon: 'warning',
+              title: 'Oops...',
+              text: init.msg,
+              footer: ''
+            })
+          }
+          else
+          {
+            // 회원가입
+            initInfo        = _.find(apiInitInfo, { 'methodType': 'joinUser'});
+            init.title      = initInfo.title;
+            init.type       = initInfo.type;
+            init.msg        = initInfo.msg;
+            init.CSRFToken  = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+
+             init.join().then(function(data) {
+              if(data.code!=='0000')
+              {
+                 Swal.fire({
+                  icon: 'info',
+                  title: '회원가입에 실패했습니다.',
+                  footer: '<a href>도움이 필요하나요?</a>',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
+              else
+              {
+                 Swal.fire({
+                  icon: 'success',
+                  title: 'Welcome',
+                  text: init.msg,
+                  footer: '',
+                  showConfirmButton: false,
+                  timer: 1600
+                })
+
+                document.querySelectorAll('.join').forEach(function(userItem) {
+                  userItem.value = '';
+                });
+
+                // 로그인 페이지로 이동
+                document.querySelector('#signIn').click();
+               }
+            });
+          };
+        });
+      });
+
+    // 로그인
+    document.querySelector('#sign_in').addEventListener('click', e => {
+        document.main.tel.value = document.querySelector('#user_tel').value;
+        document.main.submit();
+    });
+
+    $(document).ready(function()
+    {
+        if(auth === 'fail')
+        {
+            Swal.fire({
+              icon: 'info',
+              title: 'Oops...',
+              text: '해당 번호는 회원이 아닙니다.',
+              footer: '<a href>도움이 필요하나요?</a>'
+            })
+        }
+    });
+
+   </script>
+</body>
+</html>

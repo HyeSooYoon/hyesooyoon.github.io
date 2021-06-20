@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🐷🐷🐷Spray🐷🐷🐷</title>
+    <meta name="_csrf"        content="{{_csrf.token}}"     />
+    <meta name="_csrf_header" content="{{_csrf.headerName}}"/>
+    <link rel="stylesheet" href="/css/spray/nav.css"/>
+    <link rel="stylesheet" href="/css/spray/sprayMain.css"/>
+    <script src="https://unpkg.com/vuex"></script>
+    {{>spray/layout/header}}
+    <script src="/js/spray/vue/sprayMainStore.js"></script>
+    <script src="/js/spray/vue/sprayMainVue.js"></script>
+</head>
+<body>
+{{>spray/nav/menu}}
+<div id="app">
+    <itview></itview>
+</div>
+<script>
+    const loadbbs = new Vuex.Store(itBoardStore);
+    // 게시판
+    document.querySelector('#boardFrontMenu').addEventListener('click', e => {
+        location.href = '/spray/board/boardFrontMenu';
+    });
+ 
+    new Vue({
+      el: '#app',
+      store: loadbbs,
+      component: 'itview',
+      mounted() {
+      this.$store.dispatch('itBoard')
+      } 
+    });
+
+</script>
+</body>
+</html>
