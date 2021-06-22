@@ -30,4 +30,5 @@ public class BoardDto implements Serializable {
     private String readcnt;
     private String content;
     private String productName;
+    private String board_type;
 }

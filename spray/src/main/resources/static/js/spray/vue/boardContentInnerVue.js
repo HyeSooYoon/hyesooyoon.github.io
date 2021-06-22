@@ -23,7 +23,7 @@ Vue.component('boardcontentinner-view', {
     `<div class="container">
     <form id="survey-form">
         <div class="form-group">
-            <p>Product</p>
+            <label id="title-label" for="productName">Product</label>
             <img class="card-img-top" name="productName" id="productName" alt="..." style="display: block; margin: auto;"/>
         </div>
         <div class="form-group">

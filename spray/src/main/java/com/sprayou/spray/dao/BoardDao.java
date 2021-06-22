@@ -15,10 +15,10 @@ public class BoardDao {
     @Autowired
     private SqlSession sqlSession;
 
-    public List<BoardDto> selectBoardList() {
+    public List<BoardDto> selectBoardList(String type) {
         return sqlSession
                 .getMapper(BoardMapper.class)
-                .list();
+                .list(type);
     }
 
     public BoardDto selectBoardDetail(String num) {

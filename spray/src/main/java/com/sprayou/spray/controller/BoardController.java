@@ -27,9 +27,10 @@ public class BoardController {
     private BoardService boardService;
 
     @RequestMapping(value="/spray/board/boardFrontMenu", method = RequestMethod.GET)
-    public ModelAndView boardList(ModelAndView mv) {
-        log.info("게시판 목록 조회");
-        mv.addObject("boardList", boardService.list());
+    public ModelAndView boardList(ModelAndView mv, HttpServletRequest request) {
+        log.info("게시판 목록 조회");        
+        String type = request.getParameter("type");
+        mv.addObject("boardList", boardService.list(type));
         return mv;
     }
 

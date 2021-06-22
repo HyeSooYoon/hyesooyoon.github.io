@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BoardService {
 
-    List<BoardDto> list();
+    List<BoardDto> list(String type);
     BoardDto detail(String num);
     int save(BoardDto boardDto);
     int viewCount(BoardDto boardDto);

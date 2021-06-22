@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Slf4j
 @Controller
 public class MainController {
@@ -60,12 +62,12 @@ public class MainController {
     }
 
     @RequestMapping(value = "/mboard", method = RequestMethod.GET)
-    public ResponseEntity<ResponseBase> list() {
+    public ResponseEntity<ResponseBase> list(HttpServletRequest request) {
         try {
             List<Map<String, String>> list = new ArrayList<>();
             log.info("썸네일 목록 조회");
 
-            for (BoardDto element : boardService.list()) {
+            for (BoardDto element : boardService.list(request.getParameter("type"))) {
 
                 Map<String, String> object = new HashMap<>();
                 object.put("no"           , element.getNo());

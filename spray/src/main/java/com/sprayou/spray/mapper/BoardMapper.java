@@ -6,7 +6,7 @@ import com.sprayou.spray.dto.BoardDto;
 import java.util.List;
 
 public interface BoardMapper {
-    List<BoardDto> list();
+    List<BoardDto> list(String type);
     BoardDto detail(String num);
     int save(BoardDto boardDto);
     int viewCount(BoardDto boardDto);

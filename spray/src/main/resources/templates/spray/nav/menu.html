@@ -13,11 +13,12 @@
             </li>
             <li class="content" style="display: none;">
                 <ul>
-                    <li><a href="#" class="nav" id="boardFrontMenu">it</a></li>
-                    <li><a href="#" class="nav">music</a></li>
-                    <li><a href="#" class="nav">movie</a></li>
-                    <li><a href="#" class="nav">game</a></li>
-                    <li><a href="#" class="nav">travel</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs01" class="nav boardFrontMenu" id="boardFrontMenu">EyeLiner</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs02" class="nav boardFrontMenu">Blusher</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs03" class="nav boardFrontMenu">Powder</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs04" class="nav boardFrontMenu">EyeShadow</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs05" class="nav boardFrontMenu">Foundation</a></li>
+                    <li><a href="/spray/board/boardFrontMenu?type=cs06" class="nav boardFrontMenu">Lipstick</a></li>
                 </ul>
             </li>
         </ul>
@@ -36,8 +37,6 @@
   $(this).next().toggle("fast").siblings(".content").hide("fast");
     });
 });
+ 
 
-document.querySelector('#boardFrontMenu').addEventListener('click', e => {
-        location.href = '/spray/board/boardFrontMenu';
-    });
 </script>
