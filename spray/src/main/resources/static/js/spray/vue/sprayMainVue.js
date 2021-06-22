@@ -5,6 +5,9 @@ Vue.component('itview', {
      },
     viewContent(no) {
         return location.href = '/spray/board/boardContent/' + no
+    },
+    vieeChart() {
+        return location.href = '/spray/vote/voteFront'
     }
     },
   template: `<!DOCTYPE html>
@@ -47,7 +50,7 @@ Vue.component('itview', {
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#" @click="vieeChart()">go to vote</a></div>
                              </div>
                          </div>
                          </div>
@@ -162,7 +165,7 @@ Vue.component('itview', {
                                      <!-- Product name-->
                                      <h5 class="fw-bolder" style="font-family: 'Open Sans', sans-serif; color:#C12247">Lipstick</h5>
                                      <!-- Product price-->
-                                     <a href="#" v-for="(boardList, index) in getBoardList()" style="text-decoration:none; color: #333e4e;">
+                                     <a href="#" v-for="(boardList, index) in getBoardList()" style="text-decoration:none; color: #333e4e;">                                     
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>

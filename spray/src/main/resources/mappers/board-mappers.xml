@@ -10,6 +10,7 @@
             , regdte
             , updte
             , readcnt
+            , productName
         FROM boardList_tb
     </select>
 
@@ -22,8 +23,8 @@
     </select>
 
     <insert id="save" parameterType="boardDto">
-        INSERT INTO boardList_tb (title, writer, content)
-        VALUES (#{title}, #{writer}, #{content})
+        INSERT INTO boardList_tb (title, writer, content, productName)
+        VALUES (#{title}, #{writer}, #{content}, #{productName})
     </insert>
 
     <insert id="viewCount" parameterType="boardDto">

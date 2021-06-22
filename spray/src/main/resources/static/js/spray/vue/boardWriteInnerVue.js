@@ -6,15 +6,17 @@ Vue.component('cosmetic-view', {
         const contentInfo = {
             title: '',
             writer: '',
-            content: ''
+            content: '',
+            productName: ''
         }
             
-        contentInfo.title     = document.querySelector('#title').value;
-        contentInfo.writer    = document.querySelector('#name').value;
-        contentInfo.content   = document.querySelector('#comments').value;
+        contentInfo.title      = document.querySelector('#title').value;
+        contentInfo.writer     = document.querySelector('#name').value;
+        contentInfo.content    = document.querySelector('#comments').value;
+        contentInfo.productName = document.querySelector('#productName').value;
         let res = false;
  
-        if(_.isEmpty(contentInfo.title) || _.isEmpty(contentInfo.writer) || _.isEmpty(contentInfo.content))
+        if(_.isEmpty(contentInfo.title) || _.isEmpty(contentInfo.writer) || _.isEmpty(contentInfo.content) || _.isEmpty(contentInfo.content))
             res = true;
 
         if(res)
@@ -83,7 +85,7 @@ Vue.component('cosmetic-view', {
             <label id="name-label" for="name">Product</label>  
 
             <div class="searchbox"> 
-                <input type="text" name="search" id="search" class="form-control">     
+                <input type="text" name="productName" id="productName" class="form-control">     
             </div>
   
         </div>
