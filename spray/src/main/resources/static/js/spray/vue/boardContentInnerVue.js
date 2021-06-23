@@ -11,7 +11,7 @@ Vue.component('boardcontentinner-view', {
         regdte : String,
         readcnt: String,
         content: String,
-        productName: String,
+        productCd: String,
       },
       mounted() {  
           document.getElementById('title').value = eval('this.title')
@@ -23,8 +23,8 @@ Vue.component('boardcontentinner-view', {
     `<div class="container">
     <form id="survey-form">
         <div class="form-group">
-            <label id="title-label" for="productName">Product</label>
-            <img class="card-img-top" name="productName" id="productName" alt="..." style="display: block; margin: auto;"/>
+            <label id="title-label" for="productCd">Product</label>
+            <img class="card-img-top" name="productCd" id="productCd" alt="..." style="display: block; margin: auto;"/>
         </div>
         <div class="form-group">
             <label id="title-label" for="name">Title</label>

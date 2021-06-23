@@ -10,9 +10,14 @@
             , regdte
             , updte
             , readcnt
-            , productName
+            , productCd
         FROM boardList_tb
+       <choose>
+        <when test='type != null'>
         WHERE board_type = #{type}
+        </when>
+       </choose> 
+                
     </select>
 
     <select id="detail" parameterType="String" resultType="boardDto">
@@ -24,8 +29,8 @@
     </select>
 
     <insert id="save" parameterType="boardDto">
-        INSERT INTO boardList_tb (title, writer, content, productName)
-        VALUES (#{title}, #{writer}, #{content}, #{productName})
+        INSERT INTO boardList_tb (title, writer, content, productCd, board_type)
+        VALUES (#{title}, #{writer}, #{content}, #{productCd}, #{boardType})
     </insert>
 
     <insert id="viewCount" parameterType="boardDto">

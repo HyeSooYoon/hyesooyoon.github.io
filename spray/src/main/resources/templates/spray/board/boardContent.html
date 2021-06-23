@@ -35,8 +35,8 @@
     }) 
     });  
  
-    let d = _.find(animalImg, {'product': '{{boardDetail.productName}}'}); 
-    document.getElementById('productName').setAttribute('src', d.img )        
+    let d = _.find(animalImg, {'product': '{{boardDetail.productCd}}'}); 
+    document.getElementById('productCd').setAttribute('src', d.img )        
 
     // 게시판
     document.querySelector('.emoji--like').addEventListener('click', e => {

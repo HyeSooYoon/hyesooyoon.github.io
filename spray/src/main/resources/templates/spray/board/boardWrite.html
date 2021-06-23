@@ -19,7 +19,7 @@
 <body onload="init()">
 {{>spray/nav/menu}} 
 <div id="listView">     
-    <cosmetic-view></cosmetic-view>    
+    <cosmetic-view :animalImg="animalImg"></cosmetic-view>    
 </div>
 <script>   
 
@@ -101,7 +101,7 @@
                     _inp.value = this.getElementsByTagName("input")[0].value;
                     
                     try {
-                        let d = _.find(animalImg, {'product': _inp.value}); 
+                        let d = _.find(animalImg, {'productName': _inp.value}); 
                         cos.setAttribute("src", d.img);
                         cos.setAttribute("style", "display: unset;"); 
                     }
@@ -198,12 +198,15 @@
 
     // autocomplete 부분을 생성
     window.onload = function () {
-            autocomplete.setAutocomplete(document.getElementById("productName"), animal)
+            autocomplete.setAutocomplete(document.getElementById("productCd"), animal)
         }
 
     new Vue({
       el: '#listView', 
-      component: 'cosmetic-view' 
+      component: 'cosmetic-view',
+      data: () => ({
+        animalImg: animalImg
+    }),
     });  
     
    </script>

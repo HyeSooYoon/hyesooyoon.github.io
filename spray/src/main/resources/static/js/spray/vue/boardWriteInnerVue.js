@@ -1,4 +1,7 @@
 Vue.component('cosmetic-view', {
+    prop: {
+        animalImg: Array
+    },
     methods: { 
        
        // 게시글 저장
@@ -7,13 +10,16 @@ Vue.component('cosmetic-view', {
             title: '',
             writer: '',
             content: '',
-            productName: ''
+            productCd: '',
+            boardType: ''
         }
             
         contentInfo.title      = document.querySelector('#title').value;
         contentInfo.writer     = document.querySelector('#name').value;
         contentInfo.content    = document.querySelector('#comments').value;
-        contentInfo.productName = document.querySelector('#productName').value;
+        contentInfo.productCd  = _.find(this.$attrs.animalimg, {'productName': document.querySelector('#productCd').value}).product;  
+        contentInfo.boardType  = _.find(this.$attrs.animalimg, {'productName': document.querySelector('#productCd').value}).boardType;  
+  
         let res = false;
  
         if(_.isEmpty(contentInfo.title) || _.isEmpty(contentInfo.writer) || _.isEmpty(contentInfo.content) || _.isEmpty(contentInfo.content))
@@ -85,7 +91,7 @@ Vue.component('cosmetic-view', {
             <label id="name-label" for="name">Product</label>  
 
             <div class="searchbox"> 
-                <input type="text" name="productName" id="productName" class="form-control">     
+                <input type="text" name="productCd" id="productCd" class="form-control">     
             </div>
   
         </div>
