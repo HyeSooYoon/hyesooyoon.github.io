@@ -29,6 +29,6 @@ public class BoardDto implements Serializable {
     private String updte;
     private String readcnt;
     private String content;
-    private String productName;
-    private String board_type;
+    private String productCd;
+    private String boardType;
 }
