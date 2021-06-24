@@ -18,7 +18,7 @@
 <body>
 {{>spray/nav/menu}}
 <div id="boardContent">     
-    <boardcontentinner-view :title="title" :writer="writer" :regdte="regdte" :readcnt="readcnt" :content="content"></boardcontentinner-view>    
+    <boardcontentinner-view :title="title" :writer="writer" :regdte="regdte" :readcnt="readcnt" :content="content" :csrfToken="csrfToken" :productCd="productCd"></boardcontentinner-view>    
 </div>
   
   <script>   
@@ -31,26 +31,15 @@
         writer : '{{boardDetail.writer}}',
         regdte : '{{boardDetail.regdte}}',
         readcnt: '{{boardDetail.readcnt}}',
-        content: '{{boardDetail.content}}'
+        content: '{{boardDetail.content}}',
+        productCd: '{{boardDetail.productCd}}',
+        csrfToken: document.querySelector('meta[name="_csrf"]').getAttribute('content')
     }) 
     });  
  
     let d = _.find(animalImg, {'product': '{{boardDetail.productCd}}'}); 
     document.getElementById('productCd').setAttribute('src', d.img )        
-
-    // 게시판
-    document.querySelector('.emoji--like').addEventListener('click', e => {
-        document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
-        Swal.fire({
-                  icon: 'success',
-                  title: '추천합니다!',
-                  text: '투표 성공!',
-                  footer: '',
-                  showConfirmButton: false,
-                  timer: 1600
-                })
-    });
-    
+ 
 
    </script> 
 </body>

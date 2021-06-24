@@ -1,8 +1,35 @@
 Vue.component('boardcontentinner-view', {
+    data: () => ({ 
+    }), 
     methods: {  
        // 뒤로가기
        back() {
         location.href = '/spray/board/boardFrontMenu';
+       },
+       voteCnt() {
+        fetch('http://localhost:8080/voteCount', {
+            method: 'post',
+            credentials: 'include',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': this.$attrs.csrftoken
+            },
+            body: JSON.stringify(this.$attrs.productcd)
+            })
+          .then(res => 
+            
+            // document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
+ 
+            Swal.fire({
+                    icon: 'success',
+                    title: '추천합니다!',
+                    text: '투표 성공!',
+                    footer: '',
+                    showConfirmButton: false,
+                    timer: 1600
+                    })
+            
+            )
        }
       },
       props: {
@@ -10,21 +37,22 @@ Vue.component('boardcontentinner-view', {
         writer : String, 
         regdte : String,
         readcnt: String,
-        content: String,
-        productCd: String,
+        content: String, 
+        csrfToken: String,
+        productCd: String
       },
       mounted() {  
-          document.getElementById('title').value = eval('this.title')
-          document.getElementById('name').value = eval('this.writer')
-          document.getElementById('date').value = eval('this.regdte')
-          document.getElementById('view').value = eval('this.readcnt')           
+          document.getElementById('title').value = this.title
+          document.getElementById('name').value  = this.writer
+          document.getElementById('date').value  = this.regdte
+          document.getElementById('view').value  = this.readcnt
         },
     template: 
     `<div class="container">
     <form id="survey-form">
         <div class="form-group">
             <label id="title-label" for="productCd">Product</label>
-            <img class="card-img-top" name="productCd" id="productCd" alt="..." style="display: block; margin: auto;"/>
+            <img class="card-img-top" name="productCd" id="productCd" alt="..." style="display: block; margin: auto; width: 100%;"/>
         </div>
         <div class="form-group">
             <label id="title-label" for="name">Title</label>
@@ -45,7 +73,7 @@ Vue.component('boardcontentinner-view', {
 
         <!-- thumbs up -->
         <div class="form-group">
-         <div class="emoji  emoji--like">
+         <div class="emoji  emoji--like" @click="voteCnt()">
            <div class="emoji__hand">
            <div class="emoji__thumb"></div>
            </div>

@@ -17,7 +17,7 @@
         WHERE board_type = #{type}
         </when>
        </choose> 
-                
+       LIMIT 10
     </select>
 
     <select id="detail" parameterType="String" resultType="boardDto">
@@ -39,8 +39,10 @@
         WHERE no = #{no}
     </insert>
 
-
-
-
-
+    <insert id="voteCount" parameterType="cosmeticsDto">
+        UPDATE cosmetics_tb 
+        SET voteCnt = voteCnt + 1
+        WHERE code = #{code}
+    </insert>
+      
 </mapper>
