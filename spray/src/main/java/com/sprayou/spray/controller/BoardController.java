@@ -1,6 +1,7 @@
 package com.sprayou.spray.controller;
 
 import com.sprayou.spray.dto.BoardDto;
+import com.sprayou.spray.dto.CosmeticsDto;
 import com.sprayou.spray.dto.UserDto;
 import com.sprayou.spray.model.ResponseBase;
 import com.sprayou.spray.model.ResultCode;
@@ -48,6 +49,24 @@ public class BoardController {
         return mv;
     }
 
+    @RequestMapping(value="/voteCount", method = RequestMethod.POST)
+    public ResponseEntity<ResponseBase> boardVoteCount(@RequestBody CosmeticsDto cosmeticsDto) {
+        log.info("추천수 업데이트");
+        try {
+            int result = boardService.voteCount(cosmeticsDto);
+
+            if (result == 1) {
+                return ResponseHelper.success();
+            } else {
+                return ResponseHelper.fail(ResultCode.DB_FAIL);
+            }
+        } catch (MyBatisSystemException e) {
+            return ResponseHelper.fail(e);
+        } catch (Exception e) {
+            return ResponseHelper.fail(e);
+        }
+    }
+    
     @RequestMapping(value="/viewCount", method = RequestMethod.GET)
     public ResponseEntity<ResponseBase> boardViewCount(@RequestBody BoardDto boardDto) {
         log.info("조회수 업데이트");
@@ -69,6 +88,7 @@ public class BoardController {
 
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public ResponseEntity<ResponseBase> boardSave(@RequestBody BoardDto boardDto) {
+        log.info("게시물 저장");
         try {
             System.out.println("boardDto : " + boardDto);
             int result = boardService.save(boardDto);

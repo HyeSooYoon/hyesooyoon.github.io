@@ -1,5 +1,6 @@
 package com.sprayou.spray.dao;
 import com.sprayou.spray.dto.BoardDto;
+import com.sprayou.spray.dto.CosmeticsDto;
 import com.sprayou.spray.dto.UserDto;
 import com.sprayou.spray.mapper.BoardMapper;
 import com.sprayou.spray.mapper.UserMapper;
@@ -37,6 +38,12 @@ public class BoardDao {
         return sqlSession
                 .getMapper(BoardMapper.class)
                 .viewCount(boardDto);
+    }
+
+    public int voteCount(final CosmeticsDto cosmeticsDto) {
+        return sqlSession
+                .getMapper(BoardMapper.class)
+                .voteCount(cosmeticsDto);
     }
 
 

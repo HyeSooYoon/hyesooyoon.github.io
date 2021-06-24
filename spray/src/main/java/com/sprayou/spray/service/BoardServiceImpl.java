@@ -2,6 +2,8 @@ package com.sprayou.spray.service;
 
 import com.sprayou.spray.dao.BoardDao;
 import com.sprayou.spray.dto.BoardDto;
+import com.sprayou.spray.dto.CosmeticsDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -33,5 +35,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public int viewCount(BoardDto boardDto) {
         return boardDao.viewCount(boardDto);
+    }
+
+    @Override
+    public int voteCount(CosmeticsDto cosmeticsDto) {
+        return boardDao.voteCount(cosmeticsDto);
     }
 }
