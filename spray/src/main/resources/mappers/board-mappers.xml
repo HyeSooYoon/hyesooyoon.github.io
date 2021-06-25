@@ -33,6 +33,10 @@
         VALUES (#{title}, #{writer}, #{content}, #{productCd}, #{boardType})
     </insert>
 
+    <insert id="saveVote" parameterType="votedDto">
+        INSERT INTO vote_tb VALUES (#{product_cd}, #{user_no})
+    </insert>  
+
     <insert id="viewCount" parameterType="boardDto">
         UPDATE boardList_tb t0
         SET t0.readcnt = t0.readcnt + 1

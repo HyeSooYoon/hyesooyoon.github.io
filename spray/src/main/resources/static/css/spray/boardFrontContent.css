@@ -163,7 +163,7 @@ form {
 }
 
 .input-textarea {
-  min-height: 120px;
+  min-height: 600px;
   width: 100%;
   padding: 0.625rem;
   resize: vertical;

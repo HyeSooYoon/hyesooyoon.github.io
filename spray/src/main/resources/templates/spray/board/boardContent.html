@@ -39,7 +39,10 @@
  
     let d = _.find(animalImg, {'product': '{{boardDetail.productCd}}'}); 
     document.getElementById('productCd').setAttribute('src', d.img )        
- 
+
+    document.querySelector('.emoji--like').addEventListener('click', e => {
+        document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
+    });
 
    </script> 
 </body>

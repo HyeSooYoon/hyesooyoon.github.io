@@ -7,5 +7,6 @@
         <typeAlias alias="userDto" type="com.sprayou.spray.dto.UserDto"/>
         <typeAlias alias="boardDto" type="com.sprayou.spray.dto.BoardDto"/>
         <typeAlias alias="cosmeticsDto" type="com.sprayou.spray.dto.CosmeticsDto"/>
+        <typeAlias alias="voteDto" type="com.sprayou.spray.dto.VoteDto"/>
     </typeAliases>
 </configuration>
