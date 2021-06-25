@@ -2,6 +2,7 @@ package com.sprayou.spray.dao;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
 import com.sprayou.spray.dto.UserDto;
+import com.sprayou.spray.dto.VoteDto;
 import com.sprayou.spray.mapper.BoardMapper;
 import com.sprayou.spray.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
@@ -32,6 +33,12 @@ public class BoardDao {
         return sqlSession
                 .getMapper(BoardMapper.class)
                 .save(boardDto);
+    }
+
+    public int saveVote(final VoteDto voteDto) {
+        return sqlSession
+                .getMapper(BoardMapper.class)
+                .saveVote(voteDto);
     }
 
     public int viewCount(final BoardDto boardDto) {

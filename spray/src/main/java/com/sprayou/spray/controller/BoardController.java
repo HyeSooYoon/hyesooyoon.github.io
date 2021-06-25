@@ -3,6 +3,7 @@ package com.sprayou.spray.controller;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
 import com.sprayou.spray.dto.UserDto;
+import com.sprayou.spray.dto.VoteDto;
 import com.sprayou.spray.model.ResponseBase;
 import com.sprayou.spray.model.ResultCode;
 import com.sprayou.spray.service.BoardService;
@@ -73,6 +74,25 @@ public class BoardController {
         try {
             System.out.println("boardDto : " + boardDto);
             int result = boardService.viewCount(boardDto);
+
+            if (result == 1) {
+                return ResponseHelper.success();
+            } else {
+                return ResponseHelper.fail(ResultCode.DB_FAIL);
+            }
+        } catch (MyBatisSystemException e) {
+            return ResponseHelper.fail(e);
+        } catch (Exception e) {
+            return ResponseHelper.fail(e);
+        }
+    }
+
+    @RequestMapping(value="/saveVote", method = RequestMethod.POST)
+    public ResponseEntity<ResponseBase> voteSave(@RequestBody VoteDto voteDto) {
+        log.info("투표 저장");
+        try {
+            System.out.println("voteDto : " + voteDto);
+            int result = boardService.saveVote(voteDto);
 
             if (result == 1) {
                 return ResponseHelper.success();

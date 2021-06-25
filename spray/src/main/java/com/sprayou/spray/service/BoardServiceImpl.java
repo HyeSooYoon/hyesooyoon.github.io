@@ -3,6 +3,7 @@ package com.sprayou.spray.service;
 import com.sprayou.spray.dao.BoardDao;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
+import com.sprayou.spray.dto.VoteDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,11 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public int save(BoardDto boardDto) {
         return boardDao.save(boardDto);
+    }
+
+    @Override
+    public int saveVote(VoteDto voteDto) {
+        return boardDao.saveVote(voteDto);
     }
 
     @Override
