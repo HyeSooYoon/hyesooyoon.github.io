@@ -1,5 +1,6 @@
 package com.sprayou.spray.controller;
 
+import com.mysql.cj.Session;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
 import com.sprayou.spray.dto.UserDto;
@@ -11,7 +12,10 @@ import com.sprayou.spray.util.ResponseHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -88,10 +92,15 @@ public class BoardController {
     }
 
     @RequestMapping(value="/saveVote", method = RequestMethod.POST)
-    public ResponseEntity<ResponseBase> voteSave(@RequestBody VoteDto voteDto) {
+    public ResponseEntity<ResponseBase> voteSave(@RequestBody VoteDto voteDto, Authentication authentication) {
         log.info("투표 저장");
-        try {
+        try {           
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String tel = userDetails.getPassword();
+            voteDto.setTel(tel);            
+            
             System.out.println("voteDto : " + voteDto);
+
             int result = boardService.saveVote(voteDto);
 
             if (result == 1) {
@@ -100,6 +109,8 @@ public class BoardController {
                 return ResponseHelper.fail(ResultCode.DB_FAIL);
             }
         } catch (MyBatisSystemException e) {
+            return ResponseHelper.fail(e);
+        } catch (DuplicateKeyException e) {
             return ResponseHelper.fail(e);
         } catch (Exception e) {
             return ResponseHelper.fail(e);
