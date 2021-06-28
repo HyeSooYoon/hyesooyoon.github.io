@@ -33,8 +33,10 @@
         VALUES (#{title}, #{writer}, #{content}, #{productCd}, #{boardType})
     </insert>
 
-    <insert id="saveVote" parameterType="votedDto">
-        INSERT INTO vote_tb VALUES (#{product_cd}, #{user_no})
+    <insert id="saveVote" parameterType="voteDto">
+        INSERT INTO vote_tb (product_cd, user_no) 
+          SELECT #{product_cd}, no FROM users_tb  
+           WHERE tel = '#{tel}'        
     </insert>  
 
     <insert id="viewCount" parameterType="boardDto">

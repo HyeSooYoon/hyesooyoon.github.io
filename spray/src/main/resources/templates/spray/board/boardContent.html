@@ -22,6 +22,8 @@
 </div>
   
   <script>   
+  
+   let csrf = document.querySelector('meta[name="_csrf"]').getAttribute('content');
 
     new Vue({
       el: '#boardContent', 
@@ -33,16 +35,16 @@
         readcnt: '{{boardDetail.readcnt}}',
         content: '{{boardDetail.content}}',
         productCd: '{{boardDetail.productCd}}',
-        csrfToken: document.querySelector('meta[name="_csrf"]').getAttribute('content')
+        csrfToken: csrf
     }) 
     });  
  
     let d = _.find(animalImg, {'product': '{{boardDetail.productCd}}'}); 
     document.getElementById('productCd').setAttribute('src', d.img )        
 
-    document.querySelector('.emoji--like').addEventListener('click', e => {
-        document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
-    });
+    // document.querySelector('.emoji--like').addEventListener('click', e => {
+    //     document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
+    // });
 
    </script> 
 </body>

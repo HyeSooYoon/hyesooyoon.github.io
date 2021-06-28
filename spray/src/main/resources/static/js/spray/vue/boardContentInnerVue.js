@@ -3,23 +3,7 @@ Vue.component('boardcontentinner-view', {
        // 뒤로가기
        back() {
         location.href = '/spray/board/boardFrontMenu';
-       },
-       saveVote: () => {
-        return new Promise((resolve) => {
-          fetch('http://localhost:8080/saveVote', {
-            method: 'post',
-            credentials: 'include',
-            headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': this.$attrs.csrfToken,
-            },
-            body: JSON.stringify({ 
-                 product_cd: this.$attrs.productcd,
-                 user_no: this.$attrs.productcd
-              }) 
-            }).then(res => resolve(res.json()))
-           })
-        },
+       }, 
        voteCnt() {
         fetch('http://localhost:8080/voteCount', {
             method: 'post',
@@ -32,9 +16,21 @@ Vue.component('boardcontentinner-view', {
                 code: this.$attrs.productcd
               })
             })
-          .then(res => 
-            this.saveVote().then(function(data) {
-              if(data.data.tel!=='')
+          .then(
+
+            fetch('http://localhost:8080/saveVote', {
+            method: 'post',
+            credentials: 'include',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': this.$attrs.csrfToken
+            },
+            body: JSON.stringify({ 
+                 product_cd: this.$attrs.productcd
+              }) 
+            }).then(res => resolve(res.json()))
+            .then(function(data) {
+              if(data.status=='200')
               {
                  Swal.fire({
                   icon: 'success',
@@ -45,7 +41,19 @@ Vue.component('boardcontentinner-view', {
                   timer: 1600
                   })
               }
+              else
+              {
+                Swal.fire({
+                  icon: 'fail',
+                  title: '이미 투표하셨습니다.',
+                  footer: '투표 실패!',
+                  showConfirmButton: false,
+                  timer: 1600
+                  })
+              }
             }) 
+
+            
             )
        }
       },
@@ -62,10 +70,10 @@ Vue.component('boardcontentinner-view', {
           document.getElementById('title').value = this.title
           document.getElementById('name').value  = this.writer
           document.getElementById('date').value  = this.regdte
-          document.getElementById('view').value  = this.readcnt
+          document.getElementById('view').value  = this.readcnt 
         },
     template: 
-    `<div class="container">    
+    `<div class="container">     
     <form id="survey-form">
         <div class="form-group">
             <label id="title-label" for="productCd">Product</label>
