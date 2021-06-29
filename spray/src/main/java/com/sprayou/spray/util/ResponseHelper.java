@@ -26,8 +26,14 @@ public class ResponseHelper {
     static public ResponseEntity<ResponseBase> getEntity(ResponseBase responseBase) {
         HttpStatus httpStatus;
 
+        // 성공
         if (ResultCode.SUCCESS.getCode().equals(responseBase.getCode())) {
             httpStatus = HttpStatus.OK;
+        
+        // 기등록
+        } else if (ResultCode.DB_DUP.getCode().equals(responseBase.getCode())) {
+            httpStatus = HttpStatus.OK;
+        
         } else {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }

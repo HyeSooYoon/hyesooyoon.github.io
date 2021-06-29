@@ -47,4 +47,9 @@ public class BoardServiceImpl implements BoardService {
     public int voteCount(CosmeticsDto cosmeticsDto) {
         return boardDao.voteCount(cosmeticsDto);
     }
+
+    @Override
+    public VoteDto countVote(VoteDto voteDto) {
+        return boardDao.countVote(voteDto);
+    }
 }

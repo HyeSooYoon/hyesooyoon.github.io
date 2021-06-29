@@ -75,6 +75,8 @@ public class MainController {
                 object.put("writer"       , element.getWriter());
                 object.put("regdte"       , element.getRegdte());
                 object.put("readcnt"      , element.getReadcnt());
+                object.put("voteCnt"      , element.getVoteCnt());                
+                object.put("boardType"    , element.getBoardType());                
                 list.add(object);
             }
 

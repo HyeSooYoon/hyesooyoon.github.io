@@ -13,22 +13,23 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class BoardDto implements Serializable {
 
-     /*
-      no
-     title
-     writer
-     regdte
-     updte
-     readcnt
-     content
-      */
     private String no;
+
     private String title;
+
     private String writer;
+
     private String regdte;
+
     private String updte;
+
     private String readcnt;
+
     private String content;
+
     private String productCd;
+    
     private String boardType;
+
+    private String voteCnt;
 }

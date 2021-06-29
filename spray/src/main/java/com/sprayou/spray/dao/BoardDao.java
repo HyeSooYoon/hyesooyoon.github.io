@@ -1,10 +1,8 @@
 package com.sprayou.spray.dao;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
-import com.sprayou.spray.dto.UserDto;
 import com.sprayou.spray.dto.VoteDto;
 import com.sprayou.spray.mapper.BoardMapper;
-import com.sprayou.spray.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,6 +51,12 @@ public class BoardDao {
                 .voteCount(cosmeticsDto);
     }
 
+    public VoteDto countVote(final VoteDto voteDto) {
+        return sqlSession
+                .getMapper(BoardMapper.class)
+                .countVote(voteDto);
+    }
+    
 
 
 

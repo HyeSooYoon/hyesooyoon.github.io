@@ -2,9 +2,11 @@ package com.sprayou.spray.model;
 import lombok.Getter;
 
 public enum ResultCode {
-    SUCCESS("0000", "Success"),
-    JDBC_CONNECTION("5000", "JDBC connection error"),
-    DB_FAIL("5001", "Database operation fail");
+    
+    SUCCESS("0000"          , "Success"                 ),
+    JDBC_CONNECTION("5000"  , "JDBC connection error"   ),
+    DB_FAIL("5001"          , "Database operation fail" ),
+    DB_DUP("5002"           , "Database duplicated"     );
 
     @Getter
     private String code;

@@ -11,10 +11,17 @@ import java.util.List;
 public interface BoardService {
 
     List<BoardDto> list(String type);
+
     BoardDto detail(String num);
+
+    VoteDto countVote(VoteDto votedto);
+
     int save(BoardDto boardDto);
+
     int viewCount(BoardDto boardDto);
+
     int voteCount(CosmeticsDto boardDto); 
+    
     int saveVote(VoteDto voteDto);
 
 }

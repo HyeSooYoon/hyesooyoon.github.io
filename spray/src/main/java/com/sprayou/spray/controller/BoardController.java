@@ -54,6 +54,23 @@ public class BoardController {
         return mv;
     }
 
+    @RequestMapping(value="/countVote", method = RequestMethod.POST)
+    public ResponseEntity<ResponseBase> countVote(@RequestBody VoteDto voteDto, Authentication authentication) {
+        log.info("투표여부 확인");
+
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String tel = userDetails.getPassword().substring(6);
+        voteDto.setTel(tel);            
+        System.out.println("voteDto : " + voteDto);
+
+        VoteDto result = boardService.countVote(voteDto);
+        if (result == null) {
+            return ResponseHelper.success();
+        } else {
+            return ResponseHelper.fail(ResultCode.DB_DUP);
+        }
+    }
+
     @RequestMapping(value="/voteCount", method = RequestMethod.POST)
     public ResponseEntity<ResponseBase> boardVoteCount(@RequestBody CosmeticsDto cosmeticsDto) {
         log.info("추천수 업데이트");
@@ -96,9 +113,8 @@ public class BoardController {
         log.info("투표 저장");
         try {           
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String tel = userDetails.getPassword();
+            String tel = userDetails.getPassword().substring(6);
             voteDto.setTel(tel);            
-            
             System.out.println("voteDto : " + voteDto);
 
             int result = boardService.saveVote(voteDto);

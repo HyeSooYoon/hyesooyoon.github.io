@@ -12,8 +12,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VoteDto implements Serializable {
+
     private String product_cd;
+
     private String user_no;
+
     private String tel;
 
 }
