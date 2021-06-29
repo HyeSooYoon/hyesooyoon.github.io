@@ -1,13 +1,51 @@
 $(function(){
-  $("#doughnutChart").drawDoughnutChart([
-    { title: "Aardvark화장품",value : 120,  color: "#2C3E50" },
-    { title: "Baboon화장품",  value:  80,   color: "#FC4349" },
-    { title: "New York",      value:  70,   color: "#6DBCDB" },
-    { title: "London",        value : 50,   color: "#F7E248" },
-    { title: "Sydney",        value : 40,   color: "#D7DADB" },
-    { title: "Berlin",        value : 20,   color: "#FFF" }
-  ]);
-}); 
+
+  let payload = null;
+  let pie_1 = 0;
+  let pie_2 = 0;
+  let pie_3 = 0;
+  let pie_4 = 0;
+  let pie_5 = 0;
+  let pie_6 = 0;
+  let pie_7 = 0;
+  let pie_8 = 0;
+  let pie_9 = 0;
+  let pie_10 = 0;
+
+  // 보팅카운트 조회
+  fetch(
+       'http://localhost:8080/mboard', {
+        method: 'get',
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+      })
+  .then( data => { return data.json(); })
+  .then( res => {
+    payload = res;
+
+    let datas = [];
+
+    // 어떻게 셋팅하지...? ㅡㅡ;
+    for(let i=0; i<payload.data.length-1; i++)
+    {
+      datas = datas + `{ title: "화장품1",  value : parseInt(payload.data[0].voteCnt),   color: "#AC58FA" },`;
+
+    }
+
+    // datas = [
+    //   { title: "화장품1",  value : parseInt(payload.data[0].voteCnt),   color: "#AC58FA" },
+    //   { title: "화장품2",  value : parseInt(payload.data[1].voteCnt),   color: "#AC58FA" },
+    //   { title: "화장품3",  value : parseInt(payload.data[2].voteCnt),   color: "#AC58FA" },
+    //   { title: "화장품4",  value : parseInt(payload.data[3].voteCnt),   color: "#AC58FA" }
+    // ]
+    // 차트 그리기
+    $("#doughnutChart").drawDoughnutChart(datas);
+  }); 
+
+  }
+  ) 
 
 ;(function($, undefined) {
   $.fn.drawDoughnutChart = function(data, options) {

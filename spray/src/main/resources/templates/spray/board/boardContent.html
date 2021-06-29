@@ -25,6 +25,31 @@
   
    let csrf = document.querySelector('meta[name="_csrf"]').getAttribute('content');
 
+   fetch('http://localhost:8080/countVote', {
+            method: 'post',
+            credentials: 'include',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrf
+            },
+            body: JSON.stringify({
+                product_cd: '{{boardDetail.productCd}}',
+                user_no: '',
+                tel: ''
+              })
+            })
+            .then(res => res.json())
+            .then(function(data) {
+              if(data.code==='0000')
+              {
+                
+              }
+              else if(data.code==='5002')
+              {
+                document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
+              }
+            }) 
+
     new Vue({
       el: '#boardContent', 
       component: 'boardcontentinner-view',
@@ -40,12 +65,7 @@
     });  
  
     let d = _.find(animalImg, {'product': '{{boardDetail.productCd}}'}); 
-    document.getElementById('productCd').setAttribute('src', d.img )        
-
-    // document.querySelector('.emoji--like').addEventListener('click', e => {
-    //     document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
-    // });
-
+    document.getElementById('productCd').setAttribute('src', d.img )         
    </script> 
 </body>
 </html>

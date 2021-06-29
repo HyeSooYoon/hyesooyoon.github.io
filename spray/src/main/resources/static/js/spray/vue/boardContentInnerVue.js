@@ -1,16 +1,27 @@
 Vue.component('boardcontentinner-view', {
+      data(){
+        return {  
+          csrf : this.$attrs.csrftoken
+        }
+    },
     methods: {  
        // 뒤로가기
        back() {
         location.href = '/spray/board/boardFrontMenu';
        }, 
        voteCnt() {
-        fetch('http://localhost:8080/voteCount', {
+
+        if(document.querySelector('.emoji--like').style.backgroundColor=='rgb(234, 206, 189)')
+        { 
+        }
+        else
+        {
+          fetch('http://localhost:8080/voteCount', {
             method: 'post',
             credentials: 'include',
             headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': this.$attrs.csrftoken
+            'X-CSRF-TOKEN': this._data.csrf
             },
             body: JSON.stringify({
                 code: this.$attrs.productcd
@@ -23,14 +34,16 @@ Vue.component('boardcontentinner-view', {
             credentials: 'include',
             headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': this.$attrs.csrfToken
+            'X-CSRF-TOKEN': this._data.csrf
             },
             body: JSON.stringify({ 
-                 product_cd: this.$attrs.productcd
+                 product_cd: this.$attrs.productcd,
+                 user_no: '',
+                 tel: ''
               }) 
-            }).then(res => resolve(res.json()))
+            }).then(res => res.json())
             .then(function(data) {
-              if(data.status=='200')
+              if(data.code==='0000')
               {
                  Swal.fire({
                   icon: 'success',
@@ -39,13 +52,14 @@ Vue.component('boardcontentinner-view', {
                   footer: '',
                   showConfirmButton: false,
                   timer: 1600
-                  })
+                  }) 
+                  document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
               }
               else
               {
                 Swal.fire({
                   icon: 'fail',
-                  title: '이미 투표하셨습니다.',
+                  title: '투표에 실패하였습니다.',
                   footer: '투표 실패!',
                   showConfirmButton: false,
                   timer: 1600
@@ -55,6 +69,12 @@ Vue.component('boardcontentinner-view', {
 
             
             )
+        }
+
+
+
+
+        
        }
       },
       props: {

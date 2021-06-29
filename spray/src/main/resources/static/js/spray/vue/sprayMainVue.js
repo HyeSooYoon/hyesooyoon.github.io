@@ -41,10 +41,16 @@ Vue.component('itview', {
                                      <h5 class="fw-bolder" style="font-family: 'Open Sans', sans-serif; color:#C12247">Eye Liner</h5>
                                      <!-- Product price-->
                                      <a href="#" v-for="(boardList, index) in getBoardList()" style="text-decoration:none; color: #333e4e;">
-                                     <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
-                                        {{index+1}}. {{ boardList.title }}
-                                     </span>
-                                     <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                     <!-- 이거 왜 안나오냐. ㅡㅡ;;;;;-->
+                                     <div v-if="'{{boardList.boardType}}'!=='CS01'">
+                                        <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
+                                            {{index+1}}. {{ boardList.title }}
+                                        </span>
+                                        <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                     </div>
+                                     <div v-if="'{{boardList.boardType}}'==='CS01'">
+                                         <p>제품을 추천해주세요!</p>
+                                     </div>
                                      </a>
                                  </div>
                              </div>
@@ -69,7 +75,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
@@ -94,7 +100,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
@@ -119,7 +125,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
@@ -141,10 +147,10 @@ Vue.component('itview', {
                                          <h5 class="fw-bolder" style="font-family: 'Open Sans', sans-serif; color:#C12247">Foundation</h5>
                                          <!-- Product price-->
                                          <a href="#" v-for="(boardList, index) in getBoardList()" style="text-decoration:none; color: #333e4e;">
-                                         <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
-                                            {{index+1}}. {{ boardList.title }}
+                                         <span v-if="'{{boardList.boardType}}'=='CS05'" @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
+                                          {{index+1}}. {{ boardList.title }}
                                          </span>
-                                         <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                         <span v-if="'{{boardList.boardType}}'=='CS05'" style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                          </a>
                                      </div>
                                  </div>
@@ -169,7 +175,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
@@ -194,7 +200,7 @@ Vue.component('itview', {
                                  <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ boardList.title }}
                                  </span>
-                                 <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                 <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                  </a>
                              </div>
                          </div>
@@ -219,7 +225,7 @@ Vue.component('itview', {
                                  <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ boardList.title }}
                                  </span>
-                                 <span style="color: #517b7b;font-size: 95%;"> / {{ boardList.writer }}</span><br>
+                                 <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
                                  </a>
                              </div>
                          </div>

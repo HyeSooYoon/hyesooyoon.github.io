@@ -6,10 +6,12 @@ const itBoardStore = {
         boardList: [{
           no: [],
           title: [],
-          writer: []
+          writer: [],
+          voteCnt: [],
+          boardType: [],
         }]
      },
-     dummy: 'check ass!'
+     dummy: 'check!'
  },
  getters: { 
   getDummy (state) {

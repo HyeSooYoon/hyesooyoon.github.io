@@ -4,20 +4,21 @@
 <mapper namespace="com.sprayou.spray.mapper.BoardMapper">
 
     <select id="list" parameterType="String" resultType="boardDto">
-        SELECT no
-            , title
-            , writer
-            , regdte
-            , updte
-            , readcnt
-            , productCd
-        FROM boardList_tb
+        SELECT t0.no, t0.title, t0.writer
+        , t0.regdte, t0.updte, t0.readcnt, t0.productCd 
+        , t0.board_type boardType, t1.voteCnt
+        FROM boardList_tb t0, cosmetics_tb t1
+        WHERE t0.productCd = t1.code 
        <choose>
         <when test='type != null'>
-        WHERE board_type = #{type}
+        AND t0.board_type = #{type}
         </when>
+        <otherwise>
+        ORDER BY t1.voteCnt DESC
+        LIMIT 10
+        </otherwise>
        </choose> 
-       LIMIT 10
+       
     </select>
 
     <select id="detail" parameterType="String" resultType="boardDto">
@@ -36,19 +37,28 @@
     <insert id="saveVote" parameterType="voteDto">
         INSERT INTO vote_tb (product_cd, user_no) 
           SELECT #{product_cd}, no FROM users_tb  
-           WHERE tel = '#{tel}'        
+           WHERE tel = #{tel}
     </insert>  
 
-    <insert id="viewCount" parameterType="boardDto">
+    <update id="viewCount" parameterType="boardDto">
         UPDATE boardList_tb t0
         SET t0.readcnt = t0.readcnt + 1
         WHERE no = #{no}
-    </insert>
+    </update>
 
-    <insert id="voteCount" parameterType="cosmeticsDto">
+    <update id="voteCount" parameterType="cosmeticsDto">
         UPDATE cosmetics_tb 
         SET voteCnt = voteCnt + 1
         WHERE code = #{code}
-    </insert>
+    </update>
+
+    <select id="countVote" parameterType="String" resultType="voteDto">
+        SELECT t0.* FROM vote_tb t0, users_tb t1
+        WHERE t0.user_no = t1.no
+        AND t0.product_cd = #{product_cd}
+        AND t1.tel = #{tel}
+        LIMIT 1
+    </select>
+    
       
 </mapper>
