@@ -46,7 +46,7 @@ Vue.component('itview', {
                                         <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                             {{index+1}}. {{ boardList.title }}
                                         </span>
-                                        <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                        <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </div>
                                      <div v-if="'{{boardList.boardType}}'==='CS01'">
                                          <p>제품을 추천해주세요!</p>
@@ -56,7 +56,7 @@ Vue.component('itview', {
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#" @click="vieeChart()">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#" @click="vieeChart()">show chart</a></div>
                              </div>
                          </div>
                          </div>
@@ -75,13 +75,13 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                              </div>
                          </div>
                          </div>
@@ -100,13 +100,13 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                              </div>
                          </div>
                          </div>
@@ -125,13 +125,13 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                              </div>
                          </div>
                          </div>
@@ -150,13 +150,13 @@ Vue.component('itview', {
                                          <span v-if="'{{boardList.boardType}}'=='CS05'" @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                           {{index+1}}. {{ boardList.title }}
                                          </span>
-                                         <span v-if="'{{boardList.boardType}}'=='CS05'" style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                         <span v-if="'{{boardList.boardType}}'=='CS05'" style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                          </a>
                                      </div>
                                  </div>
                                  <!-- Product actions-->
                                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                                  </div>
                              </div>
                          </div>
@@ -175,13 +175,13 @@ Vue.component('itview', {
                                      <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ boardList.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                      </a>
                                  </div>
                              </div>
                              <!-- Product actions-->
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                              </div>
                          </div>
                      </div>
@@ -200,13 +200,13 @@ Vue.component('itview', {
                                  <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ boardList.title }}
                                  </span>
-                                 <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                  </a>
                              </div>
                          </div>
                          <!-- Product actions-->
                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                          </div>
                      </div>
                      </div>
@@ -225,13 +225,13 @@ Vue.component('itview', {
                                  <span @click="viewContent(boardList.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ boardList.title }}
                                  </span>
-                                 <span style="color: rgb(195 93 112);font-size: 95%;"> / {{ boardList.voteCnt }}득표</span><br>
+                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ boardList.voteCnt }}득표</span><br>
                                  </a>
                              </div>
                          </div>
                          <!-- Product actions-->
                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">go to vote</a></div>
+                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">show chart</a></div>
                          </div>
                      </div>
                      </div>

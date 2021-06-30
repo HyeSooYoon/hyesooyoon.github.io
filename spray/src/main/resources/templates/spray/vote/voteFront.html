@@ -77,19 +77,25 @@
         opacity: 0.65;
     }
     
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
     </style>
     {{>spray/layout/header}}
 </head>
 <body>
-    <script>
-        
-         
-    </script>
-    
-
+    <script src="/js/spray/cosmeticList/cosmetics.js"></script>
+     
 {{>spray/nav/menu}}
 {{>spray/vote/voteInner/voteFrontInner}}
 
+<script>
+
+    let week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+    let todayLabel = week[new Date().getDay()];
+    
+
+    let today = new Date();
+    document.getElementById('today').innerText = today.getFullYear()+'년 '+(today.getMonth()+1) + '월' + today.getDate() + '일 ' + todayLabel + ' 투표 현황 입니다.';
+</script>
 <script src="/js/spray/style/chartView.js"></script>
 </body>
 
