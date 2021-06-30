@@ -77,6 +77,7 @@ public class MainController {
                 object.put("readcnt"      , element.getReadcnt());
                 object.put("voteCnt"      , element.getVoteCnt());                
                 object.put("boardType"    , element.getBoardType());                
+                object.put("productCd"    , element.getProductCd());                
                 list.add(object);
             }
 
