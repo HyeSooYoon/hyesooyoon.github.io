@@ -1,4 +1,4 @@
-var animal = ["Aardvark화장품", "Anteater화장품", "Donkey화장품", "Baboon화장품", "Butterfly화장품", "Camel화장품", "Capybara화장품", "Deer화장품", "Dnosaur화장품", "Dove화장품", "Draonfly화장품", "Eale화장품", "Echdna화장품", "Eel화장품", "Eland화장품", "Emu화장품", "Falcon화장품", "Ferret화장품", "Fsh화장품", "Flamno화장품", "Fly화장품", "Fox화장품", "Jauar화장품", "Jay화장품", "Jellyfsh화장품", "Kanaroo화장품", "Kudu화장품", "Lapwn화장품", "Lark화장품", "Lemur화장품", "Leopard화장품", "Lon화장품", "Llama화장품", "Lyrebrd화장품", "Mape화장품", "Mule화장품", "Narwhal화장품", "Newt화장품", "Nhtnale화장품", "Octopus화장품"];
+var animal = ["Aardvark화장품", "Anteater화장품", "Donkey화장품", "Baboon화장품", "Butterfly화장품", "Camel화장품", "Capybara화장품", "Deer화장품", "Dnosaur화장품", "Dove화장품", "Draonfly화장품", "Eale화장품", "Echdna화장품", "Eel화장품", "Eland화장품", "Emu화장품", "Falcon화장품", "Ferret화장품", "Fsh화장품", "Flamno화장품", "Fly화장품", "Fox화장품", "Jauar화장품", "Jay화장품", "Jellyfsh화장품", "Kanaroo화장품", "Kudu화장품", "Lapwn화장품", "Lark화장품", "Lemur화장품", "Leopard화장품", "Lon화장품", "Llama화장품", "Lyrebrd화장품", "Mape화장품", "Mule화장품", "Narwhal화장품", "Newt화장품", "Nhtnale화장품", "Octopus화장품", "Mapeo화장품", "Muleo화장품", "Narwhalo화장품", "Newto화장품", "Nhtnaleo화장품", "Octopuso화장품", "Mapee화장품", "Mulee화장품", "Narwhale화장품", "Newte화장품", "Nhtnalee화장품", "Octopuse화장품"];
 var animalImg = [
     { product: 'PR01', boardType: 'CS01', productName: 'Aardvark화장품', img: '/assets/img/product/Aardvark화장품.jpg', color: '#2EFEF7'}, 
     { product: 'PR02', boardType: 'CS01', productName: 'Anteater화장품', img: '/assets/img/product/Anteater화장품.jpg', color: '#ECCEF5'},  
@@ -40,5 +40,17 @@ var animalImg = [
     { product: 'PR38', boardType: 'CS06', productName: 'Newt화장품', img: '/assets/img/product/Newt화장품.jpg', color: '#FF8000'}, 
     { product: 'PR39', boardType: 'CS06', productName: 'Nhtnale화장품', img: '/assets/img/product/Nightingale화장품.jpg', color: '#0101DF'}, 
     { product: 'PR40', boardType: 'CS06', productName: 'Octopus화장품', img: '/assets/img/product/Octopus화장품.jpg', color: '#8904B1'}, 
+    { product: 'PR41', boardType: 'CS07', productName: 'Mapeo화장품', img: '/assets/img/product/Magpie화장품.jpg', color: '#585858'}, 
+    { product: 'PR42', boardType: 'CS07', productName: 'Muleo화장품', img: '/assets/img/product/Mule화장품.jpg', color: '#EFFBFB'}, 
+    { product: 'PR43', boardType: 'CS07', productName: 'Narwhalo화장품', img: '/assets/img/product/Narwhal화장품.jpg', color: '#E1F5A9'}, 
+    { product: 'PR44', boardType: 'CS07', productName: 'Newto화장품', img: '/assets/img/product/Newt화장품.jpg', color: '#FF8000'}, 
+    { product: 'PR45', boardType: 'CS07', productName: 'Nhtnaleo화장품', img: '/assets/img/product/Nightingale화장품.jpg', color: '#0101DF'}, 
+    { product: 'PR46', boardType: 'CS07', productName: 'Octopuso화장품', img: '/assets/img/product/Octopus화장품.jpg', color: '#8904B1'}, 
+    { product: 'PR47', boardType: 'CS08', productName: 'Mapee화장품', img: '/assets/img/product/Magpie화장품.jpg', color: '#585858'}, 
+    { product: 'PR48', boardType: 'CS08', productName: 'Mulee화장품', img: '/assets/img/product/Mule화장품.jpg', color: '#EFFBFB'}, 
+    { product: 'PR49', boardType: 'CS08', productName: 'Narwhale화장품', img: '/assets/img/product/Narwhal화장품.jpg', color: '#E1F5A9'}, 
+    { product: 'PR50', boardType: 'CS08', productName: 'Newte화장품', img: '/assets/img/product/Newt화장품.jpg', color: '#FF8000'}, 
+    { product: 'PR51', boardType: 'CS08', productName: 'Nhtnalee화장품', img: '/assets/img/product/Nightingale화장품.jpg', color: '#0101DF'}, 
+    { product: 'PR52', boardType: 'CS08', productName: 'Octopuse화장품', img: '/assets/img/product/Octopus화장품.jpg', color: '#8904B1'}
 
 ];

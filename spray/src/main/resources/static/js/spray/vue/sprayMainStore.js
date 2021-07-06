@@ -1,9 +1,58 @@
-const itBoardStore = {
+const cosmeticStore = {
  state: {
      data: {
         apiUrl: 'http://localhost:8080',
         type: 'get',
-        boardList: [{
+        EyeLiner: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Blusher: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Powder: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        EyeShadow: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Foundation: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Lipstick: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Perfume: [{
+          no: [],
+          title: [],
+          writer: [],
+          voteCnt: [],
+          boardType: [],
+        }],
+        Mascara: [{
           no: [],
           title: [],
           writer: [],
@@ -19,13 +68,21 @@ const itBoardStore = {
   }
 },
  mutations: {
-  setData: (state, payload) => state.data.boardList = payload.data
+  setEyeLinerData: (state, payload) => state.data.EyeLiner = payload.data,
+  setBlusherData: (state, payload) => state.data.Blusher = payload.data,
+  setPowderData: (state, payload) => state.data.Powder = payload.data,
+  setEyeShadowData: (state, payload) => state.data.EyeShadow = payload.data,
+  setFoundationData: (state, payload) => state.data.Foundation = payload.data,
+  setLipstickData: (state, payload) => state.data.Lipstick = payload.data,
+  setPerfumeData: (state, payload) => state.data.Perfume = payload.data,
+  setMascaraData: (state, payload) => state.data.Mascara = payload.data
  },
  actions: {
-   async itBoard(context) {
+   async cosmetic(context) {
    try {
-           await fetch(
-                 'http://localhost:8080/mboard', {
+           // Eye Liner
+           await fetch(             
+                 'http://localhost:8080/mboard?type=CS01', {                  
                    method: this.state.data.type,
                    headers: {
                    'Content-Type': 'application/json',
@@ -35,9 +92,122 @@ const itBoardStore = {
                .then( data => { return data.json(); })
                .then( res => {
                let payload = res;
-               context.commit('setData', payload);
+               context.commit('setEyeLinerData', payload);
                }
                )
+               
+               // Blusher
+               await fetch(             
+                'http://localhost:8080/mboard?type=CS02', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setBlusherData', payload);
+              }
+              )
+
+              // Powder
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS03', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setPowderData', payload);
+              }
+              )
+
+              // Eye Shadow
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS04', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setEyeShadowData', payload);
+              }
+              )
+
+              // Foundation
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS05', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setFoundationData', payload);
+              }
+              )
+
+              // Lipstick
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS06', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setLipstickData', payload);
+              }
+              )
+
+              // Perfume
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS07', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setPerfumeData', payload);
+              }
+              )
+
+
+              // Mascara
+              await fetch(             
+                'http://localhost:8080/mboard?type=CS08', {                  
+                  method: this.state.data.type,
+                  headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                  }
+                })
+              .then( data => { return data.json(); })
+              .then( res => {
+              let payload = res;
+              context.commit('setMascaraData', payload);
+              }
+              )
            } catch (e) {
                alert(e.message);
                return false;

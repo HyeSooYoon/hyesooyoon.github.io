@@ -7,9 +7,11 @@ $(function(){
     color: ''}
   ];
 
+  let cstype = window.location.search;
+
   // 보팅카운트 조회
   fetch(
-       'http://localhost:8080/mboard', {
+       'http://localhost:8080/mboard' + cstype, {
         method: 'get',
         headers: {
         'Content-Type': 'application/json',
@@ -23,7 +25,7 @@ $(function(){
     // 첫째배열은 빈 값이므로 삭제... 
     datas.shift();
     
-    for(let i=0; i<payload.data.length-1; i++)
+    for(let i=0; i<payload.data.length; i++)
     {
       datas.push({
         title: _.find(animalImg, {'product': payload.data[i].productCd}).productName, 
