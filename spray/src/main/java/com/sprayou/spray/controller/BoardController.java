@@ -1,9 +1,7 @@
 package com.sprayou.spray.controller;
 
-import com.mysql.cj.Session;
 import com.sprayou.spray.dto.BoardDto;
 import com.sprayou.spray.dto.CosmeticsDto;
-import com.sprayou.spray.dto.UserDto;
 import com.sprayou.spray.dto.VoteDto;
 import com.sprayou.spray.model.ResponseBase;
 import com.sprayou.spray.model.ResultCode;
