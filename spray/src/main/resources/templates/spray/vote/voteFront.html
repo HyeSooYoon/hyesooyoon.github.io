@@ -89,12 +89,17 @@
 
 <script>
 
+    // 문구 
     let week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
     let todayLabel = week[new Date().getDay()];
-    
-
     let today = new Date();
     document.getElementById('today').innerText = today.getFullYear()+'년 '+(today.getMonth()+1) + '월' + today.getDate() + '일 ' + todayLabel + ' 투표 현황 입니다.';
+
+    document.querySelector('.return-button').addEventListener('click', e => {
+        location.href = '/spray/sprayMain/';
+    });
+
+
 </script>
 <script src="/js/spray/style/chartView.js"></script>
 </body>

@@ -1,7 +1,8 @@
-Vue.component('itview', {
+Vue.component('spray-component', {
    data: () => ({
+    
    }),
-  methods: {
+   methods: {
     getEyeLiner() {
         return this.$store.state.data.EyeLiner
      },
@@ -79,7 +80,7 @@ Vue.component('itview', {
                          <div class="card h-100">
                              <!-- Product image-->
                              <!-- 최다득표 제품 이미지 셋팅 어케하지 ... ㅡㅡ;; -->
-                             <img class="card-img-top" src="/assets/img/product/Camel화장품.jpg" alt="..." />
+                             <img class="card-img-top" id="CS01" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">
                                  <div class="text-center">
@@ -91,7 +92,7 @@ Vue.component('itview', {
                                         <span @click="viewContent(EyeLiner.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                             {{index+1}}. {{ EyeLiner.title }}
                                         </span>
-                                        <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ EyeLiner.voteCnt }}득표</span><br>
+                                        <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ EyeLiner.voteCnt }}득표 / {{ EyeLiner.productCd }}</span><br>
                                      </div>                                     
                                      </a>
                                  </div>
@@ -106,7 +107,7 @@ Vue.component('itview', {
                          <div class="col mb-5">
                          <div class="card h-100">
                              <!-- Product image-->
-                             <img class="card-img-top" src="/assets/img/product/Capybara화장품.jpg" alt="..." />
+                             <img class="card-img-top" id="CS02" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">
                                  <div class="text-center">
@@ -118,7 +119,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(Blusher.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ Blusher.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Blusher.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Blusher.voteCnt }}득표 / {{ Blusher.productCd }}</span><br>
                                      </div>
                                      </a>
                                  </div>
@@ -133,7 +134,7 @@ Vue.component('itview', {
                          <div class="col mb-5">
                          <div class="card h-100">
                              <!-- Product image-->
-                             <img class="card-img-top" src="/assets/img/product/Deer화장품.jpg" alt="..." />
+                             <img class="card-img-top" id="CS03" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">
                                  <div class="text-center">
@@ -145,7 +146,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(Powder.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ Powder.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Powder.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Powder.voteCnt }}득표 / {{ Powder.productCd }}</span><br>
                                      </div>
                                      </a>
                                  </div>
@@ -160,7 +161,7 @@ Vue.component('itview', {
                          <div class="col mb-5">
                          <div class="card h-100">
                              <!-- Product image-->
-                             <img class="card-img-top" src="/assets/img/product/Anteater화장품.jpg" alt="..." />
+                             <img class="card-img-top" id="CS04" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">
                                  <div class="text-center">
@@ -172,7 +173,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(EyeShadow.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ EyeShadow.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ EyeShadow.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ EyeShadow.voteCnt }}득표 / {{ EyeShadow.productCd }}</span><br>
                                      </div>
                                      </a>
                                  </div>
@@ -187,7 +188,7 @@ Vue.component('itview', {
                          <div class="col mb-5">
                              <div class="card h-100">
                                  <!-- Product image-->
-                                 <img class="card-img-top" src="/assets/img/product/Aardvark화장품.jpg" alt="..." />
+                                 <img class="card-img-top" id="CS05" src="" alt="..." />
                                  <!-- Product details-->
                                  <div class="card-body p-4">
                                      <div class="text-center">
@@ -199,7 +200,7 @@ Vue.component('itview', {
                                          <span @click="viewContent(Foundation.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                           {{index+1}}. {{ Foundation.title }}
                                          </span>
-                                         <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Foundation.voteCnt }}득표</span><br>
+                                         <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Foundation.voteCnt }}득표 / {{ Foundation.productCd }}</span><br>
                                          </div>
                                          </a>
                                      </div>
@@ -214,7 +215,7 @@ Vue.component('itview', {
                          <div class="col mb-5">
                          <div class="card h-100">
                              <!-- Product image-->
-                             <img class="card-img-top" src="/assets/img/product/Donkey화장품.jpg" alt="..." />
+                             <img class="card-img-top" id="CS06" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">
                                  <div class="text-center">
@@ -226,7 +227,7 @@ Vue.component('itview', {
                                      <span @click="viewContent(Lipstick.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                         {{index+1}}. {{ Lipstick.title }}
                                      </span>
-                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Lipstick.voteCnt }}득표</span><br>
+                                     <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Lipstick.voteCnt }}득표 / {{ Lipstick.productCd }}</span><br>
                                      </div>
                                      </a>
                                  </div>
@@ -241,7 +242,7 @@ Vue.component('itview', {
                      <div class="col mb-5">
                      <div class="card h-100">
                          <!-- Product image-->
-                         <img class="card-img-top" src="/assets/img/product/Baboon화장품.jpg" alt="..." />
+                         <img class="card-img-top" id="CS07" src="" alt="..." />
                          <!-- Product details-->
                          <div class="card-body p-4">
                              <div class="text-center">
@@ -253,7 +254,7 @@ Vue.component('itview', {
                                  <span @click="viewContent(Perfume.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ Perfume.title }}
                                  </span>
-                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Perfume.voteCnt }}득표</span><br>
+                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Perfume.voteCnt }}득표 / {{ Perfume.productCd }}</span><br>
                                  </div>
                                  </a>
                              </div>
@@ -268,7 +269,7 @@ Vue.component('itview', {
                      <div class="col mb-5">
                      <div class="card h-100">
                          <!-- Product image-->
-                         <img class="card-img-top" src="/assets/img/product/Butterfly화장품.jpg" alt="..." />
+                         <img class="card-img-top" id="CS08" src="" alt="..." />
                          <!-- Product details-->
                          <div class="card-body p-4">
                              <div class="text-center">
@@ -280,7 +281,7 @@ Vue.component('itview', {
                                  <span @click="viewContent(Mascara.no)" style="font-family: 'Nanum Myeongjo', serif;">
                                     {{index+1}}. {{ Mascara.title }}
                                  </span>
-                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Mascara.voteCnt }}득표</span><br>
+                                 <span style="color: rgb(195 93 112);font-family: 'Nanum Brush Script', cursive;"> / {{ Mascara.voteCnt }}득표 / {{ Mascara.productCd }}</span><br>
                                  </div>
                                  </a>
                              </div>

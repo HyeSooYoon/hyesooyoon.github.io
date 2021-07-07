@@ -16,7 +16,7 @@
 <body>
 {{>spray/nav/menu}}
 <div id="app">
-    <itview></itview>
+    <spray-component></spray-component>
 </div>
 <script>
     const loadbbs = new Vuex.Store(cosmeticStore);
@@ -28,13 +28,43 @@
     new Vue({
       el: '#app',
       store: loadbbs,
-      component: 'itview',
+      component: 'spray-component',
       mounted() {
       this.$store.dispatch('cosmetic')
       }
     });
-
     
+    
+    window.onload = function() { 
+
+        // Eye Liner
+        let arr = ['CS01', 'CS02', 'CS03', 'CS04', 'CS05', 'CS06', 'CS07', 'CS08'];
+        
+        let proc = '';
+        let imgDir = '';
+
+        setTimeout(function() {
+            for(var i in arr) {
+            
+            proc = document.getElementsByClassName(arr[i])[0].children[1].textContent;   
+            imgDir = _.find(animalImg, {'product': proc.substr(-4)}).img;
+            document.getElementById(arr[i]).setAttribute('src', imgDir);
+
+
+        }        
+        }, 200);
+
+
+        
+
+
+
+
+
+
+
+        
+    };
     
 
 </script>
