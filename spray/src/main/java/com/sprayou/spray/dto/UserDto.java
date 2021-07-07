@@ -19,12 +19,10 @@ public class UserDto implements Serializable {
      * det
      * addr
      * tel
-     * authorityName
      */
     private String no;
     private String name;
     private String det;
     private String addr;
     private String tel;
-    private String authorityName;
 }

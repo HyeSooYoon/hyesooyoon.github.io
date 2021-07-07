@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             userauthoritydto.setPassword("{noop}" + userDto.getTel());
 
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            authorities.add(new SimpleGrantedAuthority(userDto.getAuthorityName()));
+            authorities.add(new SimpleGrantedAuthority("USER"));
             userauthoritydto.setAuthorities(authorities);
         }
 
