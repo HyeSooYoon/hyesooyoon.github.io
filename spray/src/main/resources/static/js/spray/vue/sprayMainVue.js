@@ -79,7 +79,6 @@ Vue.component('spray-component', {
                          <div class="col mb-5">
                          <div class="card h-100">
                              <!-- Product image-->
-                             <!-- 최다득표 제품 이미지 셋팅 어케하지 ... ㅡㅡ;; -->
                              <img class="card-img-top" id="CS01" src="" alt="..." />
                              <!-- Product details-->
                              <div class="card-body p-4">

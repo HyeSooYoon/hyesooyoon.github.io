@@ -56,12 +56,18 @@
                 }
                 else
                 {
+                  // 인증 완료한 사용자 세션에 토큰을 부여하고 싶은데 어케허지... ㅡㅡ;;;; 
                   Swal.fire({
                   icon: 'success',
                   title: '',
                   text: '인증을 완료하였습니다.',
                   footer: ''
                   })
+
+                  document.getElementById('join_tel').style.display = '';
+                  document.getElementById('sign_up').style.display = '';
+                  document.getElementById('join_eaddr_cert').style.display = 'none';
+                  document.getElementById('email_cert').style.display = 'none';
                 }
 
               })
