@@ -3,24 +3,30 @@ package com.sprayou.spray.controller;
 import com.sprayou.spray.dto.UserDto;
 import com.sprayou.spray.model.ResponseBase;
 import com.sprayou.spray.model.ResultCode;
+import com.sprayou.spray.service.EmailSenderService;
 import com.sprayou.spray.service.UserService;
 import com.sprayou.spray.util.ResponseHelper;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
-
+    
     @RequestMapping(value = "/user/{tel}", method = RequestMethod.GET)
     public ResponseEntity<ResponseBase> selectUserInfo(@PathVariable String tel) {
         try {
@@ -28,16 +34,12 @@ public class UserController {
             UserDto dto = userService.selectUserInfo(tel);
 
             dto.builder().name(dto.getName())
-                    .det(dto.getDet())
-                    .addr(dto.getAddr())
+                    .eaddr(dto.getEaddr())
                     .tel(dto.getTel())
-                    .authorityName(dto.getAuthorityName())
                     .build();
 
             map.put("name"         , dto.getName());
-            map.put("det"          , dto.getDet());
-            map.put("addr"         , dto.getAddr());
-            map.put("authorityName", dto.getAuthorityName());
+            map.put("eaddr"         , dto.getEaddr());
             map.put("tel"          , dto.getTel());
 
             return ResponseHelper.success(map);
@@ -62,9 +64,8 @@ public class UserController {
                 Map<String, String> object = new HashMap<>();
                 object.put("no"           , element.getNo());
                 object.put("name"         , element.getName());
-                object.put("det"          , element.getDet());
-                object.put("addr"         , element.getAddr());
-                object.put("authorityName", element.getAuthorityName());
+                object.put("eaddr"         , element.getEaddr());
+                object.put("authorityName", "USER");
                 object.put("tel"          , element.getTel());
 
                 list.add(object);
@@ -150,4 +151,40 @@ public class UserController {
             return ResponseHelper.fail(e);
         }
     }
+ 
+    // 이메일 전송
+    @PostMapping("/sendMail")
+    @ResponseBody  
+	public boolean SendMail(@RequestBody HashMap<String, Object> map, HttpServletRequest request) {
+		
+        Random random = new Random(); 
+		String key="";  //인증번호 
+        String mailadds = map.get("mailadds").toString();
+
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(mailadds); //스크립트에서 보낸 메일을 받을 사용자 이메일 주소 
+		
+        //입력 키를 위한 코드
+		for(int i =0; i<3;i++) {
+			int index=random.nextInt(25) + 65; 
+			key += (char)index;
+		}
+		
+        int numIndex = random.nextInt(9999) + 1000; 
+		key += numIndex;
+
+        request.getSession().setAttribute("key", key);
+
+        return EmailSenderService.SendMessage("yhss1790", "gPtn1790!", mailadds, "인증번호 입력을 위한 메일 전송", "인증 번호 : "+key);
+	}
+
+    // 이메일 인증 
+    @PostMapping("/certMail")
+    @ResponseBody  
+	public boolean CertMail(@RequestBody HashMap<String, Object> map, HttpServletRequest request) {
+
+        String key = (String) request.getSession().getAttribute("key");
+ 
+        return request.getSession().getAttribute("key").equals(map.get("certKey").toString());
+	}
 }

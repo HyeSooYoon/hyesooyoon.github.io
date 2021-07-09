@@ -16,13 +16,11 @@ public class UserDto implements Serializable {
     /*
      * no
      * name
-     * det
-     * addr
+     * eaddr
      * tel
      */
     private String no;
     private String name;
-    private String det;
-    private String addr;
+    private String eaddr;
     private String tel;
 }
