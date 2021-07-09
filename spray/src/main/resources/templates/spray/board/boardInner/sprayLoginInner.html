@@ -4,14 +4,12 @@
         <form action="#">
             <h1>Create Account</h1>
             <div class="social-container">
-                <!--<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
             </div>
             <span>Please fill in the information</span>
             <input type="text" id="join_name" class="join" maxlength="10" placeholder="Name"       />
-            <input type="text" id="join_addr" class="join" maxlength="50" placeholder="Address"    />
-            <input type="text" id="join_det"  class="join" maxlength="30" placeholder="Department" />
+            <input type="text" id="join_eaddr" class="join" maxlength="50" placeholder="E-Mail address" value="yhss1790@gmail.com"/>
+            <input type="text" id="join_eaddr_cert" class="join" maxlength="50" placeholder="E-Mail 인증번호"    />
+            <button id="email_cert" style="background-color: #9e878a;border: #9e878a;">Send Mail</button> 
             <input type="tel"  id="join_tel"  class="join" maxlength="11" placeholder="Telephone"  />
             <button id="sign_up">Sign Up</button>
         </form>
@@ -19,10 +17,7 @@
     <div class="form-container sign-in-container">
         <form action="#">
             <h1>Sign in</h1>
-            <div class="social-container">
-                <!--<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
+            <div class="social-container">                
             </div>
             <span>Please fill your account</span>
             <input type="text" id="user_tel" maxlength="11" placeholder="Telephone" value="01050561790"/>

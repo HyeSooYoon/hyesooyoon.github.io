@@ -12,21 +12,114 @@
 {{>spray/board/boardInner/sprayLoginInner}}
 <script>
      let auth = '{{#auth}}{{auth}}{{/auth}}';
+ 
+     // 이메일 전송 기능
+     document.querySelector('#email_cert').addEventListener('click', e => {
+      
+        if(document.querySelector('#email_cert').innerText==='CERT')
+        {
+          if(document.querySelector('#join_eaddr_cert').value === '')
+          {
+            Swal.fire({
+                icon: 'warning',
+                title: '',
+                text: '인증번호를 입력해 주세요.',
+                footer: ''
+                })
+          }
+          else
+          {
+            // 메일 인증번호 인증
+            let certKey = document.querySelector('#join_eaddr_cert').value;  
+
+            fetch('/certMail', {
+              method: 'post',
+              credentials: 'include',
+              headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': '{{_csrf.token}}'
+              },
+              body: JSON.stringify({
+                  certKey: certKey
+                })
+              })
+              .then( data => { return data.json(); })
+              .then( res => {
+                if(!res)
+                {
+                  Swal.fire({
+                  icon: 'warning',
+                  title: '',
+                  text: '인증번호가 일치하지 않습니다.',
+                  footer: ''
+                  })
+                }
+                else
+                {
+                  Swal.fire({
+                  icon: 'success',
+                  title: '',
+                  text: '인증을 완료하였습니다.',
+                  footer: ''
+                  })
+                }
+
+              })
+
+          }
+        }
+        else
+        {
+          let mailadds = document.querySelector('#join_eaddr').value;  
+
+          fetch('/sendMail', {
+            method: 'post',
+            credentials: 'include',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{_csrf.token}}'
+            },
+            body: JSON.stringify({
+              mailadds: mailadds
+              })
+            })
+          .then(       
+                Swal.fire({
+                icon: 'success',
+                title: '',
+                text: '메일로 인증번호를 전송하였습니다. 인증번호를 입력해주세요.',
+                footer: ''
+                }),
+                document.querySelector('#email_cert').innerText = 'CERT'
+          )  
+        } 
+     });
+
 
      document.querySelector('#sign_up').addEventListener('click', e => {
 
         // 신규 회원 입력 정보 셋팅
         userInfo.name = document.querySelector('#join_name').value;
-        userInfo.det  = document.querySelector('#join_det').value;
-        userInfo.addr = document.querySelector('#join_addr').value;
+        userInfo.eaddr = document.querySelector('#join_eaddr').value;
         userInfo.tel  = document.querySelector('#join_tel').value;
+
+        if(userInfo.name === '' || userInfo.eaddr === '' || userInfo.tel === '')
+        {
+          Swal.fire({
+              icon: 'warning',
+              title: 'Oops...',
+              text: '정보를 입력해 주세요.',
+              footer: ''
+            }) 
+            return;
+        }
 
         // 메소드 타입, 타이틀, 메시지 셋팅
         let initInfo    = _.find(apiInitInfo, { 'methodType': 'checkUser'});
         init.title      = initInfo.title;
         init.type       = initInfo.type;
         init.msg        = initInfo.msg;
-
+        
         // 회원가입 여부 확인
         init.checkUser().then(function(data) {
           if(data.data.tel!=='')

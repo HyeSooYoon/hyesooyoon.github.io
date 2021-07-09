@@ -1,7 +1,6 @@
 const userInfo = {
     name: '',
-    det: '',
-    addr: '',
+    eaddr: '',
     tel: ''
 }
 

@@ -69,12 +69,7 @@ Vue.component('boardcontentinner-view', {
 
             
             )
-        }
-
-
-
-
-        
+        } 
        }
       },
       props: {

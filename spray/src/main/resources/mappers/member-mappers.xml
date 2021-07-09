@@ -9,7 +9,7 @@
            LEFT JOIN authority_tb T2 ON T1.tel = T2.tel
            WHERE T1.tel = #{tel}
            UNION ALL
-          SELECT 'OK' no, '' name, '' det, '' addr, '' tel, '' authorityName
+          SELECT 'OK' no, '' name, '' eaddr, '' tel, '' authorityName
            FROM DUAL
            ORDER BY 1
         ) S1
@@ -22,7 +22,7 @@
 
     <insert id="insert" parameterType="userDto">
         INSERT INTO users_tb
-        VALUES (#{no}, #{name}, #{det}, #{addr}, #{tel})
+        VALUES (#{no}, #{name}, #{eaddr}, #{tel})
     </insert>
 
     <insert id="insertUserName" parameterType="map">
