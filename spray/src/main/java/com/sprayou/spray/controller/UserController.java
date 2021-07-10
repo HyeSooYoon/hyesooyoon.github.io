@@ -175,7 +175,7 @@ public class UserController {
 
         request.getSession().setAttribute("key", key);
 
-        return EmailSenderService.SendMessage("yhss1790", "gPtn1790!", mailadds, "인증번호 입력을 위한 메일 전송", "인증 번호 : "+key);
+        return EmailSenderService.SendMessage("google계정 아이디(보안상 기재안함)", "google계정 비밀번호(보안상 기재안함)", mailadds, "인증번호 입력을 위한 메일 전송", "인증 번호 : "+key);
 	}
 
     // 이메일 인증 
