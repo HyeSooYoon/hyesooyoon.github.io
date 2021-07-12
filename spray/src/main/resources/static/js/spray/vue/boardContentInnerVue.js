@@ -9,8 +9,11 @@ Vue.component('boardcontentinner-view', {
        back() {
         location.href = '/spray/board/boardFrontMenu';
        }, 
+       // 제품 보러가기
+       productDetail() {
+        location.href = '/spray/product/productDesc/' + this.$attrs.productcd;
+       },
        voteCnt() {
-
         if(document.querySelector('.emoji--like').style.backgroundColor=='rgb(234, 206, 189)')
         { 
         }
@@ -65,9 +68,7 @@ Vue.component('boardcontentinner-view', {
                   timer: 1600
                   })
               }
-            }) 
-
-            
+            })  
             )
         } 
        }
@@ -94,6 +95,12 @@ Vue.component('boardcontentinner-view', {
             <label id="title-label" for="productCd">Product</label>
             <img class="card-img-top" name="productCd" id="productCd" alt="..." style="display: block; margin: auto; width: 100%;"/>
         </div>
+        
+        <!-- 상품 보러 가기 -->
+        <button type="button" class="return-button" @click="productDetail()" style="margin: auto;">
+            제품 보러 가기
+        </button>
+
         <div class="form-group">
             <label id="title-label" for="name">Title</label>
             <input type="text" name="title" id="title" class="form-control" readonly="readonly">
