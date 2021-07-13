@@ -1,10 +1,8 @@
 package com.sprayou.spray.service;
 
-import com.sprayou.spray.dto.VendorDto;
+import java.util.HashMap;
 
-import org.springframework.http.ResponseEntity; 
- 
 public interface VendorService {
     
-    void findToShopAll();
+    HashMap<String, String> findToShopAll(String productCd);
 }

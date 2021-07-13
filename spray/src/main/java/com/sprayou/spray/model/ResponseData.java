@@ -2,8 +2,7 @@ package com.sprayou.spray.model;
 import lombok.Getter;
 
 /* 정상 응답 데이터, 정상 응답 코드 리턴 클래스 */
-public class
-ResponseData extends ResponseBase {
+public class ResponseData extends ResponseBase {
 
     @Getter
     private Object data = null;

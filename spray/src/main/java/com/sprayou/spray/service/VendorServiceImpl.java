@@ -9,7 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import com.sprayou.spray.dao.BatchDao;
 import com.sprayou.spray.dto.VendorDto;
@@ -18,7 +20,8 @@ import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.json.JSONObject;
+import org.json.JSONArray;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -51,8 +54,9 @@ public class VendorServiceImpl implements VendorService {
        
 
     @Override
-    public  void findToShopAll() {
+    public HashMap<String, String> findToShopAll(String productCd) {
 
+        // 추후 REST API 연동시 아래 방법 참조... 
         // HttpHeaders httpHeaders = new HttpHeaders();        
         // httpHeaders.set("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE);
         // httpHeaders.set("X-Naver-Client-Id", "qpMqZ3dpzWdWjgO1EPwd");
@@ -72,19 +76,46 @@ public class VendorServiceImpl implements VendorService {
         // log.info("Req: "  + restHttpEntity.getBody().toString());
         
 
-        // return restHttpEntity; 
+        // return restHttpEntity;  
 
-        
+        String searchText = "";
+ 
+        switch(productCd) {
+            case "CS01": searchText = "아이라이너";
+                 break;
 
-        String text = null;
+            case "CS02": searchText = "블러셔";
+                 break;
+
+            case "CS03": searchText = "파우더";
+                 break;
+
+            case "CS04": searchText = "아이쉐도우";
+                 break;
+
+            case "CS05": searchText = "파운데이션";
+                 break;
+
+            case "CS06": searchText = "립스틱";
+                 break;
+
+            case "CS07": searchText = "향수";
+                 break;
+
+            case "CS08": searchText = "마스카라";
+                 break; 
+
+            default: searchText = "";
+                 break;
+        } 
+
         try {
-            text = URLEncoder.encode("원피스", "UTF-8");
+            searchText = URLEncoder.encode(searchText, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패",e);
         }
 
-        String apiURL = NAVER_SHOP_SEARCH_API_URI + "?query=" + text + "&display=1&start=1&sort=date";    // json 결과
-        //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
+        String apiURL = NAVER_SHOP_SEARCH_API_URI + "?query=" + searchText + "&display=1&start=1&sort=date";    // json 결과 
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id"      , CLIENTID);
@@ -92,13 +123,30 @@ public class VendorServiceImpl implements VendorService {
         String responseBody = get(apiURL, requestHeaders);
 
         System.out.println(responseBody);
-
-        
   
+
+        // 1. JSONObject 로 String 리턴 값 받기
+        // 2. getJSONArray 로 배열 타입 키 값 뽑기
+        // 3. getJSONArray.length 만큼 JSONObject 으로 다시 값 받기.
+        // 4. 필요 한 값 String 값으로 뽑기
+        JSONObject jsonOut = new JSONObject(responseBody);                          
+        JSONArray jd = jsonOut.getJSONArray("items");
         
+        JSONObject jsonOut2 = null; 
+        HashMap<String, String> shopLink = new HashMap<String, String>();             
 
+        for(int i=0; i<jd.length(); i++)
+        {
+            jsonOut2 = (JSONObject) jd.get(0);
+            shopLink.put("link", jsonOut2.getString("link"));
+            shopLink.put("image", jsonOut2.getString("image"));
+            shopLink.put("lprice", jsonOut2.getString("lprice"));
+            shopLink.put("title", jsonOut2.getString("title"));
+        } 
 
- 
+        System.out.println("shopLink: " + shopLink);
+
+        return shopLink;
     }
 
 
