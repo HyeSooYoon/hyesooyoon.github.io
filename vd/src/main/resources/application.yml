@@ -1,0 +1,27 @@
+#DB properties
+spring:
+    application:
+        name: webclient        
+    datasource:
+        driver: com.mysql.cj.jdbc.Driver
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 1999
+        url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC
+        username: demouser
+    devtools:
+        restart:
+            enabled: true
+            poll-interval: 2s
+            quiet-period: 1s
+    mustache:
+        expose-request-attributes: true
+        suffix: '.html'
+
+
+server:
+  port: ${service_port:5001}
+
+  
+
+
+
