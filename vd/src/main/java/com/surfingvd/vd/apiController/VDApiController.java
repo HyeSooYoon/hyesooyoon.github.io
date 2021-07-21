@@ -1,7 +1,11 @@
 package com.surfingvd.vd.apiController;
   
+import com.surfingvd.vd.dto.VdYoutubeDto;
+
 import org.springframework.beans.factory.annotation.Autowired; 
-import org.springframework.web.bind.annotation.GetMapping; 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -13,14 +17,14 @@ public class VDApiController {
   @Autowired
     private WebClient webClient;  
 
-  @GetMapping("/searchYoutubeVD")
-    public Mono<String> searchYoutubeVD() {
+  @PostMapping("/searchYoutubeVD")
+    public Mono<String> searchYoutubeVD(@RequestBody VdYoutubeDto.Req req) {
         return webClient
-                .mutate() 
-                .baseUrl("http://localhost:8080")
+                .mutate()  
+                .baseUrl("https://www.googleapis.com")
                 .build()
                 .get()
-                .uri("/webclient/test-mutate")
+                .uri("/youtube/v3/search?part=snippet&q=" + req.getQ() + "key=" + req.getKey())
                 .retrieve()
                 .bodyToMono(String.class);
     }

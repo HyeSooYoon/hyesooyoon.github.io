@@ -35,8 +35,7 @@ public class VDsurfVideoApi {
     //     httpsheaders.set("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE);
         
     //     MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<>();
-    //     paramMap.add("q"    , "한사랑산악회");
-    
+    //     paramMap.add("q"    , "한사랑산악회"); 
 
     //     HttpEntity reqhttpEntity = new HttpEntity(paramMap, httpsheaders);
 
