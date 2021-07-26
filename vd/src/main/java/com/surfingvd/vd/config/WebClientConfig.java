@@ -1,5 +1,9 @@
 package com.surfingvd.vd.config;
 
+import com.surfingvd.vd.apiController.VDApiController;
+import com.surfingvd.vd.dto.VdYoutubeDto;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -16,10 +20,11 @@ import reactor.netty.http.client.HttpClient;
 
 @Slf4j
 @Configuration
-public class WebClientConfig {
-       
+public class WebClientConfig {       
+
     @Bean
-    public WebClient webClient() {
+    public WebClient webClient() {    
+
         HttpClient httpClient = HttpClient.create()
             .tcpConfiguration(
                 client -> client.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000) //miliseconds
@@ -31,11 +36,11 @@ public class WebClientConfig {
 
         //Memory 조정: 2M (default 256KB)
         ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
-            .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(2*1024*1024)) 
+            .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(2 * 1024 * 1024)) 
             .build();
 
         return WebClient.builder()
-            .baseUrl("http://localhost:8080")
+            .baseUrl("https://www.googleapis.com")            
             .clientConnector(new ReactorClientHttpConnector(httpClient))
             // Request Header를 추가
             .filter(
