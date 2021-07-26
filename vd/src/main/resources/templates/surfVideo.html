@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/surfVideo.css"/>   
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
 <script src="/vue/surfVideoVue.js"></script>
 </head>
 <body> 
@@ -14,14 +14,15 @@
   </form>
 </section>
 
- <div id="surfVideo">     
-   <surfvideo-view></surfvideo-view>    
- </div>  
- <script>
+ <div id="surfVideo">       
+   <surfvideo-view :vurl="vurl"></surfvideo-view>    
+ </div>   
+</body>
+<script>
    
   const searchInfo = {
-    q: '한사랑산악회', 
-  }
+    q: 'Pizzicato Five'
+  } 
   
   document.getElementById('search').addEventListener('click', (e) => {
     e.preventDefault();
@@ -33,25 +34,28 @@
             },
             body: JSON.stringify(searchInfo)
             })
-            .then(res => resolve(res.json()))
-
-
-
-
-
-
-
+            .then(res => res.json())
+            .then(function(data) {
+              if(data !== null)
+              {
+                VideoUrl = data.items[0].id.videoId
+              } 
+            })  
 
 
   });
     
    new Vue({
      el: '#surfVideo', 
-     component: 'surfvideo-view' 
+     component: 'surfvideo-view',
+     data : {
+       vurl  : '8nv2wE1nu-E'
+    }
+    
+
       });  
  
 
  </script>
-</body>
 </html>
 
