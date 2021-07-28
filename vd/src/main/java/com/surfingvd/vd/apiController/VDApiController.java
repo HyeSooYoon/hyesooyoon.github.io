@@ -28,7 +28,7 @@ public class VDApiController {
                 .baseUrl("https://www.googleapis.com")
                 .build()  
                 .get()
-                .uri("/youtube/v3/search?part=snippet&q={q}&key={key}", req.getQ(), "")
+                .uri("/youtube/v3/search?part=snippet&q={q}&key={key}", req.getQ(), ")
                 .retrieve()
                 .bodyToMono(String.class); 
     }
