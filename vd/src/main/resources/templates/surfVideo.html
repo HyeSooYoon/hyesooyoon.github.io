@@ -2,12 +2,13 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/surfVideo.css"/>   
+<script src="https://unpkg.com/vuex"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
 <script src="/vue/surfVideoVue.js"></script>
+<script src="/vue/surfVideoStore.js"></script>
 </head>
-<body> 
-  
- <section class="webdesigntuts-workshop">
+<body>   
+ <section class="webdesigntuts-workshop" style="z-index: -1">
   <form action="" method="">		    
     <input type="search" placeholder="What are you looking for?">		    	
     <button id="search">Search</button>
@@ -15,17 +16,24 @@
 </section>
 
  <div id="surfVideo">       
-   <surfvideo-view :vurl="vurl"></surfvideo-view>    
+   <!-- <surfvideo-view></surfvideo-view>     -->
+   <button v-on:click="onBtnClick">클릭</button>
+ 
  </div>   
 </body>
-<script>
-   
+<script>   
+
+  const surfVideoSt = new Vuex.Store(surfVideoStore);
+
+  let VideoUrl; 
+
   const searchInfo = {
     q: 'Pizzicato Five'
   } 
   
   document.getElementById('search').addEventListener('click', (e) => {
-    e.preventDefault();
+    
+    e.preventDefault(); 
 
     fetch('http://localhost:5001/searchYoutubeVD', {
             method: 'post',
@@ -40,19 +48,20 @@
               {
                 VideoUrl = data.items[0].id.videoId
               } 
-            })  
-
-
+            })   
   });
     
    new Vue({
      el: '#surfVideo', 
      component: 'surfvideo-view',
-     data : {
-       vurl  : '8nv2wE1nu-E'
-    }
-    
-
+     store: surfVideoSt, 
+     methods: { 
+       onBtnClick: function(){ 
+        surfVideoSt.commit('increment'); 
+         alert( surfVideoSt.state.count ); 
+        } 
+      }
+ 
       });  
  
 
