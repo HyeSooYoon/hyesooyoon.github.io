@@ -1,11 +1,11 @@
 const surfVideoStore = {
     state: {
-        videoNo: '8nv2wE1nu-E',
-        count: 0
+        videoNo: '',
+        ytubeUrl: 'https://www.youtube.com/embed/'
   },
   mutations: { 
-    increment (state) { 
-      state.count++ 
+    commitVdNo (state, payload) {       
+      state.videoNo = payload
     } 
   } 
 }

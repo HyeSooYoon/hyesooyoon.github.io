@@ -8,34 +8,37 @@
 <script src="/vue/surfVideoStore.js"></script>
 </head>
 <body>   
- <section class="webdesigntuts-workshop" style="z-index: -1">
+ <section class="webdesigntuts-workshop" id="surfVideo">
   <form action="" method="">		    
-    <input type="search" placeholder="What are you looking for?">		    	
-    <button id="search">Search</button>
+    <input type="search" id="searchText" placeholder="What are you looking for?">		    	
+    <button id="search" v-on:click="commitVdNo">Search</button>
   </form>
 </section>
 
- <div id="surfVideo">       
-   <!-- <surfvideo-view></surfvideo-view>     -->
-   <button v-on:click="onBtnClick">클릭</button>
+ <div id="surfVideoTile">       
+   <surfvideo-view></surfvideo-view>    
+   
  
  </div>   
 </body>
 <script>   
 
   const surfVideoSt = new Vuex.Store(surfVideoStore);
-
-  let VideoUrl; 
-
-  const searchInfo = {
-    q: 'Pizzicato Five'
-  } 
-  
-  document.getElementById('search').addEventListener('click', (e) => {
     
-    e.preventDefault(); 
+   new Vue({
+     el: '#surfVideo',  
+     store: surfVideoSt, 
+     methods: { 
+      commitVdNo: function(e){   
+        e.preventDefault();
+  
+        document.getElementById('youtubeVideoList').innerHTML = "";
 
-    fetch('http://localhost:5001/searchYoutubeVD', {
+        let searchInfo = {
+          q: document.getElementById('searchText').value
+        } 
+
+        fetch('http://localhost:5001/searchYoutubeVD', {
             method: 'post',
             headers: {
             'Content-Type': 'application/json'
@@ -45,24 +48,36 @@
             .then(res => res.json())
             .then(function(data) {
               if(data !== null)
-              {
-                VideoUrl = data.items[0].id.videoId
+              { 
+                for(let i =0; i<data.items.length; i++)
+                {
+                    document.getElementById('youtubeVideoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>  '
+                    document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
+
+                    // if(typeof data.items[i].id.videoId !== "undefined")
+                  
+                 
+                }
+                // surfVideoSt.commit('commitVdNo', data.items[1].id.videoId);   
+                
+ 
               } 
-            })   
-  });
-    
-   new Vue({
-     el: '#surfVideo', 
-     component: 'surfvideo-view',
-     store: surfVideoSt, 
-     methods: { 
-       onBtnClick: function(){ 
-        surfVideoSt.commit('increment'); 
-         alert( surfVideoSt.state.count ); 
+            })
+        
         } 
       }
  
-      });  
+    });  
+
+    new Vue({
+     el: '#surfVideoTile', 
+     component: 'surfvideo-view',
+     store: surfVideoSt, 
+     methods: { 
+      
+    }
+ 
+   });  
  
 
  </script>
