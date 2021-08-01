@@ -17,6 +17,10 @@
 
  <div id="surfVideoTile">       
    <surfvideo-view></surfvideo-view>    
+   <surfvideo-view></surfvideo-view>
+   <surfvideo-view></surfvideo-view>
+   <surfvideo-view></surfvideo-view>
+   <surfvideo-view></surfvideo-view>
    
  
  </div>   
@@ -38,6 +42,12 @@
           q: document.getElementById('searchText').value
         } 
 
+        if( searchInfo.q === '' )
+        {
+          alert('검색어를 입력하세요.');
+          return;
+        }
+
         fetch('http://localhost:5001/searchYoutubeVD', {
             method: 'post',
             headers: {
@@ -51,7 +61,7 @@
               { 
                 for(let i =0; i<data.items.length; i++)
                 {
-                    document.getElementById('youtubeVideoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>  '
+                    document.getElementById('youtubeVideoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>'
                     document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
 
                     // if(typeof data.items[i].id.videoId !== "undefined")
