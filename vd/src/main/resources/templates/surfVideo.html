@@ -6,6 +6,11 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
 <script src="/vue/surfVideoVue.js"></script>
 <script src="/vue/surfVideoStore.js"></script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+</style>
+
 </head>
 <body>   
  <section class="webdesigntuts-workshop" id="surfVideo">
@@ -13,15 +18,12 @@
     <input type="search" id="searchText" placeholder="What are you looking for?">		    	
     <button id="search" v-on:click="commitVdNo">Search</button>
   </form>
+  <p style="font-family: 'Montserrat', sans-serif;">The results for your search are...</p>
+   <img class="youtube_logo" src="/images/YouTube-Logo.png" style="object-fit: cover; width: 100px; margin: 15px; display: unset;"/>
 </section>
 
- <div id="surfVideoTile">       
+ <div id="surfVideoTile">          
    <surfvideo-view></surfvideo-view>    
-   <surfvideo-view></surfvideo-view>
-   <surfvideo-view></surfvideo-view>
-   <surfvideo-view></surfvideo-view>
-   <surfvideo-view></surfvideo-view>
-   
  
  </div>   
 </body>
