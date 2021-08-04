@@ -15,7 +15,7 @@
 <body>   
  <section class="webdesigntuts-workshop" id="surfVideo">
   <form action="" method="">		    
-    <input type="search" id="searchText" placeholder="What are you looking for?">		    	
+    <input type="search" id="searchText" placeholder="What are you looking for?" value="우왁굳">		    	
     <button id="search" v-on:click="commitVdNo">Search</button>
   </form>
   <p style="font-family: 'Montserrat', sans-serif;">The results for your search are...</p>
@@ -23,14 +23,14 @@
 </section>
 
  <div id="surfVideoTile">          
-   <surfvideo-view></surfvideo-view>    
- 
+   <surfvideo-view></surfvideo-view> 
  </div>   
 </body>
 <script>   
 
   const surfVideoSt = new Vuex.Store(surfVideoStore);
-    
+  let twitchBjId = { user_id: ''};
+ 
    new Vue({
      el: '#surfVideo',  
      store: surfVideoSt, 
@@ -38,44 +38,96 @@
       commitVdNo: function(e){   
         e.preventDefault();
   
-        document.getElementById('youtubeVideoList').innerHTML = "";
-
-        let searchInfo = {
-          q: document.getElementById('searchText').value
-        } 
-
-        if( searchInfo.q === '' )
+        document.getElementById('videoList').innerHTML = "";
+  
+        if( this.$data.searchInfo.q === '' )
         {
           alert('검색어를 입력하세요.');
           return;
         }
 
-        fetch('http://localhost:5001/searchYoutubeVD', {
+        /*----------------------------------------------------
+         Twitch Video 검색
+        ----------------------------------------------------*/ 
+        this.searchTwitchIdVD().then(function(data) { 
+          if(data !== null)
+          {
+            // 트위치 bj 아이디는 제일 먼저 검색되는 id 로 검색한다.... 
+            twitchBjId.user_id = data.data[0].id;               
+              
+            // Twitch VD 찾기
+            fetch('http://localhost:5001/searchTwitchVD', {
+              method: 'post',
+              headers: {
+              'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(twitchBjId)
+              })
+              .then(res => res.json())
+              .then( function(data) {
+                for(let i =0; i<data.data.length; i++)
+                {
+                    document.getElementById('videoList').innerHTML += '<li><iframe class="twitchvd" src="" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe></li>'
+                    document.getElementsByClassName('twitchvd')[i].setAttribute("src", surfVideoSt.state.twcUrl.concat(data.data[i].id.concat('&parent=www.example.com'))); 
+                }
+              }
+                    
+              ) 
+          
+          
+          }           
+        })
+         
+
+        /*----------------------------------------------------
+         Youtube Video 검색
+        ----------------------------------------------------*/
+        this.searchYoutubeVD().then(function(data) { 
+            if(data !== null)
+            { 
+              for(let i =0; i<data.items.length; i++)
+              {
+                  document.getElementById('videoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>'
+                  document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
+              }
+            } 
+        })
+ 
+        },
+        // Twitch Id
+        searchTwitchIdVD: function(e){ 
+          
+          return new Promise((resolve) => {          
+            fetch('http://localhost:5001/searchTwitchIdVD', {
+              method: 'post',
+              headers: {
+              'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(this.$data.searchInfo)
+              })
+              .then(res => resolve(res.json())) 
+              })
+        },
+        // YouTube 
+        searchYoutubeVD: function(e){  
+          return new Promise((resolve) => {          
+            fetch('http://localhost:5001/searchYoutubeVD', {
             method: 'post',
             headers: {
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify(searchInfo)
+            body: JSON.stringify(this.$data.searchInfo)
             })
-            .then(res => res.json())
-            .then(function(data) {
-              if(data !== null)
-              { 
-                for(let i =0; i<data.items.length; i++)
-                {
-                    document.getElementById('youtubeVideoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>'
-                    document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
-
-                    // if(typeof data.items[i].id.videoId !== "undefined")
-                  
-                 
-                }
-                // surfVideoSt.commit('commitVdNo', data.items[1].id.videoId);   
-                
- 
-              } 
-            })
-        
+            .then(res => resolve(res.json()))
+            
+          })
+        }
+      },
+      data: {
+        // 검색어
+        searchInfo: { 
+          q: document.getElementById('searchText').value,
+          query: document.getElementById('searchText').value 
         } 
       }
  
@@ -83,7 +135,7 @@
 
     new Vue({
      el: '#surfVideoTile', 
-     component: 'surfvideo-view',
+     component: 'surfvideo-view surfvideoyoutube-view',
      store: surfVideoSt, 
      methods: { 
       
