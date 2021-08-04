@@ -1,12 +1,8 @@
 package com.surfingvd.vd.dto;
 
 import java.io.Serializable;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import org.springframework.stereotype.Component;
-
+import java.util.List; 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties; 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,16 +26,21 @@ public class VdYoutubeDto implements Serializable {
     @Getter
     @Setter
     public static class Res {
+          
+        List<items> items; 
         
-        String kind;
-        String etag;
-        String nextPageToken;
-        String regionCode;    
-        List<pageInfo> pageInfo; 
-        
-        public static class pageInfo {
-            int totalResults;
-            int resultsPerPage;
+        @ToString
+        @Getter
+        @Setter
+        public static class items {
+            id id;
+
+            @ToString
+            @Getter
+            @Setter
+            public static class id {
+                String videoId;
+            }
         } 
 
     }
