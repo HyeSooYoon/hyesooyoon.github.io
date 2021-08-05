@@ -18,8 +18,7 @@
     <input type="search" id="searchText" placeholder="What are you looking for?" value="우왁굳">		    	
     <button id="search" v-on:click="commitVdNo">Search</button>
   </form>
-  <p style="font-family: 'Montserrat', sans-serif;">The results for your search are...</p>
-   <img class="youtube_logo" src="/images/YouTube-Logo.png" style="object-fit: cover; width: 100px; margin: 15px; display: unset;"/>
+  <p style="font-family: 'Montserrat', sans-serif;">The results for your search are...</p>   
 </section>
 
  <div id="surfVideoTile">          
@@ -38,8 +37,9 @@
       commitVdNo: function(e){   
         e.preventDefault();
   
-        document.getElementById('videoList').innerHTML = "";
-  
+        document.getElementById('youtubeVideoList').innerHTML = "";
+        document.getElementById('twitchVideoList').innerHTML = "";       
+        
         if( this.$data.searchInfo.q === '' )
         {
           alert('검색어를 입력하세요.');
@@ -65,19 +65,18 @@
               })
               .then(res => res.json())
               .then( function(data) {
+
+                document.getElementById('twitch_logo').style.display = 'unset';
+
                 for(let i =0; i<data.data.length; i++)
                 {
-                    document.getElementById('videoList').innerHTML += '<li><iframe class="twitchvd" src="" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe></li>'
-                    document.getElementsByClassName('twitchvd')[i].setAttribute("src", surfVideoSt.state.twcUrl.concat(data.data[i].id.concat('&parent=www.example.com'))); 
+                    document.getElementById('twitchVideoList').innerHTML += '<iframe class="twitchvd" src="" frameborder="0" allowfullscreen="true" autoplay="false" scrolling="no" height="378" width="620"></iframe>'
+                    document.getElementsByClassName('twitchvd')[i].setAttribute("src", surfVideoSt.state.twcUrl.concat(data.data[i].id.concat('&parent=localhost&autoplay=false'))); 
                 }
               }
-                    
               ) 
-          
-          
           }           
-        })
-         
+        })         
 
         /*----------------------------------------------------
          Youtube Video 검색
@@ -85,9 +84,11 @@
         this.searchYoutubeVD().then(function(data) { 
             if(data !== null)
             { 
+              document.getElementById('youtube_logo').style.display = 'unset';
+
               for(let i =0; i<data.items.length; i++)
               {
-                  document.getElementById('videoList').innerHTML += '<li><iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>'
+                  document.getElementById('youtubeVideoList').innerHTML += '<iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
                   document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
               }
             } 
@@ -135,7 +136,7 @@
 
     new Vue({
      el: '#surfVideoTile', 
-     component: 'surfvideo-view surfvideoyoutube-view',
+     component: 'surfvideo-view',
      store: surfVideoSt, 
      methods: { 
       
