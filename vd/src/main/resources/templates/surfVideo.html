@@ -6,27 +6,38 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
 <script src="/vue/surfVideoVue.js"></script>
 <script src="/vue/surfVideoStore.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 </style>
 
 </head>
 <body>   
- <section class="webdesigntuts-workshop" id="surfVideo">
-  <form action="" method="">		    
-    <input type="search" id="searchText" placeholder="What are you looking for?" value="우왁굳">		    	
-    <button id="search" v-on:click="commitVdNo">Search</button>
-  </form>
-  <p style="font-family: 'Montserrat', sans-serif;">The results for your search are...</p>   
-</section>
+  
+  <div class="container">
+    <div id="cloud-intro">
 
- <div id="surfVideoTile">          
-   <surfvideo-view></surfvideo-view> 
- </div>   
+
+      <section class="webdesigntuts-workshop" id="surfVideo">
+        <form action="" method="">		    
+          <input type="search" id="searchText" placeholder="What are you looking for?" value="우왁굳">		    	
+          <button id="search" v-on:click="commitVdNo"><p style="font-family: 'Permanent Marker', cursive;">Search</p></button>
+        </form>
+        <p id="title" style="font-family: 'Permanent Marker', cursive;font-size: 100px; color:#a48cb3;">Find the video you want</p>   
+      </section>
+      
+       <div id="surfVideoTile">          
+         <surfvideo-view></surfvideo-view> 
+       </div>   
+
+    </div>
+  </div>
+
+
+ 
 </body>
 <script>   
-
   const surfVideoSt = new Vuex.Store(surfVideoStore);
   let twitchBjId = { user_id: ''};
  
@@ -36,15 +47,18 @@
      methods: { 
       commitVdNo: function(e){   
         e.preventDefault();
-  
-        document.getElementById('youtubeVideoList').innerHTML = "";
-        document.getElementById('twitchVideoList').innerHTML = "";       
         
         if( this.$data.searchInfo.q === '' )
         {
           alert('검색어를 입력하세요.');
           return;
         }
+
+        document.getElementById('youtubeVideoList').innerHTML = "";
+        document.getElementById('twitchVideoList').innerHTML = "";       
+        document.getElementsByClassName('container')[0].style.width = 'unset';
+        document.body.style.height ='unset';
+        document.getElementById('title').innerText = 'The results for your search are...';
 
         /*----------------------------------------------------
          Twitch Video 검색
@@ -67,12 +81,14 @@
               .then( function(data) {
 
                 document.getElementById('twitch_logo').style.display = 'unset';
+                let strInnerHtml = "";
 
-                for(let i =0; i<data.data.length; i++)
+                // for(let i =0; i<data.data.length; i++)
+                for(let i =0; i<6; i++)
                 {
-                    document.getElementById('twitchVideoList').innerHTML += '<iframe class="twitchvd" src="" frameborder="0" allowfullscreen="true" autoplay="false" scrolling="no" height="378" width="620"></iframe>'
-                    document.getElementsByClassName('twitchvd')[i].setAttribute("src", surfVideoSt.state.twcUrl.concat(data.data[i].id.concat('&parent=localhost&autoplay=false'))); 
+                    strInnerHtml = strInnerHtml + '<iframe class="twitchvd" src="' + surfVideoSt.state.twcUrl.concat(data.data[i].id.concat('&parent=localhost&autoplay=false')) + '" frameborder="0" allowfullscreen="true" autoplay="false" scrolling="no" height="378" width="620"></iframe>'
                 }
+                document.getElementById('twitchVideoList').innerHTML = strInnerHtml;
               }
               ) 
           }           
@@ -86,7 +102,8 @@
             { 
               document.getElementById('youtube_logo').style.display = 'unset';
 
-              for(let i =0; i<data.items.length; i++)
+              for(let i =0; i<6; i++)
+              // for(let i =0; i<data.items.length; i++)
               {
                   document.getElementById('youtubeVideoList').innerHTML += '<iframe width="560" class="youtubevd" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
                   document.getElementsByClassName('youtubevd')[i].setAttribute("src", surfVideoSt.state.ytubeUrl + data.items[i].id.videoId); 
