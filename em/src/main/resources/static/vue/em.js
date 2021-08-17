@@ -133,7 +133,7 @@ Vue.component('emmain-view', {
      <div class="mail-contents-subject">
       <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked>
       <label for="mail20"></label>
-      <div class="mail-contents-title"><input type="text" value="오늘의 컨디션은.." style="font-size: 17px;"></input></div>
+      <div class="mail-contents-title"><input type="text" name="title" value="오늘의 컨디션은.." style="font-size: 17px;"></input></div>
      </div>
      <div class="mail">
       <div class="mail-time">
@@ -145,7 +145,7 @@ Vue.component('emmain-view', {
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false>컨디션(몸, 정신) 관리는 매우매우 중요하다... 컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...
+            <textarea spellcheck=false name="contents">컨디션(몸, 정신) 관리는 매우매우 중요하다... 컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...
             </textarea>
             <div class="textarea-clone"></div>
           </section>   
@@ -272,19 +272,16 @@ data() {
   return { now: moment(new Date()).format('DD MMM, YYYY') }
 },
 methods:{
-  add: function() {
-    alert('dd')
+  add: function() { 
     
-    fetch('http://localhost:5013/countVote', {
-      method: 'post',
-      credentials: 'include',
+    fetch('http://localhost:5013/add', {
+      method: 'post', 
       headers: {
       'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          product_cd: '{{boardDetail.productCd}}',
-          user_no: '',
-          tel: ''
+        contents: document.getElementsByName("contents")[0].value,
+        title: document.getElementsByName("title")[0].value
         })
       })
       .then(res => res.json())
@@ -293,10 +290,7 @@ methods:{
         {
           
         }
-        else if(data.code==='5002')
-        {
-          document.querySelector('.emoji--like').style.backgroundColor = '#eacebd'
-        }
+        
       })
   }
 } 

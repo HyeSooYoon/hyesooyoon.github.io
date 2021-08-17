@@ -1,7 +1,7 @@
 #DB properties
 spring:
     application:
-        name: webclient        
+        name: EM        
     # datasource:
     #     driver: com.mysql.cj.jdbc.Driver
     #     driver-class-name: com.mysql.cj.jdbc.Driver
