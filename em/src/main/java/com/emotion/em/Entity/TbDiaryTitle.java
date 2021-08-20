@@ -18,7 +18,7 @@ public class TbDiaryTitle {
     
     @Id
     @Column(name="no")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int no;
     
     @Column(name="title", nullable = false, length=50)

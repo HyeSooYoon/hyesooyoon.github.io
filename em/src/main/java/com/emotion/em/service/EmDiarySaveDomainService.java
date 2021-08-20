@@ -1,20 +1,18 @@
 package com.emotion.em.service;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
  
 import com.emotion.em.Entity.TbDiaryContents;
 import com.emotion.em.Entity.TbDiaryTitle;
 import com.emotion.em.repository.DiaryRepository;
 import com.emotion.em.repository.DiaryTitleRepository;
-
 import org.springframework.stereotype.Service;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor; 
 
 @Service 
-@RequiredArgsConstructor 
-@Slf4j
+@RequiredArgsConstructor  
 public class EmDiarySaveDomainService {
 
     private final DiaryRepository diaryRepository;
@@ -32,6 +30,21 @@ public class EmDiarySaveDomainService {
         return tbDiaryTitle; 
     }
 
+    @Transactional 
+    public TbDiaryContents selectDiary(String no) {
+        Optional<TbDiaryContents> diary = diaryRepository.findTbDiaryContentsByNo(Integer.parseInt(no));
+        if (!diary.isPresent()) 
+            throw new RuntimeException("diary, not found :" + no);
+        return diary.get();
+    }
+
+    @Transactional 
+    public TbDiaryTitle selectTitle(String no) {
+        Optional<TbDiaryTitle> diary = diaryTitleRepository.findTbDiaryTitleByNo(Integer.parseInt(no));
+        if (!diary.isPresent()) 
+            throw new RuntimeException("diary title, not found :" + no);
+        return diary.get();
+    }
 
     
 

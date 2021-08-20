@@ -16,7 +16,7 @@ public class TbDiaryContents {
     
     @Id
     @Column(name="no", nullable = false, length=5)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int no;
     
     @Column(name="contents", nullable = false, length=500)
