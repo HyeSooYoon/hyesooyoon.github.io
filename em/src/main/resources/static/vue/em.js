@@ -140,12 +140,13 @@ Vue.component('emmain-view', {
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 6v6l4 2" /></svg>
-        {{now}}
+        {{title}}
       </div>
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false name="contents">컨디션(몸, 정신) 관리는 매우매우 중요하다... 컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...컨디션(몸, 정신) 관리는 매우매우 중요하다...
+            <textarea spellcheck=false name="contents">
+            {{contents}}
             </textarea>
             <div class="textarea-clone"></div>
           </section>   
@@ -269,7 +270,12 @@ Vue.component('emmain-view', {
 </div>
 `, 
 data() {
-  return { now: moment(new Date()).format('DD MMM, YYYY') }
+  return { 
+    now: moment(new Date()).format('DD MMM, YYYY'),
+    title: 'fff',
+    contents: '',
+    date: ''
+}
 },
 methods:{
   add: function() {
@@ -289,18 +295,34 @@ methods:{
   },
   list: function() { 
     this.add().then(function(data) {
-        if(!data.success)
+      
+        if(data === '')
         { 
           alert(data.message); 
           return;
         }        
         else
         {
-          alert('조회');
-
+          // $this.data.contents = '저장완료'
         }
     })
+    $this.data.contents = '저장완료'
    
+  }
+  , 
+  serch: function() {
+    fetch('http://localhost:5013/list/' + data.no, {
+      method: 'get', 
+      headers: {
+      'Content-Type': 'application/json'
+      }
+      })
+      .then(res => res.json())
+      .then(function(data) {
+        alert(data.message); 
+      })
+
+
   }
 
   
