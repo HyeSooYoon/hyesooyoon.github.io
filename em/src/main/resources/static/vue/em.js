@@ -88,7 +88,7 @@ Vue.component('emmain-view', {
       <input type="checkbox" name="msg" id="mail3" class="mail-choice" checked>
       <label for="mail3"></label>
       <div class="msg-content">
-       <div class="msg-title">Chicharrones craft beer tattooed</div>
+       <div class="msg-title">{{title}}</div>
        <div class="msg-date">22 Feb, 2019</div>
       </div>
       <img src="../img/me.png" alt="" class="members mail-members">
@@ -133,14 +133,14 @@ Vue.component('emmain-view', {
      <div class="mail-contents-subject">
       <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked>
       <label for="mail20"></label>
-      <div class="mail-contents-title"><input type="text" name="title" value="오늘의 컨디션은.." style="font-size: 17px;"></input></div>
+      <div class="mail-contents-title"><input type="text" name="title" value="오늘의 컨디션dd은.." style="font-size: 17px;"></input></div>
      </div>
      <div class="mail">
       <div class="mail-time">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 6v6l4 2" /></svg>
-        {{title}}
+        {{date}}
       </div>
       <div class="mail-inside">
           <article>
@@ -270,11 +270,10 @@ Vue.component('emmain-view', {
 </div>
 `, 
 data() {
-  return { 
-    now: moment(new Date()).format('DD MMM, YYYY'),
-    title: 'fff',
+  return {     
+    title: '',
     contents: '',
-    date: ''
+    date: moment(new Date()).format('DD MMM, YYYY')
 }
 },
 methods:{
@@ -293,7 +292,7 @@ methods:{
       .then(res => resolve(res.json())) 
     })    
   },
-  list: function() { 
+  list: function() {     
     this.add().then(function(data) {
       
         if(data === '')
@@ -302,28 +301,35 @@ methods:{
           return;
         }        
         else
-        {
-          // $this.data.contents = '저장완료'
+        {          
+          document.getElementsByName("contents")[0].value = data.contents;
+          document.getElementsByName("title")[0].value = data.title;
+          document.getElementsByName("contents")[0].disabled = true;
+          document.getElementsByName("title")[0].disabled = true;
+                   
         }
-    })
-    $this.data.contents = '저장완료'
-   
-  }
-  , 
-  serch: function() {
-    fetch('http://localhost:5013/list/' + data.no, {
-      method: 'get', 
-      headers: {
-      'Content-Type': 'application/json'
+        
+    }).then(function() {
+        fetch('http://localhost:5013/list/1', {
+        method: 'get', 
+        headers: {
+        'Content-Type': 'application/json'
+        }
+        })
+        .then(res => res.json())
+        .then(function(data) {
+          if(data !== null)
+          {  
+            this.data.title = '이건 셋팅 되나';
+          }
+        })
+      
       }
-      })
-      .then(res => res.json())
-      .then(function(data) {
-        alert(data.message); 
-      })
+    )
+     
 
-
-  }
+       
+  } 
 
   
 } 
