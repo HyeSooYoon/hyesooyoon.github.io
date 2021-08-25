@@ -1,5 +1,6 @@
 package com.emotion.em.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -44,6 +45,11 @@ public class EmDiarySaveDomainService {
         if (!diary.isPresent()) 
             throw new RuntimeException("diary title, not found :" + no);
         return diary.get();
+    }
+
+    @Transactional 
+    public List<TbDiaryTitle> selectTitleAll() {
+        return diaryTitleRepository.findAll();
     }
 
     

@@ -1,6 +1,8 @@
 package com.emotion.em.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 import com.emotion.em.Dto.DiaryContents;
 import com.emotion.em.Entity.TbDiaryContents;
 import com.emotion.em.Entity.TbDiaryTitle; 
@@ -46,6 +48,13 @@ public class EmDiarySaveService {
         diaryContents.setDate(tbDiaryTitle.getDate());
         return diaryContents;
     }
+
+
+    public List<TbDiaryTitle> selectTitleAll() {         
+        return emDiarySaveDomainService.selectTitleAll();
+    }
+
+     
 
 
 

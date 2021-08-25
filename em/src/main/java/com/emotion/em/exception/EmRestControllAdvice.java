@@ -1,8 +1,7 @@
 package com.emotion.em.exception;
 
 import com.emotion.em.model.response.CommonResult;
-import com.emotion.em.service.ResponseService;
-
+import com.emotion.em.service.ResponseService; 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
