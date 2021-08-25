@@ -10,14 +10,16 @@
 </head>
 <body>
   <div id="main">
-   <emmain-view></emmain-view>
+   <emmain-view :tbDiaryTitle="tbDiaryTitle"></emmain-view>
   </div>
 </body>
-<script>
-  ddddddddddddddddddddddd
+<script> 
 new Vue({
      el: '#main', 
-     component: 'emmain-view'
+     component: 'emmain-view',
+     data: () => ({
+      tbDiaryTitle: '{{tbDiaryTitle}}'
+     })
      
   });
 </script>

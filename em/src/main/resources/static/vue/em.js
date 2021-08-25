@@ -88,7 +88,11 @@ Vue.component('emmain-view', {
       <input type="checkbox" name="msg" id="mail3" class="mail-choice" checked>
       <label for="mail3"></label>
       <div class="msg-content">
-       <div class="msg-title">{{title}}</div>
+       
+      <div class="msg-title" v-for="(tbDiaryTitle, index) in tbDiaryTitle"> 
+        {{tbDiaryTitle.title}}
+       </div>
+
        <div class="msg-date">22 Feb, 2019</div>
       </div>
       <img src="../img/me.png" alt="" class="members mail-members">
@@ -162,7 +166,7 @@ Vue.component('emmain-view', {
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
         <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
       </div>
-      <div class="send" @click="list">
+      <div class="send" @click="test">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
         <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
       </div>
@@ -272,7 +276,7 @@ Vue.component('emmain-view', {
 data() {
   return {     
     title: '',
-    contents: '',
+    contents: '안바뀜',
     date: moment(new Date()).format('DD MMM, YYYY')
 }
 },
@@ -302,15 +306,27 @@ methods:{
         }        
         else
         {          
-          document.getElementsByName("contents")[0].value = data.contents;
-          document.getElementsByName("title")[0].value = data.title;
-          document.getElementsByName("contents")[0].disabled = true;
-          document.getElementsByName("title")[0].disabled = true;
+          // document.getElementsByName("contents")[0].value = data.contents;
+          // document.getElementsByName("title")[0].value = data.title;
+          // document.getElementsByName("contents")[0].disabled = true;
+          // document.getElementsByName("title")[0].disabled = true;
                    
         }
         
     }).then(function() {
-        fetch('http://localhost:5013/list/1', {
+        
+      
+      }
+    )
+     
+
+       
+  },
+  test: function() {
+    this.title = '{{tbDiaryTitle.title}}' 
+  },
+  search: function() {
+    fetch('http://localhost:5013/list/1', {
         method: 'get', 
         headers: {
         'Content-Type': 'application/json'
@@ -320,16 +336,14 @@ methods:{
         .then(function(data) {
           if(data !== null)
           {  
-            this.data.title = '이건 셋팅 되나';
+            this.title = '테스sdfdsf트';
           }
         })
-      
-      }
-    )
-     
-
-       
-  } 
+  },
+  props: {
+    tbDiaryTitle  : Array
+  }
+  
 
   
 } 
