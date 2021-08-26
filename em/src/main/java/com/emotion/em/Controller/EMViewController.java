@@ -21,7 +21,7 @@ public class EMViewController {
         ModelAndView mv = new ModelAndView();
 
         List<TbDiaryTitle> tbDiaryTitle = emDiarySaveService.selectTitleAll();
-        mv.addObject("tbDiaryTitle", tbDiaryTitle);        
+        mv.addObject("tbdiarytitle", tbDiaryTitle);        
         mv.setViewName("/em");
         return mv;
     }
