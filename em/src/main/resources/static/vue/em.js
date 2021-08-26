@@ -1,4 +1,7 @@
 Vue.component('emmain-view', {    
+  props: {
+    tbdiarytitle: Array
+  },
   template: 
 `
 <div class="container">
@@ -87,11 +90,9 @@ Vue.component('emmain-view', {
      <div class="msg selected-bg anim-y">
       <input type="checkbox" name="msg" id="mail3" class="mail-choice" checked>
       <label for="mail3"></label>
-      <div class="msg-content">
+       <div class="msg-content"> 
        
-      <div class="msg-title" v-for="(tbDiaryTitle, index) in tbDiaryTitle"> 
-        {{tbDiaryTitle.title}}
-       </div>
+       <div class="msg-title">{{tbdiarytitle}}</div>
 
        <div class="msg-date">22 Feb, 2019</div>
       </div>
@@ -136,7 +137,7 @@ Vue.component('emmain-view', {
     <div class="mail-contents">
      <div class="mail-contents-subject">
       <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked>
-      <label for="mail20"></label>
+      <label for="mail20"></label>      
       <div class="mail-contents-title"><input type="text" name="title" value="오늘의 컨디션dd은.." style="font-size: 17px;"></input></div>
      </div>
      <div class="mail">
@@ -166,7 +167,7 @@ Vue.component('emmain-view', {
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
         <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
       </div>
-      <div class="send" @click="test">
+      <div class="send" @click="list">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
         <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
       </div>
@@ -276,7 +277,7 @@ Vue.component('emmain-view', {
 data() {
   return {     
     title: '',
-    contents: '안바뀜',
+    contents: '아 너무너무 어렵다..',
     date: moment(new Date()).format('DD MMM, YYYY')
 }
 },
@@ -306,6 +307,7 @@ methods:{
         }        
         else
         {          
+          location.href = '/em';
           // document.getElementsByName("contents")[0].value = data.contents;
           // document.getElementsByName("title")[0].value = data.title;
           // document.getElementsByName("contents")[0].disabled = true;
@@ -313,36 +315,13 @@ methods:{
                    
         }
         
-    }).then(function() {
-        
-      
-      }
-    )
-     
-
-       
+    }) 
   },
-  test: function() {
-    this.title = '{{tbDiaryTitle.title}}' 
-  },
-  search: function() {
-    fetch('http://localhost:5013/list/1', {
-        method: 'get', 
-        headers: {
-        'Content-Type': 'application/json'
-        }
-        })
-        .then(res => res.json())
-        .then(function(data) {
-          if(data !== null)
-          {  
-            this.title = '테스sdfdsf트';
-          }
-        })
-  },
-  props: {
-    tbDiaryTitle  : Array
-  }
+  test: function() { 
+    alert('{{tbdiarytitle[0].title}}')
+    // document.getElementsByClassName('msg-title')[0].innerText = ddd
+  }  
+  
   
 
   
