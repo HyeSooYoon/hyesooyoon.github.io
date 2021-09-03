@@ -10,18 +10,68 @@
 </head>
 <body>
   <div id="main">
-   <emmain-view :ddd="ddd" :tbdiarytitle="tbdiarytitle"></emmain-view> 
+    <emmain-view></emmain-view>   
   </div>
 </body>
-<script> 
+<script>    
+
 new Vue({
      el: '#main', 
      component: 'emmain-view',
-     data: {
-      tbdiarytitle: '{{tbdiarytitle}}'
+     data: { 
+      datalist: '',
+      ddd: [
+        { product: 'PR01', boardType: 'CS01', productName: 'Aardvark화장품', img: '/assets/img/product/Aardvark화장품.jpg', color: '#2EFEF7'}, 
+        { product: 'PR02', boardType: 'CS01', productName: 'Anteater화장품', img: '/assets/img/product/Anteater화장품.jpg', color: '#ECCEF5'} ]
+     },
+     mounted() {
+      // this.list(); 
+     },
+     methods:{
+      list: function() { 
+        fetch('http://localhost:5013/list', {
+          method: 'get', 
+          headers: {
+          'Content-Type': 'application/json'
+          } 
+          })
+          .then(res => res.json())
+          .then(function(data) { 
+            if(data !== '')
+            {  
+               var jsonArray 	= new Array();  
+
+              for (var i=0; i<data.length; i++) {   
+                var jsonObj		= new Object();              
+                jsonObj.title		= data[i].title
+                jsonObj = JSON.stringify(jsonObj);
+                jsonArray.push(JSON.parse(jsonObj)); 
+              }
+              this.datalist = jsonArray;
+            }        
+          } 
+        )
+      }
      }
      
   });
+  // var jsonObj		= new Object(); 
+  //               var jsonArray 	= new Array();  
+   
+//   for (var i=0; i<3; i++) {
+// 	var jsonObj		= new Object(); 
+//       jsonObj.title		= (i+1); 
+//       jsonObj = JSON.stringify(jsonObj);
+//       //String 형태로 파싱한 객체를 다시 json으로 변환
+//       jsonArray.push(JSON.parse(jsonObj));
+// }
+// jsonObj = JSON.stringify(test);
+// jsonArray.push(JSON.parse(jsonObj));
+
+// alert(itm);
+// alert(test);
+// alert(jsonArray);
+
 </script>
 <script src="/js/em.js"></script>  
 </html>

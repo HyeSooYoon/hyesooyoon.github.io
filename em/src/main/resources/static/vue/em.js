@@ -1,7 +1,4 @@
 Vue.component('emmain-view', {    
-  props: {
-    tbdiarytitle: Array
-  },
   template: 
 `
 <div class="container">
@@ -87,27 +84,8 @@ Vue.component('emmain-view', {
       </svg>
      </div>
      
-     <div class="msg selected-bg anim-y">
-      <input type="checkbox" name="msg" id="mail3" class="mail-choice" checked>
-      <label for="mail3"></label>
-       <div class="msg-content"> 
-       
-       <div class="msg-title">{{tbdiarytitle}}</div>
+     <div id="loopdata"></div>        
 
-       <div class="msg-date">22 Feb, 2019</div>
-      </div>
-      <img src="../img/me.png" alt="" class="members mail-members">
-     </div>               
-     
-     <div class="msg anim-y">
-      <input type="checkbox" name="msg" id="mail8" class="mail-choice">
-      <label for="mail8"></label>
-      <div class="msg-content">
-       <div class="msg-title">Create AdWords campaign</div>
-       <div class="msg-date">22 Feb, 2019</div>
-      </div>
-      <img src="../img/me.png" alt="" class="members mail-members">
-     </div>
     </div>
     <div class="add-task">
      <button class="add-button">Add task</button>
@@ -167,7 +145,7 @@ Vue.component('emmain-view', {
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
         <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
       </div>
-      <div class="send" @click="list">
+      <div class="send" @click="save">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
         <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
       </div>
@@ -278,8 +256,12 @@ data() {
   return {     
     title: '',
     contents: '아 너무너무 어렵다..',
-    date: moment(new Date()).format('DD MMM, YYYY')
-}
+    date: moment(new Date()).format('DD MMM, YYYY'),
+    datalist: ''
+  }
+},
+props: { 
+  ddd: Object
 },
 methods:{
   add: function() {
@@ -297,7 +279,7 @@ methods:{
       .then(res => resolve(res.json())) 
     })    
   },
-  list: function() {     
+  save: function() {     
     this.add().then(function(data) {
       
         if(data === '')
@@ -307,24 +289,38 @@ methods:{
         }        
         else
         {          
-          location.href = '/em';
-          // document.getElementsByName("contents")[0].value = data.contents;
-          // document.getElementsByName("title")[0].value = data.title;
-          // document.getElementsByName("contents")[0].disabled = true;
-          // document.getElementsByName("title")[0].disabled = true;
-                   
+          location.href = '/em'; 
         }
         
     }) 
   },
-  test: function() { 
-    alert('{{tbdiarytitle[0].title}}')
-    // document.getElementsByClassName('msg-title')[0].innerText = ddd
-  }  
-  
-  
-
-  
+  list: function() { 
+    fetch('http://localhost:5013/list', {
+      method: 'get', 
+      headers: {
+      'Content-Type': 'application/json'
+      } 
+      })
+      .then(res => res.json())
+      .then(function(data) { 
+        let datahtml = '' 
+        if(data !== '')
+        {  
+          for (let i in data) { 
+            datahtml = datahtml + '<div class="msg selected-bg anim-y"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked><label for="mail3"></label>' +
+            '<div class="msg-content">' + 
+            '<div class="msg-title">' + data[i].title + 
+            '</div><div class="msg-date">' + moment(data[i].date).format('DD MMM, YYYY') + 
+            '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
+          }          
+        } 
+          document.getElementById('loopdata').innerHTML = datahtml; 
+        } 
+      )
+  } 
+},
+created() {  
+  this.list(); 
 } 
 }); 
 
