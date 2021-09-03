@@ -17,60 +17,30 @@
 
 new Vue({
      el: '#main', 
-     component: 'emmain-view',
-     data: { 
-      datalist: '',
-      ddd: [
-        { product: 'PR01', boardType: 'CS01', productName: 'Aardvark화장품', img: '/assets/img/product/Aardvark화장품.jpg', color: '#2EFEF7'}, 
-        { product: 'PR02', boardType: 'CS01', productName: 'Anteater화장품', img: '/assets/img/product/Anteater화장품.jpg', color: '#ECCEF5'} ]
-     },
-     mounted() {
-      // this.list(); 
-     },
-     methods:{
-      list: function() { 
-        fetch('http://localhost:5013/list', {
-          method: 'get', 
-          headers: {
-          'Content-Type': 'application/json'
-          } 
-          })
-          .then(res => res.json())
-          .then(function(data) { 
-            if(data !== '')
-            {  
-               var jsonArray 	= new Array();  
-
-              for (var i=0; i<data.length; i++) {   
-                var jsonObj		= new Object();              
-                jsonObj.title		= data[i].title
-                jsonObj = JSON.stringify(jsonObj);
-                jsonArray.push(JSON.parse(jsonObj)); 
-              }
-              this.datalist = jsonArray;
-            }        
-          } 
-        )
-      }
-     }
-     
+     component: 'emmain-view'
   });
-  // var jsonObj		= new Object(); 
-  //               var jsonArray 	= new Array();  
-   
-//   for (var i=0; i<3; i++) {
-// 	var jsonObj		= new Object(); 
-//       jsonObj.title		= (i+1); 
-//       jsonObj = JSON.stringify(jsonObj);
-//       //String 형태로 파싱한 객체를 다시 json으로 변환
-//       jsonArray.push(JSON.parse(jsonObj));
-// }
-// jsonObj = JSON.stringify(test);
-// jsonArray.push(JSON.parse(jsonObj));
 
-// alert(itm);
-// alert(test);
-// alert(jsonArray);
+  // vue for 문이 안돼서 javascript 함수로 대체함... ㅡㅡ;;;
+  const showcontent = function(obj) {
+    let no = obj.children[2].firstElementChild.children[0].innerText; 
+    
+    fetch('http://localhost:5013/list/' + no, {
+      method: 'get', 
+      headers: {
+      'Content-Type': 'application/json'
+      } 
+      })
+      .then(res => res.json())
+      .then(function(data) {
+        document.getElementsByName("title")[0].value = data.title;
+        document.getElementsByName("contents")[0].value = data.contents;
+        document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(data.date).format('DD MMM, YYYY');
+        
+      })
+
+
+  }
+ 
 
 </script>
 <script src="/js/em.js"></script>  

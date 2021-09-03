@@ -116,21 +116,19 @@ Vue.component('emmain-view', {
      <div class="mail-contents-subject">
       <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked>
       <label for="mail20"></label>      
-      <div class="mail-contents-title"><input type="text" name="title" value="오늘의 컨디션dd은.." style="font-size: 17px;"></input></div>
+      <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;"></input></div>
      </div>
      <div class="mail">
       <div class="mail-time">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 6v6l4 2" /></svg>
-        {{date}}
+        <span id="date">{{date}}</span>
       </div>
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false name="contents">
-            {{contents}}
-            </textarea>
+            <textarea spellcheck=false name="contents"></textarea>
             <div class="textarea-clone"></div>
           </section>   
         </article>
@@ -253,15 +251,9 @@ Vue.component('emmain-view', {
 </div>
 `, 
 data() {
-  return {     
-    title: '',
-    contents: '아 너무너무 어렵다..',
-    date: moment(new Date()).format('DD MMM, YYYY'),
-    datalist: ''
+  return {         
+    date: moment(new Date()).format('DD MMM, YYYY')
   }
-},
-props: { 
-  ddd: Object
 },
 methods:{
   add: function() {
@@ -307,23 +299,24 @@ methods:{
         if(data !== '')
         {  
           for (let i in data) { 
-            datahtml = datahtml + '<div class="msg selected-bg anim-y"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked><label for="mail3"></label>' +
-            '<div class="msg-content">' + 
-            '<div class="msg-title">' + data[i].title + 
+            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked><label for="mail3"></label>' +
+            '<div class="msg-content">' +  
+            '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
             '</div><div class="msg-date">' + moment(data[i].date).format('DD MMM, YYYY') + 
             '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
           }          
         } 
           document.getElementById('loopdata').innerHTML = datahtml; 
+          
         } 
       )
   } 
 },
-created() {  
+mounted() {  
   this.list(); 
 } 
 }); 
-
+  
 
 
 
