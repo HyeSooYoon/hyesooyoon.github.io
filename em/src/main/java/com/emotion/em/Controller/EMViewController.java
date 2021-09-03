@@ -20,14 +20,6 @@ public class EMViewController {
     @GetMapping(value="/em")
     public ModelAndView EMMain() {
         ModelAndView mv = new ModelAndView();
-
-        // List<TbDiaryTitle> tbDiaryTitle = emDiarySaveService.selectTitleAll();
-
-        // Gson gson = new Gson();
-        // String jsonPlace = gson.toJson(tbDiaryTitle);   
-        // System.out.print("jsonPlace: " + jsonPlace);
-
-        // mv.addObject("tbdiarytitle", jsonPlace);        
         mv.setViewName("/em");
         return mv;
     }
