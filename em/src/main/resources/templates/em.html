@@ -37,10 +37,47 @@ new Vue({
         document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(data.date).format('DD MMM, YYYY');
         
       })
-
-
   }
+
+  document.querySelectorAll('.msg-department').forEach((item, i)=> {
+    if(item.id.indexOf('deplight') > -1) {
+      
+      document.getElementById(item.id).addEventListener('click', (obj) => { 
+        document.querySelector('.inbox').prepend(event.target);
+        document.getElementById("dep").classList.toggle('none');
+        document.getElementById("normal").classList.toggle('none');
+        document.getElementById("angry").classList.toggle('none'); 
+      })
+    
+    } else if(item.id.indexOf('dep') > -1) {
+      document.getElementById(item.id).addEventListener('click', (obj) => {
+        document.querySelector('.inbox').prepend(event.target);       
+        document.getElementById("deplight").classList.toggle('none');
+        document.getElementById("normal").classList.toggle('none');
+        document.getElementById("angry").classList.toggle('none'); 
+      })
+
+    } else if(item.id.indexOf('normal') > -1) {
+      document.getElementById(item.id).addEventListener('click', (obj) => {
+        document.querySelector('.inbox').prepend(event.target);
+        document.getElementById("deplight").classList.toggle('none');
+        document.getElementById("dep").classList.toggle('none');
+        document.getElementById("angry").classList.toggle('none'); 
+      })
+
+    } else {
+      document.getElementById(item.id).addEventListener('click', (obj) => {
+        document.querySelector('.inbox').prepend(event.target);
+        document.getElementById("deplight").classList.toggle('none');
+        document.getElementById("normal").classList.toggle('none');
+        document.getElementById("dep").classList.toggle('none'); 
+      })
+    }
+  } 
+       
+ )
  
+    
 
 </script>
 <script src="/js/em.js"></script>  

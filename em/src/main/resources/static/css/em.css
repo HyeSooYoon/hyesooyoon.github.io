@@ -313,8 +313,28 @@
 	 font-weight: 700;
 	 letter-spacing: 0.8px;
 	 background-color: var(--theme-bg-color);
-	 border-left: 4px solid #b36dfb;
 }
+
+.msg-department.none {
+	display: none;
+}
+
+.msg-department.deplight {
+	border-left: 4px solid #b36dfb;
+}
+
+.msg-department.dep {
+	border-left: 4px solid #625be8; 
+}
+
+.msg-department.normal {
+	border-left: 4px solid #fec267; 
+}
+
+.msg-department.angry {
+	border-left: 4px solid #fc6679; 
+}
+
  .msg-department svg {
 	 width: 12px;
 }
