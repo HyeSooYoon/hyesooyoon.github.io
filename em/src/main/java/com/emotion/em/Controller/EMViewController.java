@@ -23,5 +23,12 @@ public class EMViewController {
         mv.setViewName("/em");
         return mv;
     }
+
+    @GetMapping(value="/login")
+    public ModelAndView login() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/login");
+        return mv;
+    }
  
 }
