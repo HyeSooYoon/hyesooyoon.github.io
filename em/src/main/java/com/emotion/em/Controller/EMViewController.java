@@ -1,11 +1,6 @@
 package com.emotion.em.Controller;
 
-import java.util.List;
-
-import com.emotion.em.Entity.TbDiaryTitle;
 import com.emotion.em.service.EmDiarySaveService;
-import com.google.gson.Gson;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping; 
@@ -22,13 +17,7 @@ public class EMViewController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/em");
         return mv;
-    }
-
-    @GetMapping(value="/login")
-    public ModelAndView login() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/login");
-        return mv;
-    }
+    } 
+    
  
 }

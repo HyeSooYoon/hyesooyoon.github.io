@@ -1,8 +1,6 @@
 package com.emotion.em.config;
 
 import com.emotion.em.service.MemberService;
-
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,54 +10,59 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
 import lombok.AllArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    
     private MemberService memberService;
-
-    // @Bean
-    // public PasswordEncoder passwordEncoder() {
-    //     return new BCryptPasswordEncoder();
-    // }
+ 
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     public void configure(WebSecurity web) throws Exception
     {
-        // static 디렉터리의 하위 파일 목록은 인증 무시 ( = 항상통과 )
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/h2_db/**");        
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                // 페이지 권한 설정
-                // .antMatchers("/admin/**").hasRole("ADMIN")
-                // .antMatchers("/user/myinfo").hasRole("MEMBER")
-                .antMatchers("/**").permitAll()
-            .and() // 로그인 설정
+        http.authorizeRequests()                
+                .antMatchers("/em").authenticated()
+                .antMatchers("/em/**").authenticated()
+                .antMatchers("/h2_db/**").permitAll()
+            .and() 
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/em")
+                .loginProcessingUrl("/em")
+                .failureUrl("/login?auth=fail")     // 로그인 실패시 redirect
+                .defaultSuccessUrl("/em", true)
+                .usernameParameter("username")
+                .passwordParameter("password") 
                 .permitAll()
             .and() // 로그아웃 설정
-                .logout()
+            .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/user/logout/result")
                 .invalidateHttpSession(true)
             .and()
-                // 403 예외처리 핸들링
                 .exceptionHandling().accessDeniedPage("/user/denied");
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
-         
-        // 사용자 세부 서비스를 설정하기 위한 오버라이딩이다.
-         super.configure(auth);
+        auth.inMemoryAuthentication()
+                .withUser("admin") 
+                // .password("{noop}" + passwordEncoder().encode("1234")) // 암호화 
+                .password("{noop}1234") 
+                .roles("USER"); 
+
+        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
     }
+    
+   
 }

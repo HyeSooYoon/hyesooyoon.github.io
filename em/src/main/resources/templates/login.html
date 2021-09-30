@@ -9,9 +9,10 @@
 	<div class="container">
 		<h1>Welcome</h1>
 		
-		<form name="form" class="form" action="/em">
-			<input type="text" id="userName" placeholder="Username">
-			<input type="password" id="password" placeholder="Password">
+		<form name="form" class="form" method="post" action="/em">
+			<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+			<input type="text" name="username" placeholder="Username">
+			<input type="password" name="password" placeholder="Password">
 			<button type="submit" id="login-button">Login</button>
 		</form>
 	</div>
