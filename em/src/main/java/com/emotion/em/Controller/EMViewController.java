@@ -12,12 +12,11 @@ public class EMViewController {
     @Autowired
     EmDiarySaveService emDiarySaveService; 
     
-    @GetMapping(value="/em")
-    public ModelAndView EMMain() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/em");
-        return mv;
-    } 
-    
+    // @GetMapping(value="/em")
+    // public ModelAndView EMMain() {
+    //     ModelAndView mv = new ModelAndView();
+    //     mv.setViewName("/em");
+    //     return mv;
+    // }  
  
 }

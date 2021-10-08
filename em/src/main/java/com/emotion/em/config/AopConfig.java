@@ -2,9 +2,7 @@ package com.emotion.em.config;
 
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect; 
@@ -27,12 +25,12 @@ public class AopConfig {
             .collect(Collectors.joining(", "));
       }
   
-    @Pointcut("within(com.emotion.em..*)") // 3
+    @Pointcut("within(com.emotion.em.service..*)") 
     public void onRequest() {}
   
-    @Around("com.emotion.em.config.AopConfig.onRequest()") // 4
+    @Around("com.emotion.em.config.AopConfig.onRequest()") 
     public Object doLogging(ProceedingJoinPoint pjp) throws Throwable {
-      HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest(); // 5
+      HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();  
   
       Map<String, String[]> paramMap = request.getParameterMap();
       String params = "";
@@ -43,15 +41,14 @@ public class AopConfig {
       long start = System.currentTimeMillis();
 
       try {
-        return pjp.proceed(pjp.getArgs()); // 6
+        return pjp.proceed(pjp.getArgs());  
 
       } finally {
         long end = System.currentTimeMillis();
-        log.info("◀◀◀◀◀◀ Request: [{}{}{}][{}] ({}ms)"
+        log.info("◀◀◀◀◀◀ Request: [{}{}{}] ({}ms)"
             , request.getMethod()
             , request.getRequestURI()
-            , params
-            , request.getRemoteHost()
+            , params 
             , end - start);
       }
     }
