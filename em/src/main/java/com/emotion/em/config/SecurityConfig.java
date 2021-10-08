@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -30,19 +31,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()                
+ 
+            http
+             .cors().and()
+             .csrf().disable()
+            //  .sessionManagement()
+            //     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            // .and()
+            .authorizeRequests()                
                 .antMatchers("/em").authenticated()
                 .antMatchers("/em/**").authenticated()
-                .antMatchers("/h2_db/**").permitAll()
+                .antMatchers("/h2_db/**").permitAll() 
+
             .and() 
-                .formLogin()
+            .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/em")
                 .failureUrl("/login?auth=fail")     // 로그인 실패시 redirect
                 .defaultSuccessUrl("/em", true)
                 .usernameParameter("username")
-                .passwordParameter("password") 
-                .permitAll()
+                .passwordParameter("password")  
             .and() // 로그아웃 설정
             .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))

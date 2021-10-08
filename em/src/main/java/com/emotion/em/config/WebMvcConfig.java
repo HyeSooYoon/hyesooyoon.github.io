@@ -24,7 +24,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("forward:/login");  
         registry.addViewController("/login").setViewName("login"); 
         registry.addViewController("/em").setViewName("em"); 
-        // registry.setOrder(Ordered.HIGHEST_PRECEDENCE);  
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);  
     } 
         
     @Override 

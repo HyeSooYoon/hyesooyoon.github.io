@@ -297,10 +297,10 @@ methods:{
           alert(data.message); 
           return;
         }        
-        else
-        {          
-          location.href = '/em'; 
-        }
+        // else
+        // {          
+        //   location.href = '/em'; 
+        // }
         
     }) 
   },
