@@ -297,10 +297,10 @@ methods:{
           alert(data.message); 
           return;
         }        
-        // else
-        // {          
-        //   location.href = '/em'; 
-        // }
+        else
+        {          
+          location.href = '/em'; 
+        }
         
     }) 
   },
@@ -320,7 +320,7 @@ methods:{
             datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked><label for="mail3"></label>' +
             '<div class="msg-content">' +  
             '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
-            '</div><div class="msg-date">' + moment(data[i].date).format('DD MMM, YYYY') + 
+            '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
             '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
           }          
         } 
