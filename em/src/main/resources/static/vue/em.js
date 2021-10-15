@@ -114,16 +114,15 @@ Vue.component('emmain-view', {
       <img src="../img/me.png" alt="" class="members inbox-detail" />
       <div class="mail-detail-name">윤혜수</div>
      </div>
-     <div class="mail-icons" @click="write"> 
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
-       <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
+     <div class="mail-icons" @click="write" style="cursor:grab;"> 
+     ✏️
      </div>
     </div>
     <div class="mail-contents">
-     <div class="mail-contents-subject">
+     <div class="mail-contents-subject" title="우울">
       <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked disabled>
-      <label for="mail20"></label>      
-      <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;" readonly></input></div>
+      <label for="mail20" @click="changeEm"></label>      
+      <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;"></input></div>
      </div>
      <div class="mail">
       <div class="mail-time">
@@ -135,7 +134,7 @@ Vue.component('emmain-view', {
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false name="contents" readonly></textarea>
+            <textarea spellcheck=false name="contents"></textarea>
             <div class="textarea-clone"></div>
           </section>   
         </article>
@@ -258,7 +257,9 @@ Vue.component('emmain-view', {
 `, 
 data() {
   return {         
-    date: moment(new Date()).format('DD MMM, YYYY')
+    date: moment(new Date()).format('DD MMM, YYYY'),
+    count: 0,
+    emcd: 'EM04'
   }
 },
 methods:{
@@ -271,7 +272,8 @@ methods:{
       },
       body: JSON.stringify({
         contents: document.getElementsByName("contents")[0].value,
-        title: document.getElementsByName("title")[0].value
+        title: document.getElementsByName("title")[0].value,
+        emotion_cd: this.emcd
         })
       })
       .then(res => resolve(res.json())) 
@@ -317,7 +319,39 @@ methods:{
         } 
       )
   },
-  write: function() {
+  write: function() {    
+    document.getElementsByName("title")[0].disabled = false;
+    document.getElementsByName("contents")[0].disabled = false;
+    document.getElementsByName("title")[0].value = '';
+    document.getElementsByName("contents")[0].value = '';
+  },
+  changeEm: function() {     
+    const mail20 = document.querySelector('#mail20');
+    
+    mail20.className = 'mail-choice';        
+    this.count += 1; 
+
+    if(this.count == 1) {
+      mail20.classList.add('deplight');   
+      this.emcd = 'EM01';
+      document.querySelector('.mail-contents-subject').title = '보통(약간우울)';
+
+    } else if(this.count == 2) {
+      mail20.classList.add('normal');    
+      this.emcd = 'EM02';
+      document.querySelector('.mail-contents-subject').title = '보통(약간낙관)';
+    
+    } else if(this.count == 3) {
+      mail20.classList.add('angry');    
+      this.emcd = 'EM03';
+      document.querySelector('.mail-contents-subject').title = '다혈질';
+    
+    } else {
+      mail20.classList.add('dep');    
+      this.emcd = 'EM04';
+      document.querySelector('.mail-contents-subject').title = '우울';
+      this.count = 0; 
+    }
     
   }
 

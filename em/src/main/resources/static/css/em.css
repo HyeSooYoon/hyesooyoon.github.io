@@ -13,6 +13,15 @@
 	 --unselected-mail: #f1f2f7;
 	 --calendar-border-color: #cbcfe0;
 	 --main-container-bg: #f0f0f7;
+
+	 /* 보통(약간우울) */
+	 --button-color-deplight: #625be8;
+	 /* 우울 */
+	 --button-color-dep: #4d76fd;
+	 /* 보통(약간낙관) */
+	 --button-color-normal: #fec267;
+	 /* 다혈질 */
+	 --button-color-angry: #fc6679;
 }
  * {
 	 outline: none;
@@ -1094,5 +1103,29 @@ article {
 
   .msg.msg-department {
 	  cursor: grab;
+  }
+
+  .mail-choice.deplight:checked + label:before {	
+	background-color: var(--button-color-deplight);
+	border-color: var(--button-color-deplight);
+	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
+  }
+
+  .mail-choice.dep:checked + label:before {	
+	background-color: var(--button-color-dep);
+	border-color: var(--button-color-dep);
+	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
+  }
+
+  .mail-choice.normal:checked + label:before {	
+	background-color: var(--button-color-normal);
+	border-color: var(--button-color-normal);
+	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
+  }
+
+  .mail-choice.angry:checked + label:before {	
+	background-color: var(--button-color-angry);
+	border-color: var(--button-color-angry);
+	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
   }
  

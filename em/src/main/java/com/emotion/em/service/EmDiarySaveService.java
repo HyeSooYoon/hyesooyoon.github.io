@@ -26,7 +26,7 @@ public class EmDiarySaveService {
         
         tbDiaryTitle.setTitle(diaryContents.getTitle());
         tbDiaryTitle.setDate(LocalDateTime.now());
-        tbDiaryTitle.setEmotion_cd("EM01");
+        tbDiaryTitle.setEmotion_cd(diaryContents.getEmotion_cd());
 
         tbDiaryContents = emDiarySaveDomainService.createDiary(tbDiaryContents);
         tbDiaryTitle = emDiarySaveDomainService.createDiaryTitle(tbDiaryTitle);
