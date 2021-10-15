@@ -1090,5 +1090,9 @@ article {
   input:focus, textarea:focus {
 	outline: none;
 	background-color: #fafafa;
+  }   
+
+  .msg.msg-department {
+	  cursor: grab;
   }
-   
+ 

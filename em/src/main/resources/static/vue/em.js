@@ -71,7 +71,6 @@ Vue.component('emmain-view', {
    </div>
    <div class="color-menu">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.7 464.7"><path d="M446.6 18.1a62 62 0 00-87.6 0L342.3 35a23 23 0 10-32.5 32.5l5.4 5.4-180.6 180.6L71.9 316c-5 5-8 11.6-8.2 18.7l-.2 3.3-2.5 56.7a9.4 9.4 0 009.4 9.8h.4l30-1.3 18.4-.8 8.3-.4a37 37 0 0024.5-10.8l240.9-240.9 4.5 4.6a23 23 0 0032.5 0c9-9 9-23.6 0-32.6l16.7-16.7a62 62 0 000-87.6zm-174 209.2l-84.6 16 138-138 34.4 34.3-87.8 87.7zM64.5 423.9C28.9 423.9 0 433 0 444.3c0 11.3 28.9 20.4 64.5 20.4s64.5-9.1 64.5-20.4C129 433 100 424 64.5 424z"/></svg>
-     <input type="color" value="#4d76fd" class="colorpicker" id="colorpicker"></input>
    </div>
   </div>
   <div class="main-container">
@@ -115,26 +114,16 @@ Vue.component('emmain-view', {
       <img src="../img/me.png" alt="" class="members inbox-detail" />
       <div class="mail-detail-name">윤혜수</div>
      </div>
-     <div class="mail-icons">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
-       <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-       <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-       <circle cx="12" cy="7" r="4" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag">
-       <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82zM7 7h.01" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square">
-       <path d="M9 11l3 3L22 4" />
-       <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>
+     <div class="mail-icons" @click="write"> 
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
        <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
      </div>
     </div>
     <div class="mail-contents">
      <div class="mail-contents-subject">
-      <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked>
+      <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked disabled>
       <label for="mail20"></label>      
-      <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;"></input></div>
+      <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;" readonly></input></div>
      </div>
      <div class="mail">
       <div class="mail-time">
@@ -146,11 +135,10 @@ Vue.component('emmain-view', {
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false name="contents"></textarea>
+            <textarea spellcheck=false name="contents" readonly></textarea>
             <div class="textarea-clone"></div>
           </section>   
         </article>
-        
       </div>
      </div>
     </div>
@@ -317,7 +305,7 @@ methods:{
         if(data !== '')
         {  
           for (let i in data) { 
-            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked><label for="mail3"></label>' +
+            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked disabled><label for="mail3"></label>' +
             '<div class="msg-content">' +  
             '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
             '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
@@ -328,7 +316,11 @@ methods:{
           
         } 
       )
-  } 
+  },
+  write: function() {
+    
+  }
+
 },
 mounted() {  
   this.list(); 

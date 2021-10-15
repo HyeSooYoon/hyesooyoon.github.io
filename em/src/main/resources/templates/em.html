@@ -31,7 +31,7 @@ new Vue({
       .then(function(data) {
         document.getElementsByName("title")[0].value = data.title;
         document.getElementsByName("contents")[0].value = data.contents;
-        document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY');
+        document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
         
       })
   }
