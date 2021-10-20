@@ -48,6 +48,11 @@ public class EmDiarySaveDomainService {
     }
 
     @Transactional 
+    public List<TbDiaryTitle> selectTitleByEmotionCd(String emotion_cd) {        
+        return diaryTitleRepository.findTbDiaryTitleByEmotionCd(emotion_cd);
+    }
+
+    @Transactional 
     public List<TbDiaryTitle> selectTitleAll() {
         return diaryTitleRepository.findAll();
     }

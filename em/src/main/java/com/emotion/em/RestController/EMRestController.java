@@ -15,7 +15,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody; 
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;  
 
 @RestController
@@ -52,13 +53,17 @@ public class EMRestController {
     @GetMapping("/list/{no}")
     public DiaryContents DiaryContentsList(@PathVariable String no) { 
         return emDiarySaveService.selectDiary(no); 
-    }
-
+    } 
+  
     @GetMapping("/list")
     public List<TbDiaryTitle> DiaryTitleAllList() { 
         return emDiarySaveService.selectTitleAll(); 
     }
-
+ 
+    @GetMapping("/listbyemcd/{emotion_cd}")
+    public List<TbDiaryTitle> DiaryTitleByEmotionCode(@PathVariable String emotion_cd) {         
+        return emDiarySaveService.selectTitleByEmotionCode(emotion_cd); 
+    }
 
    
  

@@ -8,9 +8,9 @@ $('.mail-choice').change(function() {
 
 const colorInput = document.getElementById("colorpicker");
 
-colorInput.addEventListener("input", (e) => {
- document.body.style.setProperty("--button-color", e.target.value);
-});
+// colorInput.addEventListener("input", (e) => {
+//  document.body.style.setProperty("--button-color", e.target.value);
+// });
 
 $('.inbox-calendar').click(function(){
   $('.calendar-container').toggleClass('calendar-show');

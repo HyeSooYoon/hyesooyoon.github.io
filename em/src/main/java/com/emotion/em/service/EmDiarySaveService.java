@@ -1,11 +1,10 @@
 package com.emotion.em.service;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
+import java.util.List; 
 import com.emotion.em.Dto.DiaryContents;
 import com.emotion.em.Entity.TbDiaryContents;
-import com.emotion.em.Entity.TbDiaryTitle; 
+import com.emotion.em.Entity.TbDiaryTitle;  
 import org.springframework.stereotype.Service;  
 
 @Service 
@@ -26,7 +25,7 @@ public class EmDiarySaveService {
         
         tbDiaryTitle.setTitle(diaryContents.getTitle());
         tbDiaryTitle.setDate(LocalDateTime.now());
-        tbDiaryTitle.setEmotion_cd(diaryContents.getEmotion_cd());
+        tbDiaryTitle.setEmotionCd(diaryContents.getEmotion_cd());
 
         tbDiaryContents = emDiarySaveDomainService.createDiary(tbDiaryContents);
         tbDiaryTitle = emDiarySaveDomainService.createDiaryTitle(tbDiaryTitle);
@@ -39,22 +38,24 @@ public class EmDiarySaveService {
 
     public DiaryContents selectDiary(String no) {
         TbDiaryContents tbDiaryContents = emDiarySaveDomainService.selectDiary(no);
-        TbDiaryTitle tbDiaryTitle = emDiarySaveDomainService.selectTitle(no); 
-        
+        TbDiaryTitle tbDiaryTitle = emDiarySaveDomainService.selectTitle(no);    
         DiaryContents diaryContents = new DiaryContents();
+ 
         diaryContents.setContents(tbDiaryContents.getContents());
         diaryContents.setTitle(tbDiaryTitle.getTitle());
-        diaryContents.setEmotion_cd(tbDiaryTitle.getEmotion_cd());
+        diaryContents.setEmotion_cd(tbDiaryTitle.getEmotionCd());
         diaryContents.setDate(tbDiaryTitle.getDate());
         return diaryContents;
-    }
+    } 
 
 
     public List<TbDiaryTitle> selectTitleAll() {         
         return emDiarySaveDomainService.selectTitleAll();
     }
 
-     
+    public List<TbDiaryTitle> selectTitleByEmotionCode(String emotion_cd) {         
+        return emDiarySaveDomainService.selectTitleByEmotionCd(emotion_cd);
+    }
 
 
 

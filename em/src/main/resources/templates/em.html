@@ -17,65 +17,150 @@ new Vue({
      component: 'emmain-view'
   });
 
-  // vue for 문이 안돼서 javascript 함수로 대체함... ㅡㅡ;;;
+  let diarySearchUrl = '';
+
+  const mail20 = document.querySelector('#mail20');
+  const all = document.getElementById("all");
+  
+  /**********************************************
+    게시물 상세 클릭  
+  ***********************************************/  
   const showcontent = function(obj) {
     let no = obj.children[2].firstElementChild.children[0].innerText; 
     
-    fetch('http://localhost:5013/list/' + no, {
-      method: 'get', 
-      headers: {
-      'Content-Type': 'application/json'
-      } 
-      })
-      .then(res => res.json())
-      .then(function(data) {
+    diarySearchUrl = 'http://localhost:5013/list/';
+
+    searchdiary(no).then(function(data) {
+      
+      if(data === '')
+      { 
+        alert(data.message); 
+        return;
+      }        
+      else
+      {          
+        mail20.className = 'mail-choice';        
         document.getElementsByName("title")[0].disabled = true;
         document.getElementsByName("contents")[0].disabled = true;
-        document.getElementsByName("title")[0].value = data.title;
-        document.getElementsByName("contents")[0].value = data.contents;
-        document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
         
-      })
-  }
-
-  document.querySelectorAll('.msg-department').forEach((item, i)=> {
-    if(item.id.indexOf('deplight') > -1) {
-      
-      document.getElementById(item.id).addEventListener('click', (obj) => { 
-        document.querySelector('.inbox').prepend(event.target); 
-        document.getElementById("dep").classList.toggle('none');
-        document.getElementById("normal").classList.toggle('none');
-        document.getElementById("angry").classList.toggle('none'); 
-      })
+        mail20.classList.add(data.emotion_cd);   
+        document.getElementsByName("title")[0].value = data.title;
+        document.getElementsByName("contents")[0].value = data.contents; 
+        document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
+      }      
+    })  
+  } 
+  
+  /**********************************************
+    기분코드에 따른 게시물 타이틀 조회 
+  ***********************************************/  
+  const showemcontent = function(obj) {
     
-    } else if(item.id.indexOf('dep') > -1) {
-      document.getElementById(item.id).addEventListener('click', (obj) => {
-        document.querySelector('.inbox').prepend(event.target);        
+    let type = '';    
+    
+    diarySearchUrl = 'http://localhost:5013/listbyemcd/';
+
+    // 보통(약간우울)
+    if(obj.indexOf('deplight') > -1) { type = 'EM01'; } 
+
+    // 보통(약간낙관)
+    else if(obj.indexOf('normal') > -1) { type = 'EM02'; } 
+
+    // 다혈질
+    else if(obj.indexOf('angry') > -1) { type = 'EM03'; }
+
+    // 우울
+    else if(obj.indexOf('dep') > -1) { type = 'EM04'; }     
+
+    // 전체
+    else { diarySearchUrl = 'http://localhost:5013/list/'; }    
+
+    searchdiary(type).then(function(data) {
+      
+      if(data === '')
+      { 
+        alert(data.message); 
+        return;
+      }        
+      else
+      {          
+        let datahtml = ''                   
+           
+        for (let i=0; i<data.length; i++) { 
+          datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
+          '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
+          '<div class="msg-content">' +  
+          '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
+          '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
+          '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
+        }   
+
+        document.getElementById('loopdata').innerHTML = datahtml;  
+      }       
+    })   
+  } 
+
+  document.querySelectorAll('.msg-department').forEach((item, i)=> {    
+
+    document.getElementById(item.id).addEventListener('click', (obj) => {      
+      
+      document.querySelector('.inbox').prepend(all);       
+      document.querySelector('.inbox').prepend(event.target);       
+
+      if(item.id.indexOf('deplight') > -1) {              
+        all.classList.toggle('none');
+        document.getElementById("dep").classList.toggle('none');
+        document.getElementById("normal").classList.toggle('none');
+        document.getElementById("angry").classList.toggle('none'); 
+
+      } else if(item.id.indexOf('dep') > -1) {
+        all.classList.toggle('none');
         document.getElementById("deplight").classList.toggle('none');
         document.getElementById("normal").classList.toggle('none');
         document.getElementById("angry").classList.toggle('none'); 
-      })
 
-    } else if(item.id.indexOf('normal') > -1) {
-      document.getElementById(item.id).addEventListener('click', (obj) => {
-        document.querySelector('.inbox').prepend(event.target); 
+      } else if(item.id.indexOf('normal') > -1) {
+        all.classList.toggle('none');
         document.getElementById("deplight").classList.toggle('none');
         document.getElementById("dep").classList.toggle('none');
         document.getElementById("angry").classList.toggle('none'); 
-      })
 
-    } else {
-      document.getElementById(item.id).addEventListener('click', (obj) => {
-        document.querySelector('.inbox').prepend(event.target); 
+      } else if(item.id.indexOf('angry') > -1) {
+        all.classList.toggle('none');
         document.getElementById("deplight").classList.toggle('none');
         document.getElementById("normal").classList.toggle('none');
         document.getElementById("dep").classList.toggle('none'); 
-      })
-    }
-  } 
-       
- )
+      
+      } else {        
+        document.getElementById("deplight").classList.toggle('none');
+        document.getElementById("normal").classList.toggle('none');
+        document.getElementById("dep").classList.toggle('none'); 
+        document.getElementById("angry").classList.toggle('none'); 
+      }
+
+      if( document.getElementsByClassName('none').length > 0 ) 
+      {
+        showemcontent(item.id);
+      }
+
+    });
+     
+  })
  
+  /**********************************************
+    다이어리 조회 
+  ***********************************************/  
+  const searchdiary = function(obj) {
+    return new Promise((resolve) => { 
+      fetch(diarySearchUrl + obj, {
+      method: 'get', 
+      headers: {
+      'Content-Type': 'application/json'
+      }
+      })
+      .then(res => resolve(res.json())) 
+    })    
+  }
     
 
 </script>

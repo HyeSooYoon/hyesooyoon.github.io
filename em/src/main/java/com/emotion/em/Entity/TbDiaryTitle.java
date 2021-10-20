@@ -28,7 +28,7 @@ public class TbDiaryTitle {
     private LocalDateTime date;
     
     @Column(name="emotion_cd", nullable = false, length=4)
-    private String emotion_cd; 
+    private String emotionCd; 
 
 }
  

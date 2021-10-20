@@ -25,25 +25,26 @@ Vue.component('emmain-view', {
       <path d="M467.812 431.851l-36.629-61.056a181.363 181.363 0 01-25.856-93.312V224c0-67.52-45.056-124.629-106.667-143.04V42.667C298.66 19.136 279.524 0 255.993 0s-42.667 19.136-42.667 42.667V80.96C151.716 99.371 106.66 156.48 106.66 224v53.483c0 32.853-8.939 65.109-25.835 93.291L44.196 431.83a10.653 10.653 0 00-.128 10.752c1.899 3.349 5.419 5.419 9.259 5.419H458.66c3.84 0 7.381-2.069 9.28-5.397 1.899-3.329 1.835-7.468-.128-10.753zM188.815 469.333C200.847 494.464 226.319 512 255.993 512s55.147-17.536 67.179-42.667H188.815z" /></svg>
     </div>
    </div>
-   <div class="progress-status">12/34</div>
+   <div class="progress-status">{{now}}/365</div>
    <div class="progress">
     <div class="progress-bar"></div>
    </div>
    <div class="task-status">
-    <div class="task-stat">
-     <div class="task-number">12</div>
-     <div class="task-condition">Completed</div>
-     <div class="task-tasks">tasks</div>
+   <div class="task-stat">
+     <div class="task-number deplight"></div>
+     <div class="task-condition">보통(약간우울)</div> 
     </div>
     <div class="task-stat">
-     <div class="task-number">22</div>
-     <div class="task-condition">To do</div>
-     <div class="task-tasks">tasks</div>
+     <div class="task-number dep"></div>
+     <div class="task-condition">우울</div> 
     </div>
     <div class="task-stat">
-     <div class="task-number">243</div>
-     <div class="task-condition">All</div>
-     <div class="task-tasks">completed</div>
+     <div class="task-number normal"></div>
+     <div class="task-condition">보통(약간낙관)</div> 
+    </div>
+    <div class="task-stat">
+     <div class="task-number angry"></div>
+     <div class="task-condition">다혈질</div> 
     </div>
    </div>
   </div>
@@ -76,7 +77,15 @@ Vue.component('emmain-view', {
   <div class="main-container">
    <div class="inbox-container">
     <div class="inbox">
-     <div id="deplight" class="msg msg-department anim-y deplight">
+    
+    <div id="all" class="msg msg-department anim-y all">
+      전체
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
+       <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
+      </svg>
+     </div>
+
+     <div id="deplight" class="msg msg-department anim-y deplight none">
       보통(약간우울)
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
@@ -105,7 +114,7 @@ Vue.component('emmain-view', {
 
     </div>
     <div class="add-task">
-     <button class="add-button">Add task</button>
+     <button class="add-button" @click="write">Add Diary</button>
     </div>
    </div>
    <div class="mail-detail">
@@ -113,10 +122,7 @@ Vue.component('emmain-view', {
      <div class="mail-detail-profile">
       <img src="../img/me.png" alt="" class="members inbox-detail" />
       <div class="mail-detail-name">윤혜수</div>
-     </div>
-     <div class="mail-icons" @click="write" style="cursor:grab;"> 
-     ✏️
-     </div>
+     </div> 
     </div>
     <div class="mail-contents">
      <div class="mail-contents-subject" title="우울">
@@ -141,8 +147,7 @@ Vue.component('emmain-view', {
       </div>
      </div>
     </div>
-    <div class="mail-textarea">
-     <input type="text" placeholder="Write a comment...">
+    <div class="mail-textarea">     
      <div class="textarea-icons">
       <div class="attach">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
@@ -259,11 +264,21 @@ data() {
   return {         
     date: moment(new Date()).format('DD MMM, YYYY'),
     count: 0,
-    emcd: 'EM04'
+    emcd: 'EM04',
+    now: moment().diff(moment(new Date()).format('YYYY-01-01'),"days")
   }
 },
 methods:{
   add: function() {
+   
+    let contents = document.getElementsByName("contents")[0].value;
+    let title = document.getElementsByName("title")[0].value;
+
+    if(contents==='' || title==='') {
+      alert('값이 비었다... ');
+      return;
+    }
+
     return new Promise((resolve) => { 
       fetch('http://localhost:5013/add', {
       method: 'post', 
@@ -271,8 +286,8 @@ methods:{
       'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        contents: document.getElementsByName("contents")[0].value,
-        title: document.getElementsByName("title")[0].value,
+        contents: contents,
+        title: title,
         emotion_cd: this.emcd
         })
       })
@@ -307,7 +322,8 @@ methods:{
         if(data !== '')
         {  
           for (let i in data) { 
-            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)"><input type="checkbox" name="msg" id="mail3" class="mail-choice" checked disabled><label for="mail3"></label>' +
+            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
+            '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
             '<div class="msg-content">' +  
             '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
             '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
@@ -319,6 +335,26 @@ methods:{
         } 
       )
   },
+  listCount: function() { 
+    this.searchdiary('EM01').then(function(data) { 
+        document.querySelector('.task-number.deplight').textContent = data.length; 
+    })
+    
+    this.searchdiary('EM02').then(function(data) { 
+        document.querySelector('.task-number.normal').textContent = data.length; 
+    })
+
+    this.searchdiary('EM03').then(function(data) { 
+        document.querySelector('.task-number.angry').textContent = data.length; 
+    })
+
+    this.searchdiary('EM04').then(function(data) { 
+        document.querySelector('.task-number.dep').textContent = data.length; 
+    })
+
+    // document.getElementsByClassName('progress-bar')[0].setAttribute('style', 'width:80%;');   
+
+  },
   write: function() {    
     document.getElementsByName("title")[0].disabled = false;
     document.getElementsByName("contents")[0].disabled = false;
@@ -326,38 +362,56 @@ methods:{
     document.getElementsByName("contents")[0].value = '';
   },
   changeEm: function() {     
+
+    if( document.getElementsByName("title")[0].disabled ) 
+    {
+      return;
+    }
+
     const mail20 = document.querySelector('#mail20');
     
     mail20.className = 'mail-choice';        
     this.count += 1; 
 
     if(this.count == 1) {
-      mail20.classList.add('deplight');   
+      mail20.classList.add('EM01');   
       this.emcd = 'EM01';
       document.querySelector('.mail-contents-subject').title = '보통(약간우울)';
 
     } else if(this.count == 2) {
-      mail20.classList.add('normal');    
+      mail20.classList.add('EM02');    
       this.emcd = 'EM02';
       document.querySelector('.mail-contents-subject').title = '보통(약간낙관)';
     
     } else if(this.count == 3) {
-      mail20.classList.add('angry');    
+      mail20.classList.add('EM03');    
       this.emcd = 'EM03';
       document.querySelector('.mail-contents-subject').title = '다혈질';
     
     } else {
-      mail20.classList.add('dep');    
+      mail20.classList.add('EM04');    
       this.emcd = 'EM04';
       document.querySelector('.mail-contents-subject').title = '우울';
       this.count = 0; 
     }
     
+  },
+  searchdiary: function(obj) { 
+    return new Promise((resolve) => { 
+      fetch('http://localhost:5013/listbyemcd/' + obj, {
+      method: 'get', 
+      headers: {
+      'Content-Type': 'application/json'
+      }
+      })
+      .then(res => resolve(res.json())) 
+    })    
   }
 
 },
 mounted() {  
   this.list(); 
+  this.listCount();
 } 
 }); 
   

@@ -152,7 +152,7 @@
  .progress-bar {
 	 background-color: var(--button-color);
 	 border-radius: 4px;
-	 width: 35%;
+	 width: 80%;   /* 이거 수정1 */
 	 height: 100%;
 	 animation: progressAnimation 6s;
 	 transition: 0.3s linear both;
@@ -171,7 +171,7 @@
 		 background-color: #a2b6f5;
 	}
 	 100% {
-		 width: 35%;
+		 width: 80%; /* 이거 수정2 */
 	}
 }
  .task-status {
@@ -1105,25 +1105,25 @@ article {
 	  cursor: grab;
   }
 
-  .mail-choice.deplight:checked + label:before {	
+  .mail-choice.EM01:checked + label:before {	
 	background-color: var(--button-color-deplight);
 	border-color: var(--button-color-deplight);
 	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
   }
 
-  .mail-choice.dep:checked + label:before {	
+  .mail-choice.EM04:checked + label:before {	
 	background-color: var(--button-color-dep);
 	border-color: var(--button-color-dep);
 	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
   }
 
-  .mail-choice.normal:checked + label:before {	
+  .mail-choice.EM02:checked + label:before {	
 	background-color: var(--button-color-normal);
 	border-color: var(--button-color-normal);
 	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
   }
 
-  .mail-choice.angry:checked + label:before {	
+  .mail-choice.EM03:checked + label:before {	
 	background-color: var(--button-color-angry);
 	border-color: var(--button-color-angry);
 	/* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='28' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e"); */
