@@ -152,9 +152,9 @@
  .progress-bar {
 	 background-color: var(--button-color);
 	 border-radius: 4px;
-	 width: 80%;   /* 이거 수정1 */
+	 width: 0%;   /* 이거 수정1 */
 	 height: 100%;
-	 animation: progressAnimation 6s;
+	 /* animation: progressAnimation 6s; */
 	 transition: 0.3s linear both;
 	 transition-property: width, background-color;
 }
