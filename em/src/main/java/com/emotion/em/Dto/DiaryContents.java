@@ -16,7 +16,7 @@ public class DiaryContents implements Serializable {
     @NotEmpty
     String title;      
 
-    String no;
+    String uuid;
     
     LocalDateTime date;
     

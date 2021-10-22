@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface DiaryRepository extends JpaRepository<TbDiaryContents, Long> {
 
-    Optional<TbDiaryContents> findTbDiaryContentsByNo(int no);
+    Optional<TbDiaryContents> findTbDiaryContentsByUuid(String uuid);
 
     
 

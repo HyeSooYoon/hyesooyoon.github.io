@@ -32,18 +32,18 @@ public class EmDiarySaveDomainService {
     }
 
     @Transactional 
-    public TbDiaryContents selectDiary(String no) {
-        Optional<TbDiaryContents> diary = diaryRepository.findTbDiaryContentsByNo(Integer.parseInt(no));
+    public TbDiaryContents selectDiary(String uuid) {
+        Optional<TbDiaryContents> diary = diaryRepository.findTbDiaryContentsByUuid(uuid);
         if (!diary.isPresent()) 
-            throw new RuntimeException("diary, not found :" + no);
+            throw new RuntimeException("diary, not found :" + uuid);
         return diary.get();
     }
 
     @Transactional 
-    public TbDiaryTitle selectTitle(String no) {
-        Optional<TbDiaryTitle> diary = diaryTitleRepository.findTbDiaryTitleByNo(Integer.parseInt(no));
+    public TbDiaryTitle selectTitle(String uuid) {
+        Optional<TbDiaryTitle> diary = diaryTitleRepository.findTbDiaryTitleByUuid(uuid);
         if (!diary.isPresent()) 
-            throw new RuntimeException("diary title, not found :" + no);
+            throw new RuntimeException("diary title, not found :" + uuid);
         return diary.get();
     }
 

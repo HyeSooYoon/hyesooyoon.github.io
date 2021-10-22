@@ -26,11 +26,11 @@ new Vue({
     게시물 상세 클릭  
   ***********************************************/  
   const showcontent = function(obj) {
-    let no = obj.children[2].firstElementChild.children[0].innerText; 
+    let uuid = obj.children[2].firstElementChild.children[0].innerText; 
     
     diarySearchUrl = 'http://localhost:5013/list/';
 
-    searchdiary(no).then(function(data) {
+    searchdiary(uuid).then(function(data) {
       
       if(data === '')
       { 
@@ -42,6 +42,7 @@ new Vue({
         mail20.className = 'mail-choice';        
         document.getElementsByName("title")[0].disabled = true;
         document.getElementsByName("contents")[0].disabled = true;
+        document.getElementsByName("textarea-icons")[0].style.display = 'none';
         
         mail20.classList.add(data.emotion_cd);   
         document.getElementsByName("title")[0].value = data.title;
@@ -90,7 +91,7 @@ new Vue({
           datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
           '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
           '<div class="msg-content">' +  
-          '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
+          '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
           '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
           '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
         }   

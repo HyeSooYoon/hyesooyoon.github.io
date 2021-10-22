@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DiaryTitleRepository extends JpaRepository<TbDiaryTitle, Long> {
     
-    Optional<TbDiaryTitle> findTbDiaryTitleByNo(int no);
+    Optional<TbDiaryTitle> findTbDiaryTitleByUuid(String uuid);
 
     List<TbDiaryTitle> findTbDiaryTitleByEmotionCd(String emotion_cd);
 

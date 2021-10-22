@@ -50,9 +50,9 @@ public class EMRestController {
         return emDiarySaveService.createDiary(req);
     }
 
-    @GetMapping("/list/{no}")
-    public DiaryContents DiaryContentsList(@PathVariable String no) { 
-        return emDiarySaveService.selectDiary(no); 
+    @GetMapping("/list/{uuid}")
+    public DiaryContents DiaryContentsList(@PathVariable String uuid) { 
+        return emDiarySaveService.selectDiary(uuid); 
     } 
   
     @GetMapping("/list")

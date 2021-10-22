@@ -17,9 +17,8 @@ import java.time.LocalDateTime;
 public class TbDiaryTitle {
     
     @Id
-    @Column(name="no")
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int no;
+    @Column(name="uuid", nullable = false, length=36)  
+    private String uuid;
     
     @Column(name="title", nullable = false, length=50)
     private String title;

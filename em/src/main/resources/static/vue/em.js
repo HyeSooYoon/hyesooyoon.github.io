@@ -10,21 +10,6 @@ Vue.component('emmain-view', {
     <div class="user-name">윤혜수</div>
     <div class="user-mail">yhs1790@naver.com</div>
    </div>
-   <div class="user-notification">
-    <div class="notify">
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="currentColor">
-      <path d="M13.533 5.6h-.961a.894.894 0 01-.834-.57.906.906 0 01.197-.985l.675-.675a.466.466 0 000-.66l-1.32-1.32a.466.466 0 00-.66 0l-.676.677a.9.9 0 01-.994.191.906.906 0 01-.56-.837V.467A.467.467 0 007.933 0H6.067A.467.467 0 005.6.467v.961c0 .35-.199.68-.57.834a.902.902 0 01-.983-.195L3.37 1.39a.466.466 0 00-.66 0L1.39 2.71a.466.466 0 000 .66l.675.675c.25.25.343.63.193.995a.902.902 0 01-.834.56H.467A.467.467 0 000 6.067v1.866c0 .258.21.467.467.467h.961c.35 0 .683.202.834.57a.904.904 0 01-.197.984l-.675.676a.466.466 0 000 .66l1.32 1.32a.466.466 0 00.66 0l.68-.68a.894.894 0 01.994-.187.897.897 0 01.556.829v.961c0 .258.21.467.467.467h1.866c.258 0 .467-.21.467-.467v-.961c0-.35.202-.683.57-.834a.904.904 0 01.984.197l.676.675a.466.466 0 00.66 0l1.32-1.32a.466.466 0 000-.66l-.68-.68a.894.894 0 01-.187-.994.897.897 0 01.829-.556h.961c.258 0 .467-.21.467-.467V6.067a.467.467 0 00-.467-.467zM7 9.333C5.713 9.333 4.667 8.287 4.667 7S5.713 4.667 7 4.667 9.333 5.713 9.333 7 8.287 9.333 7 9.333z" /></svg>
-    </div>
-    <div class="notify alert">
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-      <path d="M10.688 95.156C80.958 154.667 204.26 259.365 240.5 292.01c4.865 4.406 10.083 6.646 15.5 6.646 5.406 0 10.615-2.219 15.469-6.604 36.271-32.677 159.573-137.385 229.844-196.896 4.375-3.698 5.042-10.198 1.5-14.719C494.625 69.99 482.417 64 469.333 64H42.667c-13.083 0-25.292 5.99-33.479 16.438-3.542 4.52-2.875 11.02 1.5 14.718z" />
-      <path d="M505.813 127.406a10.618 10.618 0 00-11.375 1.542C416.51 195.01 317.052 279.688 285.76 307.885c-17.563 15.854-41.938 15.854-59.542-.021-33.354-30.052-145.042-125-208.656-178.917a10.674 10.674 0 00-11.375-1.542A10.674 10.674 0 000 137.083v268.25C0 428.865 19.135 448 42.667 448h426.667C492.865 448 512 428.865 512 405.333v-268.25a10.66 10.66 0 00-6.187-9.677z" /></svg>
-    </div>
-    <div class="notify alert">
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-      <path d="M467.812 431.851l-36.629-61.056a181.363 181.363 0 01-25.856-93.312V224c0-67.52-45.056-124.629-106.667-143.04V42.667C298.66 19.136 279.524 0 255.993 0s-42.667 19.136-42.667 42.667V80.96C151.716 99.371 106.66 156.48 106.66 224v53.483c0 32.853-8.939 65.109-25.835 93.291L44.196 431.83a10.653 10.653 0 00-.128 10.752c1.899 3.349 5.419 5.419 9.259 5.419H458.66c3.84 0 7.381-2.069 9.28-5.397 1.899-3.329 1.835-7.468-.128-10.753zM188.815 469.333C200.847 494.464 226.319 512 255.993 512s55.147-17.536 67.179-42.667H188.815z" /></svg>
-    </div>
-   </div>
    <div class="progress-status">{{now}}/365 Days</div>
    <div class="progress">
     <div class="progress-bar"></div>
@@ -32,7 +17,7 @@ Vue.component('emmain-view', {
    <div class="task-status">
    <div class="task-stat">
      <div class="task-number deplight"></div>
-     <div class="task-condition">보통(약간우울)</div> 
+     <div class="task-condition">약간우울</div> 
     </div>
     <div class="task-stat">
      <div class="task-number dep"></div>
@@ -40,7 +25,7 @@ Vue.component('emmain-view', {
     </div>
     <div class="task-stat">
      <div class="task-number normal"></div>
-     <div class="task-condition">보통(약간낙관)</div> 
+     <div class="task-condition">약간낙관</div> 
     </div>
     <div class="task-stat">
      <div class="task-number angry"></div>
@@ -61,7 +46,7 @@ Vue.component('emmain-view', {
  <div class="main-area">
   <div class="header">
    <div class="search-bar">
-    <input type="text" placeholder="Search...">
+    <input type="text" id="value" placeholder="Search..." @keyup="searchbar">
    </div>
    <div class="inbox-calendar">
     <input type="checkbox" class="inbox-calendar-checkbox">
@@ -126,7 +111,7 @@ Vue.component('emmain-view', {
     </div>
     <div class="mail-contents">
      <div class="mail-contents-subject" title="우울">
-      <input type="checkbox" name="msg" id="mail20" class="mail-choice" checked disabled>
+      <input type="checkbox" name="msg" id="mail20" class="mail-choice EM04" checked disabled>
       <label for="mail20" @click="changeEm"></label>      
       <div class="mail-contents-title"><input type="text" name="title" style="font-size: 17px;"></input></div>
      </div>
@@ -148,11 +133,7 @@ Vue.component('emmain-view', {
      </div>
     </div>
     <div class="mail-textarea">     
-     <div class="textarea-icons">
-      <div class="attach">
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
-        <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
-      </div>
+     <div class="textarea-icons" name="textarea-icons"> 
       <div class="send" @click="save">
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
         <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
@@ -264,11 +245,14 @@ data() {
   return {         
     date: moment(new Date()).format('DD MMM, YYYY'),
     count: 0,
-    emcd: 'EM04',
+    emcd: '',
     now: moment().diff(moment(new Date()).format('YYYY-01-01'),"days")
   }
 },
 methods:{
+  /**********************************************
+    다이어리 저장 API
+  ***********************************************/  
   add: function() {
    
     let contents = document.getElementsByName("contents")[0].value;
@@ -280,6 +264,9 @@ methods:{
     }
 
     return new Promise((resolve) => { 
+
+      this.emcd = document.querySelector('#mail20').classList[1]
+      
       fetch('http://localhost:5013/add', {
       method: 'post', 
       headers: {
@@ -294,6 +281,9 @@ methods:{
       .then(res => resolve(res.json())) 
     })    
   },
+  /**********************************************
+    다이어리 저장
+  ***********************************************/  
   save: function() {     
     this.add().then(function(data) {
       
@@ -309,6 +299,9 @@ methods:{
         
     }) 
   },
+  /**********************************************
+    다이어리 타이틀 전체 조회 API
+  ***********************************************/  
   list: function() { 
     fetch('http://localhost:5013/list', {
       method: 'get', 
@@ -325,7 +318,7 @@ methods:{
             datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
             '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
             '<div class="msg-content">' +  
-            '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].no + '</span>'+ 
+            '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
             '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
             '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
           }          
@@ -335,6 +328,9 @@ methods:{
         } 
       )
   },
+  /**********************************************
+    감정코드 카운트 셋팅
+  ***********************************************/  
   listCount: function() { 
     this.searchdiary('EM01').then(function(data) { 
         document.querySelector('.task-number.deplight').textContent = data.length; 
@@ -352,14 +348,23 @@ methods:{
         document.querySelector('.task-number.dep').textContent = data.length; 
     })
 
+    document.styleSheets[0].cssRules[25].cssRules[1].style.cssText = 'width:' + ((this.now / 365) * 100) + '%;';
     document.getElementsByClassName('progress-bar')[0].setAttribute('style', 'width:' + ((this.now / 365) * 100) + '%;');
+    
   },
+  /**********************************************
+    글쓰기 버튼 선택
+  ***********************************************/  
   write: function() {    
+    document.getElementsByName("textarea-icons")[0].style.display = 'flex';
     document.getElementsByName("title")[0].disabled = false;
     document.getElementsByName("contents")[0].disabled = false;
     document.getElementsByName("title")[0].value = '';
     document.getElementsByName("contents")[0].value = '';
   },
+  /**********************************************
+    감정코드 변경
+  ***********************************************/  
   changeEm: function() {     
 
     if( document.getElementsByName("title")[0].disabled ) 
@@ -373,28 +378,27 @@ methods:{
     this.count += 1; 
 
     if(this.count == 1) {
-      mail20.classList.add('EM01');   
-      this.emcd = 'EM01';
+      mail20.classList.add('EM01');    
       document.querySelector('.mail-contents-subject').title = '보통(약간우울)';
 
     } else if(this.count == 2) {
-      mail20.classList.add('EM02');    
-      this.emcd = 'EM02';
+      mail20.classList.add('EM02');     
       document.querySelector('.mail-contents-subject').title = '보통(약간낙관)';
     
     } else if(this.count == 3) {
-      mail20.classList.add('EM03');    
-      this.emcd = 'EM03';
+      mail20.classList.add('EM03');     
       document.querySelector('.mail-contents-subject').title = '다혈질';
     
     } else {
-      mail20.classList.add('EM04');    
-      this.emcd = 'EM04';
+      mail20.classList.add('EM04');     
       document.querySelector('.mail-contents-subject').title = '우울';
       this.count = 0; 
     }
     
   },
+  /**********************************************
+    감정코드로 다이어리 조회 API
+  ***********************************************/  
   searchdiary: function(obj) { 
     return new Promise((resolve) => { 
       fetch('http://localhost:5013/listbyemcd/' + obj, {
@@ -405,6 +409,28 @@ methods:{
       })
       .then(res => resolve(res.json())) 
     })    
+  }, 
+  /**********************************************
+    검색어 입력 필터링
+  ***********************************************/  
+  searchbar: function(obj) {
+
+    let value, name, item, i;
+
+    value = document.getElementById("value").value.toUpperCase();
+    item  = document.getElementsByClassName("selected-bg");
+
+    for(i=0; i<item.length; i++) {
+      name = item[i].getElementsByClassName("msg-title");
+    
+      if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+        item[i].style.display = "flex";
+
+      }else{
+        item[i].style.display = "none";
+      }
+    }
+
   }
 
 },
