@@ -1,4 +1,7 @@
 export default {
-    template: `<p>이뫂트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>`
+    template: ` 
+  
+    <div class="chartContainer"> </div>    
+    `
 
 }

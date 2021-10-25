@@ -1,4 +1,4 @@
-import testComp from '/vue/chart.js'
+import chartComp from '/vue/chart.js'
 
 export default {    
   template: 
@@ -50,7 +50,7 @@ export default {
    <div class="search-bar">
     <input type="text" id="value" placeholder="Search..." @keyup="searchbar">
    </div>
-   <div class="inbox-calendar">
+   <div class="inbox-calendar" @click="toggleCalendar">
     <input type="checkbox" class="inbox-calendar-checkbox">
     <div class="toggle-page">
      <span>Diary</span>
@@ -145,7 +145,11 @@ export default {
    </div>
    <div class="calendar-container">
     <div class="calender-tab anim-y">
-      
+
+
+    <chart-comp></chart-comp>   
+
+    
 
     </div>
    </div>
@@ -162,9 +166,14 @@ data() {
   }
 },
 components: { 
-
+'chart-comp': chartComp
 },
 methods:{
+  toggleCalendar: function() {
+    document.getElementsByClassName("calendar-container")[0].classList.toggle('calendar-show');
+    document.getElementsByClassName("inbox-container")[0].classList.toggle('hide');
+    document.getElementsByClassName("mail-detail")[0].classList.toggle('hide');
+  },
   /**********************************************
     다이어리 저장 API
   ***********************************************/  
