@@ -3,20 +3,25 @@
 <head>  
   <link rel="stylesheet" href="/css/em.css"/>     
   {{>common_header}}
-  <script src="/vue/em.js"></script>  
-</head>
+</head> 
+<script type="module">    
+import emmainView from '/vue/em.js'
+
+new Vue({
+     el: '#main',     
+     components: { 
+       'emmain-view': emmainView 
+      },
+     template: `<emmain-view></emmain-view>`
+  });
+  
+
+</script>
 <body>
-  <div id="main">
-    <emmain-view></emmain-view>   
+  <div id="main">       
   </div>
 </body>
 <script>    
-
-new Vue({
-     el: '#main', 
-     component: 'emmain-view'
-  });
-
   let diarySearchUrl = '';
 
   const mail20 = document.querySelector('#mail20');
