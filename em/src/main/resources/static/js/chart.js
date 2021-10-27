@@ -1,70 +1,70 @@
 var charts = [];
 
-		// 차트 생성하기
-		function createConfig(mode, intersect) {
-			return {
-				// 차트 타입
-				type: 'line',
-				// 데이터셋 
-				data: {
-					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [{
-						label: 'My First dataset',
-						borderColor: window.chartColors.red,
-						backgroundColor: window.chartColors.red,
-						data: [10, 30, 46, 2, 8, 50, 0],
-						fill: false,
-					}]
-				},
-				// 옵션
-				options: {
-					responsive: true,
-          // 타이틀 표현 
-					title: {
-						display: true,
-						text: 'Mode: ' + mode + ', intersect = ' + intersect
-					},
-          // 내용 표현 방법
-					tooltips: {
-						mode: mode,
-						intersect: intersect,
-					},
-					hover: {
-						mode: mode,
-						intersect: intersect
-					},
-				}
-			};
-		}
+// 차트 생성하기
+function createConfig(mode, intersect) {
+    return {
+        // 차트 타입
+        type: 'line',
+        // 데이터셋 
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'My First dataset',
+                borderColor: window.chartColors.red,
+                backgroundColor: window.chartColors.red,
+                data: [10, 30, 46, 2, 8, 50, 0],
+                fill: false,
+            }]
+        },
+        // 옵션
+        options: {
+            responsive: true,
+    // 타이틀 표현 
+            title: {
+                display: true,
+                text: 'Mode: ' + mode + ', intersect = ' + intersect
+            },
+    // 내용 표현 방법
+            tooltips: {
+                mode: mode,
+                intersect: intersect,
+            },
+            hover: {
+                mode: mode,
+                intersect: intersect
+            },
+        }
+    };
+}
 
-		window.onload = function () {
-      // div.container를 찾아서 차트를 생성함.
-			var chartContainer = document.querySelector('.chartContainer');
-			// mode : defalut 'nearest' (툴팁에 표시되는 요소를 설정)
-			// intersect : defalut true || false (마우스 위치가 차트의 항목과 교차할 때 만 호보)
-			// axis : 
-			// animationDuration : 호버 스타일 변경을 애니메이션하는 데 걸리는 시간 (밀리 초)
-			[{
-				mode: 'index',
-				intersect: true,
-				animationDuration: 100
-			}].forEach(function (details) {
-				console.log('details', details);
-				// div 생성. <div class='chart-container'> </div> 
-				var div = document.createElement('div');
-				div.classList.add('chart-container');
+window.onload = function () {
+// div.container를 찾아서 차트를 생성함.
+    var chartContainer = document.querySelector('.chartContainer');
+    // mode : defalut 'nearest' (툴팁에 표시되는 요소를 설정)
+    // intersect : defalut true || false (마우스 위치가 차트의 항목과 교차할 때 만 호보)
+    // axis : 
+    // animationDuration : 호버 스타일 변경을 애니메이션하는 데 걸리는 시간 (밀리 초)
+    [{
+        mode: 'index',
+        intersect: true,
+        animationDuration: 100
+    }].forEach(function (details) {
+        console.log('details', details);
+        // div 생성. <div class='chart-container'> </div> 
+        var div = document.createElement('div');
+        div.classList.add('chart-container');
 
-				// canvas 생성.
-				var canvas = document.createElement('canvas');
-				div.appendChild(canvas);
-				chartContainer.appendChild(div);
+        // canvas 생성.
+        var canvas = document.createElement('canvas');
+        div.appendChild(canvas);
+        chartContainer.appendChild(div);
 
-				// 2d 렌더링 컨텍스트를 나타내는 CanvasRenderingContext2D 객체를 생성하게 합니다.
-				var ctx = canvas.getContext('2d');
-				var config = createConfig(details.mode, details.intersect);
-				charts.push(new Chart(ctx, config));
-			});
-		};
+        // 2d 렌더링 컨텍스트를 나타내는 CanvasRenderingContext2D 객체를 생성하게 합니다.
+        var ctx = canvas.getContext('2d');
+        var config = createConfig(details.mode, details.intersect);
+        charts.push(new Chart(ctx, config));
+    });
+};
     
 /* 
 	* utils.js
