@@ -1,4 +1,33 @@
 var charts = [];
+var monthNames = [
+	{ month: '1', emonth: 'January' }, 
+	{ month: '2', emonth: 'February' }, 
+	{ month: '3', emonth: 'March' }, 
+	{ month: '4', emonth: 'April' }, 
+	{ month: '5', emonth: 'May' }, 
+	{ month: '6', emonth: 'June' },
+	{ month: '7', emonth: 'July' }, 
+	{ month: '8', emonth: 'August' }, 
+	{ month: '9', emonth: 'September' }, 
+	{ month: '10', emonth: 'October' }, 
+	{ month: '11', emonth: 'November' }, 
+	{ month: '12', emonth: 'December' }
+   ];
+   
+var d = new Date();
+d = d.getMonth() + 1;
+
+var list = [];  
+
+// 콜백함수가 처음으로 참이되는 객체를 반환
+_.find(monthNames, function(val) {
+	
+	if(Number(val.month) <= d)
+	list.push(val.emonth);
+	
+}); 
+    
+   
 
 // 차트 생성하기
 function createConfig(mode, intersect) {
@@ -7,12 +36,12 @@ function createConfig(mode, intersect) {
         type: 'line',
         // 데이터셋 
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: list,
             datasets: [{
                 label: 'My First dataset',
                 borderColor: window.chartColors.red,
                 backgroundColor: window.chartColors.red,
-                data: [10, 30, 46, 2, 8, 50, 0],
+                data: [10, 30, 46, 2, 8, 50, 0, 44, 44, 44],
                 fill: false,
             }]
         },

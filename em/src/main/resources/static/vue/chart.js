@@ -1,6 +1,5 @@
 export default {
-    template: ` 
-  
+    template: `  
     <div class="chartContainer"> </div>    
     `
 

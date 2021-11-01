@@ -23,10 +23,7 @@ new Vue({
   </div>
 </body>
 <script>    
-  let diarySearchUrl = '';
-
-  const mail20 = document.querySelector('#mail20');
-  const all = document.getElementById("all");
+  let diarySearchUrl = '';   
   
   /**********************************************
     게시물 상세 클릭  
@@ -45,114 +42,18 @@ new Vue({
       }        
       else
       {          
-        mail20.className = 'mail-choice';        
+        document.querySelector('#mail20').className = 'mail-choice';        
         document.getElementsByName("title")[0].disabled = true;
         document.getElementsByName("contents")[0].disabled = true;
         document.getElementsByName("textarea-icons")[0].style.display = 'none';
         
-        mail20.classList.add(data.emotion_cd);   
+        document.querySelector('#mail20').classList.add(data.emotion_cd);   
         document.getElementsByName("title")[0].value = data.title;
         document.getElementsByName("contents")[0].value = data.contents; 
         document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
       }      
     })  
-  } 
-  
-  /**********************************************
-    기분코드에 따른 게시물 타이틀 조회 
-  ***********************************************/  
-  const showemcontent = function(obj) {
-    
-    let type = '';    
-    
-    diarySearchUrl = 'http://localhost:5013/listbyemcd/';
-
-    // 보통(약간우울)
-    if(obj.indexOf('deplight') > -1) { type = 'EM01'; } 
-
-    // 보통(약간낙관)
-    else if(obj.indexOf('normal') > -1) { type = 'EM02'; } 
-
-    // 다혈질
-    else if(obj.indexOf('angry') > -1) { type = 'EM03'; }
-
-    // 우울
-    else if(obj.indexOf('dep') > -1) { type = 'EM04'; }     
-
-    // 전체
-    else { diarySearchUrl = 'http://localhost:5013/list/'; }    
-
-    searchdiary(type).then(function(data) {
-      
-      if(data === '')
-      { 
-        alert(data.message); 
-        return;
-      }        
-      else
-      {          
-        let datahtml = ''                   
-           
-        for (let i=0; i<data.length; i++) { 
-          datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
-          '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
-          '<div class="msg-content">' +  
-          '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
-          '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
-          '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
-        }   
-
-        document.getElementById('loopdata').innerHTML = datahtml;  
-      }       
-    })   
-  } 
-
-  document.querySelectorAll('.msg-department').forEach((item, i)=> {    
-
-    document.getElementById(item.id).addEventListener('click', (obj) => {      
-      
-      document.querySelector('.inbox').prepend(all);       
-      document.querySelector('.inbox').prepend(event.target);       
-
-      if(item.id.indexOf('deplight') > -1) {              
-        all.classList.toggle('none');
-        document.getElementById("dep").classList.toggle('none');
-        document.getElementById("normal").classList.toggle('none');
-        document.getElementById("angry").classList.toggle('none'); 
-
-      } else if(item.id.indexOf('dep') > -1) {
-        all.classList.toggle('none');
-        document.getElementById("deplight").classList.toggle('none');
-        document.getElementById("normal").classList.toggle('none');
-        document.getElementById("angry").classList.toggle('none'); 
-
-      } else if(item.id.indexOf('normal') > -1) {
-        all.classList.toggle('none');
-        document.getElementById("deplight").classList.toggle('none');
-        document.getElementById("dep").classList.toggle('none');
-        document.getElementById("angry").classList.toggle('none'); 
-
-      } else if(item.id.indexOf('angry') > -1) {
-        all.classList.toggle('none');
-        document.getElementById("deplight").classList.toggle('none');
-        document.getElementById("normal").classList.toggle('none');
-        document.getElementById("dep").classList.toggle('none'); 
-      
-      } else {        
-        document.getElementById("deplight").classList.toggle('none');
-        document.getElementById("normal").classList.toggle('none');
-        document.getElementById("dep").classList.toggle('none'); 
-        document.getElementById("angry").classList.toggle('none'); 
-      }
-
-      if( document.getElementsByClassName('none').length > 0 ) 
-      {
-        showemcontent(item.id);
-      }
-
-    });
-     
-  })
+  }  
  
   /**********************************************
     다이어리 조회 

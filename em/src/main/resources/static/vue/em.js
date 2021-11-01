@@ -65,32 +65,32 @@ export default {
    <div class="inbox-container">
     <div class="inbox">
     
-    <div id="all" class="msg msg-department anim-y all">
+    <div id="all" class="msg msg-department anim-y all" @click="getDiaryByEmCode">
       전체
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
 
-     <div id="deplight" class="msg msg-department anim-y deplight none">
+     <div id="deplight" class="msg msg-department anim-y deplight none" @click="getDiaryByEmCode">
       보통(약간우울)
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
-     <div id="dep" class="msg msg-department anim-y dep none">
+     <div id="dep" class="msg msg-department anim-y dep none" @click="getDiaryByEmCode">
      우울
      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
-     <div id="normal" class="msg msg-department anim-y normal none">
+     <div id="normal" class="msg msg-department anim-y normal none" @click="getDiaryByEmCode">
      보통(약간낙관)
      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
-     <div id="angry" class="msg msg-department anim-y angry none">
+     <div id="angry" class="msg msg-department anim-y angry none" @click="getDiaryByEmCode">
      다혈질
      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
@@ -177,7 +177,7 @@ methods:{
   /**********************************************
     다이어리 저장 API
   ***********************************************/  
-  add: function() {
+  saveDiaryApi: function() {
    
     let contents = document.getElementsByName("contents")[0].value;
     let title = document.getElementsByName("title")[0].value;
@@ -209,7 +209,7 @@ methods:{
     다이어리 저장
   ***********************************************/  
   save: function() {     
-    this.add().then(function(data) {
+    this.saveDiaryApi().then(function(data) {
       
         if(data === '')
         { 
@@ -225,50 +225,52 @@ methods:{
   },
   /**********************************************
     다이어리 타이틀 전체 조회 API
-  ***********************************************/  
-  list: function() { 
-    fetch('http://localhost:5013/list', {
+  ***********************************************/
+  getListDataApi: function() { 
+    return new Promise((resolve) => { 
+      fetch('http://localhost:5013/list', {
       method: 'get', 
       headers: {
       'Content-Type': 'application/json'
-      } 
+      }
       })
-      .then(res => res.json())
-      .then(function(data) { 
-        let datahtml = '' 
-        if(data !== '')
-        {  
-          for (let i in data) { 
-            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
-            '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
-            '<div class="msg-content">' +  
-            '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
-            '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
-            '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
-          }          
-        } 
-          document.getElementById('loopdata').innerHTML = datahtml; 
-          
-        } 
-      )
+      .then(res => resolve(res.json())) 
+    })    
+  },  
+  list: function() { 
+    this.getListDataApi().then(function(data) {        
+      let datahtml = '' 
+      if(data !== '')
+      {  
+        for (let i in data) { 
+          datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
+          '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
+          '<div class="msg-content">' +  
+          '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
+          '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
+          '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
+        }          
+      } 
+        document.getElementById('loopdata').innerHTML = datahtml;       
+   }) 
   },
   /**********************************************
     감정코드 카운트 셋팅
   ***********************************************/  
   listCount: function() { 
-    this.searchdiary('EM01').then(function(data) { 
+    this.getDiaryByEmCodeApi('EM01').then(function(data) { 
         document.querySelector('.task-number.deplight').textContent = data.length; 
     })
     
-    this.searchdiary('EM02').then(function(data) { 
+    this.getDiaryByEmCodeApi('EM02').then(function(data) { 
         document.querySelector('.task-number.normal').textContent = data.length; 
     })
 
-    this.searchdiary('EM03').then(function(data) { 
+    this.getDiaryByEmCodeApi('EM03').then(function(data) { 
         document.querySelector('.task-number.angry').textContent = data.length; 
     })
 
-    this.searchdiary('EM04').then(function(data) { 
+    this.getDiaryByEmCodeApi('EM04').then(function(data) { 
         document.querySelector('.task-number.dep').textContent = data.length; 
     })
 
@@ -323,7 +325,7 @@ methods:{
   /**********************************************
     감정코드로 다이어리 조회 API
   ***********************************************/  
-  searchdiary: function(obj) { 
+  getDiaryByEmCodeApi: function(obj) { 
     return new Promise((resolve) => { 
       fetch('http://localhost:5013/listbyemcd/' + obj, {
       method: 'get', 
@@ -355,6 +357,88 @@ methods:{
       }
     }
 
+  },
+  getDiaryByEmCode: function(e) {
+    
+    let all = document.getElementById("all");
+    let type = '';    
+
+    document.querySelector('.inbox').prepend(all);           
+    document.querySelector('.inbox').prepend(e.currentTarget);       
+
+    if(e.currentTarget.classList.contains('deplight')) {        
+      type = 'EM01';      
+      all.classList.toggle('none');
+      document.getElementById("dep").classList.toggle('none');
+      document.getElementById("normal").classList.toggle('none');
+      document.getElementById("angry").classList.toggle('none'); 
+
+    } else if(e.currentTarget.classList.contains('dep')) {
+      type = 'EM04';
+      all.classList.toggle('none');
+      document.getElementById("deplight").classList.toggle('none');
+      document.getElementById("normal").classList.toggle('none');
+      document.getElementById("angry").classList.toggle('none'); 
+
+    } else if(e.currentTarget.classList.contains('normal')) {
+      type = 'EM02';
+      all.classList.toggle('none');
+      document.getElementById("deplight").classList.toggle('none');
+      document.getElementById("dep").classList.toggle('none');
+      document.getElementById("angry").classList.toggle('none'); 
+
+    } else if(e.currentTarget.classList.contains('angry')) {
+      type = 'EM03';
+      all.classList.toggle('none');
+      document.getElementById("deplight").classList.toggle('none');
+      document.getElementById("normal").classList.toggle('none');
+      document.getElementById("dep").classList.toggle('none'); 
+    
+    } else {        
+      document.getElementById("deplight").classList.toggle('none');
+      document.getElementById("normal").classList.toggle('none');
+      document.getElementById("dep").classList.toggle('none'); 
+      document.getElementById("angry").classList.toggle('none'); 
+    }  
+
+    if( document.getElementsByClassName('none').length > 0 ) 
+    {
+      this.showEmContents(type);
+    } 
+  }
+  ,
+  showEmContents: function(obj) { 
+      
+    if(obj === '')
+    {
+      this.list(); 
+    }
+    else
+    {
+      this.getDiaryByEmCodeApi(obj).then(function(data) {
+      
+        if(data === '')
+        { 
+          alert(data.message); 
+          return;
+        }        
+        else
+        {          
+          let datahtml = ''                   
+             
+          for (let i=0; i<data.length; i++) { 
+            datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
+            '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
+            '<div class="msg-content">' +  
+            '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
+            '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
+            '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
+          }   
+  
+          document.getElementById('loopdata').innerHTML = datahtml;  
+        }       
+      })
+    } 
   }
 
 },
