@@ -1,5 +1,5 @@
 import chartComp from '/vue/chart.js'
-
+ 
 export default {    
   template: 
 `

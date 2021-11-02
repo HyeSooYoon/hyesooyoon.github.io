@@ -1,6 +1,9 @@
 export default {
-    template: `  
-    <div class="chartContainer"> </div>    
+    template: 
+    `  
+    <canvas id="myChart" width="400" height="400"></canvas> 
     `
 
 }
+
+//     <div class="chartContainer"></div>
