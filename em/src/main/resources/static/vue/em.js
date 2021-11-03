@@ -258,19 +258,19 @@ methods:{
     감정코드 카운트 셋팅
   ***********************************************/  
   listCount: function() { 
-    this.getDiaryByEmCodeApi('EM01').then(function(data) { 
+    getDiaryByEmCodeApi('EM01').then(function(data) { 
         document.querySelector('.task-number.deplight').textContent = data.length; 
     })
     
-    this.getDiaryByEmCodeApi('EM02').then(function(data) { 
+    getDiaryByEmCodeApi('EM02').then(function(data) { 
         document.querySelector('.task-number.normal').textContent = data.length; 
     })
 
-    this.getDiaryByEmCodeApi('EM03').then(function(data) { 
+    getDiaryByEmCodeApi('EM03').then(function(data) { 
         document.querySelector('.task-number.angry').textContent = data.length; 
     })
 
-    this.getDiaryByEmCodeApi('EM04').then(function(data) { 
+    getDiaryByEmCodeApi('EM04').then(function(data) { 
         document.querySelector('.task-number.dep').textContent = data.length; 
     })
 
@@ -322,20 +322,6 @@ methods:{
     }
     
   },
-  /**********************************************
-    감정코드로 다이어리 조회 API
-  ***********************************************/  
-  getDiaryByEmCodeApi: function(obj) { 
-    return new Promise((resolve) => { 
-      fetch('http://localhost:5013/listbyemcd/' + obj, {
-      method: 'get', 
-      headers: {
-      'Content-Type': 'application/json'
-      }
-      })
-      .then(res => resolve(res.json())) 
-    })    
-  }, 
   /**********************************************
     검색어 입력 필터링
   ***********************************************/  
@@ -415,7 +401,7 @@ methods:{
     }
     else
     {
-      this.getDiaryByEmCodeApi(obj).then(function(data) {
+      getDiaryByEmCodeApi(obj).then(function(data) {
       
         if(data === '')
         { 
@@ -448,7 +434,20 @@ mounted() {
 } 
 }; 
   
-
+/**********************************************
+  감정코드로 다이어리 조회 API
+***********************************************/
+export const getDiaryByEmCodeApi = (obj) => { 
+  return new Promise((resolve) => { 
+    fetch('http://localhost:5013/listbyemcd/' + obj, {
+    method: 'get', 
+    headers: {
+    'Content-Type': 'application/json'
+    }
+    })
+    .then(res => resolve(res.json())) 
+  })    
+}
 
 
 

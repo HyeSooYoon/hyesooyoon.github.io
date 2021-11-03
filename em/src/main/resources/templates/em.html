@@ -8,6 +8,7 @@
 
 <script type="module">    
 import emmainView from '/vue/em.js'  
+import { getDiaryByEmCodeApi } from '/vue/em.js'
 
 new Vue({
      el: '#main',     
@@ -15,8 +16,23 @@ new Vue({
        'emmain-view': emmainView 
       },
      template: `<emmain-view></emmain-view>`
-  });
-  
+  });  
+
+// ---Graph   
+ window.onload = function () {
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+
+    getDiaryByEmCodeApi('EM01').then(function(data) { 
+        alert('cehck!!!');
+    })
+
+    // actions[2].handler(myChart); 
+
+  };
+
 
 </script>
 <body>
@@ -70,10 +86,10 @@ new Vue({
       .then(res => resolve(res.json())) 
     })    
   }
-    
+      
 
 </script>
 <script src="/js/em.js"></script>  
-<script src="/js/chart_data.js"></script>  
+<script src="/js/chart.js"></script>  
 </html>
 
