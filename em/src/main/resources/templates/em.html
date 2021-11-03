@@ -8,7 +8,7 @@
 
 <script type="module">    
 import emmainView from '/vue/em.js'  
-import { getDiaryByEmCodeApi } from '/vue/em.js'
+import { getListDataApi } from '/vue/em.js'
 
 new Vue({
      el: '#main',     
@@ -25,11 +25,19 @@ new Vue({
         config
       );
 
-    getDiaryByEmCodeApi('EM01').then(function(data) { 
-        alert('cehck!!!');
+    getListDataApi().then(function(data) { 
+        for(var i=0; i<data.length; i++)
+        {
+          emcd = data[i].emotionCd;
+          actions[2].handler(myChart);    
+
+
+
+          
+        }
     })
 
-    // actions[2].handler(myChart); 
+    
 
   };
 
@@ -41,6 +49,7 @@ new Vue({
 </body>
 <script>    
   let diarySearchUrl = '';   
+  let emcd = '';
   
   /**********************************************
     게시물 상세 클릭  

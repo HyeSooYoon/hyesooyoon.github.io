@@ -231,7 +231,8 @@ const config = {
     },
   }; 
 
-// ---Action
+// ---Action 
+
 const actions = [
 {
     name: 'Randomize',
@@ -265,7 +266,22 @@ const actions = [
         data.labels = months({count: data.labels.length + 1});
 
         for (let index = 0; index < data.datasets.length; ++index) {
-        data.datasets[index].data.push(rand(-100, 100));
+ 
+        // 랜덤
+        // data.datasets[index].data.push(rand(-100, 100));
+        
+        // 보통(약간우울) -40%
+        if(emcd === 'EM01') emcd = -40;        
+        // 보통(약간낙관) 40%
+        else if(emcd === 'EM02') emcd = 40;
+        // 다혈질 50%
+        else if(emcd === 'EM03') emcd = 50;
+        // 우울 -80%
+        else if(emcd === 'EM04') emcd = -80; 
+
+        // 데이터 값 입력
+        data.datasets[index].data.push(emcd);
+
         }
 
         chart.update();

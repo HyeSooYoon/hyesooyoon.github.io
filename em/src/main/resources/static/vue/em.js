@@ -222,23 +222,9 @@ methods:{
         }
         
     }) 
-  },
-  /**********************************************
-    다이어리 타이틀 전체 조회 API
-  ***********************************************/
-  getListDataApi: function() { 
-    return new Promise((resolve) => { 
-      fetch('http://localhost:5013/list', {
-      method: 'get', 
-      headers: {
-      'Content-Type': 'application/json'
-      }
-      })
-      .then(res => resolve(res.json())) 
-    })    
-  },  
+  }, 
   list: function() { 
-    this.getListDataApi().then(function(data) {        
+    getListDataApi().then(function(data) {        
       let datahtml = '' 
       if(data !== '')
       {  
@@ -449,7 +435,20 @@ export const getDiaryByEmCodeApi = (obj) => {
   })    
 }
 
-
+/**********************************************
+다이어리 타이틀 전체 조회 API
+***********************************************/
+export const getListDataApi = () => { 
+return new Promise((resolve) => { 
+  fetch('http://localhost:5013/list', {
+  method: 'get', 
+  headers: {
+  'Content-Type': 'application/json'
+  }
+  })
+  .then(res => resolve(res.json())) 
+})    
+}
 
 
 
