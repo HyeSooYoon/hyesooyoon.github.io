@@ -26,15 +26,33 @@ new Vue({
       );
 
     getListDataApi().then(function(data) { 
-        for(var i=0; i<data.length; i++)
-        {
-          emcd = data[i].emotionCd;
-          actions[2].handler(myChart);    
-
-
+        // for(var i=0; i<data.length; i++)
+        // {
+        //   emcd = data[i].emotionCd;
+        //   actions[2].handler(myChart);   
 
           
-        }
+        // }
+
+        _.find(monthNames, function(val) {
+	
+        if(Number(val.month) <= day)
+        {
+          let i = 0;
+          while (i < i<=new Date(year, val.month, 0).getDate()) {
+            if(i===25) {
+              break;
+            }
+            else
+            {
+              actions[2].handler(myChart);      
+            }
+            i++;
+          }
+ 
+        } 
+        
+      });
     })
 
     

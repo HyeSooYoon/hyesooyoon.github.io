@@ -168,9 +168,9 @@ _.find(monthNames, function(val) {
 	
 	if(Number(val.month) <= day)
 	{
-	//   for(i=1; i<=new Date(year, val.month, 0).getDate(); i++) {      
-	//    list.push(i);      
-	//   }
+	  for(i=1; i<=new Date(year, val.month, 0).getDate(); i++) {      
+	   list.push(i);      
+	  }
 	   list.push(val.emonth);    
 	} 
 	
@@ -178,15 +178,14 @@ _.find(monthNames, function(val) {
 
 // ---Data.
   const DATA_COUNT = day;
-  const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
-  
-  const labels = months({count: DATA_COUNT});
+  const NUMBER_CFG = {count: 0, min: 0, max: 0};   
+  const labels = []; 
   const data = {
     labels: labels,
     datasets: [
       {
         label: '윤혜수',
-        data: numbers(NUMBER_CFG),
+        data: 0, 
         borderColor: CHART_COLORS.red,
         backgroundColor: transparentize(CHART_COLORS.red, 0.5),
         tension: 0.4,
@@ -263,7 +262,7 @@ const actions = [
     handler(chart) {
     const data = chart.data;
     if (data.datasets.length > 0) {
-        data.labels = months({count: data.labels.length + 1});
+        data.labels = list;
 
         for (let index = 0; index < data.datasets.length; ++index) {
  
