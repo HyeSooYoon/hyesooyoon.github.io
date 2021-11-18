@@ -21,27 +21,7 @@ MySQL
 Spring Boot 2.3.11
 
 # template
-mustache
-
-
-   
-# <<VD 프로젝트 업데이트 이력>>
-1. 신규 프로젝트 업로드 (2021/07/28)
-   
-# 사용 기술
-open JDK 12
-HTML
-CSS3
-javascript
-Vue.js 2.6.14 
-
-# Framework
-Spring Boot 2.3.11
-
-# template
-mustache
-
-
+mustache  
    
    
    
