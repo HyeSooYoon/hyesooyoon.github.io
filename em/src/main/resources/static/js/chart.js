@@ -70,14 +70,14 @@ const MONTHS = [
 
  function months(config) {
   var cfg = config || {};
-  var count = cfg.count || 12;
+  var count = cfg.count || now;
   var section = cfg.section;
   var values = [];
   var i, value;
 
-  for (i = 0; i < count; ++i) {
-    value = MONTHS[Math.ceil(i) % 12];
-    values.push(value.substring(0, section));
+  for (i = 1; i < count; ++i) {
+    // value = MONTHS[Math.ceil(i) % 12];
+    values.push(i);
   }
 
   return values;
@@ -168,9 +168,9 @@ _.find(monthNames, function(val) {
 	
 	if(Number(val.month) <= day)
 	{
-	  for(i=1; i<=new Date(year, val.month, 0).getDate(); i++) {      
-	   list.push(i);      
-	  }
+	//   for(i=1; i<=new Date(year, val.month, 0).getDate(); i++) {      
+	//    list.push(i);      
+	//   }
 	   list.push(val.emonth);    
 	} 
 	
@@ -262,7 +262,7 @@ const actions = [
     handler(chart) {
     const data = chart.data;
     if (data.datasets.length > 0) {
-        data.labels = list;
+        data.labels = emdate;//['1', '2', '3'];
 
         for (let index = 0; index < data.datasets.length; ++index) {
  

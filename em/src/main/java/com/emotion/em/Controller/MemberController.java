@@ -39,7 +39,8 @@ public class MemberController {
     @PostMapping(value="/em")
     public ModelAndView EMLogin() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/em");
+        mv.setViewName("/em"); 
+
         return mv;
     } 
 

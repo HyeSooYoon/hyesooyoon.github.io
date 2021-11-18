@@ -53,7 +53,7 @@ public class EmDiarySaveDomainService {
     }
 
     @Transactional 
-    public List<TbDiaryTitle> selectTitleAll() {
+    public List<TbDiaryTitle> selectTitleAllByEmotionCdDesc() {
         return diaryTitleRepository.findAll();
     }
 
