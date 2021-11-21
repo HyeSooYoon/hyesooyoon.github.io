@@ -9,6 +9,8 @@ import com.emotion.em.Entity.TbDiaryContents;
 import com.emotion.em.Entity.TbDiaryTitle;
 import com.emotion.em.repository.DiaryRepository;
 import com.emotion.em.repository.DiaryTitleRepository;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor; 
 
@@ -53,8 +55,8 @@ public class EmDiarySaveDomainService {
     }
 
     @Transactional 
-    public List<TbDiaryTitle> selectTitleAllByEmotionCdDesc() {
-        return diaryTitleRepository.findAll();
+    public List<TbDiaryTitle> selectTitleAllByDateAsc() {
+        return diaryTitleRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
     }
 
     

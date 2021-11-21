@@ -57,7 +57,7 @@ public class EMRestController {
   
     @GetMapping("/list")
     public List<TbDiaryTitle> DiaryTitleAllList() { 
-        return emDiarySaveService.selectTitleAllByEmotionCdDesc(); 
+        return emDiarySaveService.selectTitleAllByDateAsc(); 
     }
  
     @GetMapping("/listbyemcd/{emotion_cd}")

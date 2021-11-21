@@ -55,8 +55,8 @@ public class EmDiarySaveService {
     } 
 
 
-    public List<TbDiaryTitle> selectTitleAllByEmotionCdDesc() {         
-        return emDiarySaveDomainService.selectTitleAllByEmotionCdDesc();
+    public List<TbDiaryTitle> selectTitleAllByDateAsc() {         
+        return emDiarySaveDomainService.selectTitleAllByDateAsc();
     }
 
     public List<TbDiaryTitle> selectTitleByEmotionCode(String emotion_cd) {         

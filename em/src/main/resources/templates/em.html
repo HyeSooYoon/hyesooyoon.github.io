@@ -28,13 +28,14 @@ new Vue({
     getListDataApi().then(function(data) {  
           
       let i = 0;
+      
       while (i < data.length) {
         emcd = data[i].emotionCd;   
         emdate.push(moment(String(data[i].date.splice(',', 3))).format('DD MMM, YYYY'));
         actions[2].handler(myChart);       
         i++;
       } 
-      
+
     })
 
     
