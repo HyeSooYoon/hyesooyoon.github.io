@@ -269,13 +269,13 @@ const actions = [
         // 랜덤
         // data.datasets[index].data.push(rand(-100, 100));
         
-        // 보통(약간우울) -40%
+        // 우울감 -40%
         if(emcd === 'EM01') emcd = -40;        
-        // 보통(약간낙관) 40%
+        // 낙천적 40%
         else if(emcd === 'EM02') emcd = 40;
         // 다혈질 50%
         else if(emcd === 'EM03') emcd = 50;
-        // 우울 -80%
+        // 지독한우울 -80%
         else if(emcd === 'EM04') emcd = -80; 
 
         // 데이터 값 입력

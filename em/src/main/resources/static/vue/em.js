@@ -38,9 +38,9 @@ export default {
   <div class="side-wrapper">
    <div class="project-title">Emotion</div>
    <div class="project-name">
-    <div class="project-department">보통(약간우울)</div>
-    <div class="project-department">우울</div>
-    <div class="project-department">보통(약간낙관)</div>
+    <div class="project-department">우울감</div>
+    <div class="project-department">지독한우울</div>
+    <div class="project-department">낙천적</div>
     <div class="project-department">다혈질</div>
    </div>
   </div> 
@@ -73,19 +73,19 @@ export default {
      </div>
 
      <div id="deplight" class="msg msg-department anim-y deplight none" @click="getDiaryByEmCode">
-      보통(약간우울)
+     우울감
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
      <div id="dep" class="msg msg-department anim-y dep none" @click="getDiaryByEmCode">
-     우울
+     지독한우울
      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
      </div>
      <div id="normal" class="msg msg-department anim-y normal none" @click="getDiaryByEmCode">
-     보통(약간낙관)
+     낙천적
      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492" style="display:none;">
        <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
       </svg>
@@ -230,24 +230,49 @@ methods:{
       {  
         for (let i in data) {           
 
-          datahtml = datahtml + '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
+          datahtml = '<div class="msg selected-bg anim-y" onclick="showcontent(this)">' +
           '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
           '<div class="msg-content">' +  
           '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
           '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
           '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
+          + datahtml;  
 
-          // 오늘일자 등록된 일기가 있을 경우 다이어리 입력 불가
-          if(moment(new Date()).format('DD MMM, YYYY') === moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY'))
+          // 오늘일자 등록된 일기가 있을 경우 다이어리 입력 불가  
+          if(i==data.length-1 && moment(new Date()).format('DD MMM, YYYY') == moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY'))
           {
+            let uuid = data[i].uuid; 
+    
+            diarySearchUrl = 'http://localhost:5013/list/';
+
+            searchdiary(uuid).then(function(data) {
+              
+              if(data === '')
+              { 
+                alert(data.message); 
+                return;
+              }        
+              else
+              {          
+                document.querySelector('#mail20').className = 'mail-choice';        
+                document.getElementsByName("title")[0].disabled = true;
+                document.getElementsByName("contents")[0].disabled = true;
+                document.getElementsByName("textarea-icons")[0].style.display = 'none';
+                
+                document.querySelector('#mail20').classList.add(data.emotion_cd);   
+                document.getElementsByName("title")[0].value = data.title;
+                document.getElementsByName("contents")[0].value = data.contents; 
+                document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
+              }      
+            })  
+
             document.querySelector('.add-button').style.display = 'none';
-            document.getElementsByName("textarea-icons")[0].style.display = 'none';            
-            // document.querySelector('.msg.selected-bg.anim-y').click();
+            
           }
 
-        }          
+        }
       } 
-        document.getElementById('loopdata').innerHTML = datahtml;       
+        document.getElementById('loopdata').innerHTML = datahtml;               
    }) 
   },
   /**********************************************
@@ -301,11 +326,11 @@ methods:{
 
     if(this.count == 1) {
       mail20.classList.add('EM01');    
-      document.querySelector('.mail-contents-subject').title = '보통(약간우울)';
+      document.querySelector('.mail-contents-subject').title = '우울감';
 
     } else if(this.count == 2) {
       mail20.classList.add('EM02');     
-      document.querySelector('.mail-contents-subject').title = '보통(약간낙관)';
+      document.querySelector('.mail-contents-subject').title = '낙천적';
     
     } else if(this.count == 3) {
       mail20.classList.add('EM03');     
@@ -313,7 +338,7 @@ methods:{
     
     } else {
       mail20.classList.add('EM04');     
-      document.querySelector('.mail-contents-subject').title = '우울';
+      document.querySelector('.mail-contents-subject').title = '지독한우울';
       this.count = 0; 
     }
     
@@ -426,7 +451,7 @@ methods:{
 },
 mounted() {  
   this.list(); 
-  this.listCount();
+  this.listCount(); 
 } 
 }; 
   

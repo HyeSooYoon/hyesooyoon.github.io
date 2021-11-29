@@ -14,11 +14,11 @@
 	 --calendar-border-color: #cbcfe0;
 	 --main-container-bg: #f0f0f7;
 
-	 /* 보통(약간우울) */
+	 /* 우울감 */
 	 --button-color-deplight: #625be8;
-	 /* 우울 */
+	 /* 지독한우울 */
 	 --button-color-dep: #4d76fd;
-	 /* 보통(약간낙관) */
+	 /* 낙천적 */
 	 --button-color-normal: #fec267;
 	 /* 다혈질 */
 	 --button-color-angry: #fc6679;

@@ -41,6 +41,25 @@ public class MemberController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/em"); 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
         return mv;
     } 
 
