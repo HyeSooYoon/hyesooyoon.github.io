@@ -22,6 +22,32 @@ Spring Boot 2.3.11
 
 # template
 mustache  
+
+--- 
+
+# <<감정 다이어리 프로젝트 업데이트 이력>>
+1. 감정 다이어리 프로젝트 1차 업로드 (2021/12/01)
    
+# 사용 기술
+open JDK 12
+iBatis 2.1.4
+HTML
+CSS3
+javascript
+Vue.js 2.6.14
+jpa
+
+# DB
+H2 Database
+
+# Framework
+Spring Boot 2.3.11
+
+# template
+mustache  
+   
+   
+   
+
    
    
