@@ -19,15 +19,15 @@ export default {
    <div class="task-status">
    <div class="task-stat">
      <div class="task-number deplight"></div>
-     <div class="task-condition">약간우울</div> 
+     <div class="task-condition">우울감</div> 
     </div>
     <div class="task-stat">
      <div class="task-number dep"></div>
-     <div class="task-condition">우울</div> 
+     <div class="task-condition">지독한우울</div> 
     </div>
     <div class="task-stat">
      <div class="task-number normal"></div>
-     <div class="task-condition">약간낙관</div> 
+     <div class="task-condition">낙천적</div> 
     </div>
     <div class="task-stat">
      <div class="task-number angry"></div>
@@ -127,7 +127,7 @@ export default {
       <div class="mail-inside">
           <article>
           <section>
-            <textarea spellcheck=false name="contents"></textarea>
+            <textarea spellcheck=false name="contents" style="height: 500px;"></textarea>
             <div class="textarea-clone"></div>
           </section>   
         </article>

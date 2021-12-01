@@ -678,7 +678,7 @@
 	 left: 6px;
 }
  .toggle-page:after {
-	 content: "Calendar";
+	 content: "Graph";
 	 right: 4px;
 	 color: var(--main-light-color);
 }
