@@ -5,7 +5,7 @@ export default {
 `
 <div class="container">
  <div class="user-profile-area">
-  <div class="task-manager">emotion manager</div> 
+  <div class="task-manager" @click="reload">emotion manager</div> 
   <div class="side-wrapper">
    <div class="user-profile">
     <img src="../img/me.png" alt="" class="user-photo">
@@ -234,12 +234,14 @@ methods:{
           '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
           '<div class="msg-content">' +  
           '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
-          '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
+          '</div><div class="msg-date">' + moment(String(data[i].date[0]) + '-' + String(data[i].date[1]) + '-' + String(data[i].date[2])).format('MM월 DD일') + 
+
+          
           '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
           + datahtml;  
 
           // 오늘일자 등록된 일기가 있을 경우 다이어리 입력 불가  
-          if(i==data.length-1 && moment(new Date()).format('DD MMM, YYYY') == moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY'))
+          if(i==data.length-1 && moment(new Date()).format('DD MMM, YYYY') == moment(Date(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2]))).format('DD MMM, YYYY'))
           {
             let uuid = data[i].uuid; 
     
@@ -262,7 +264,7 @@ methods:{
                 document.querySelector('#mail20').classList.add(data.emotion_cd);   
                 document.getElementsByName("title")[0].value = data.title;
                 document.getElementsByName("contents")[0].value = data.contents; 
-                document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(String(data.date[0]) + String(data.date[1])+ String(data.date[2])).format('DD MMM, YYYY');
+                document.getElementsByClassName('mail-time')[0].children[1].innerText = moment(Date(String(data.date[0]) + String(data.date[1])+ String(data.date[2]))).format('DD MMM, YYYY');
               }      
             })  
 
@@ -412,6 +414,9 @@ methods:{
     {
       this.showEmContents(type);
     } 
+  },
+  reload: function(e) {
+    location.href = '/em'; 
   }
   ,
   showEmContents: function(obj) { 
@@ -438,7 +443,7 @@ methods:{
             '<input type="checkbox" name="msg" id="mail3" class="mail-choice ' + data[i].emotionCd + '" checked disabled><label for="mail3"></label>' +
             '<div class="msg-content">' +  
             '<div class="msg-title">' + data[i].title + '<span id="msgno" style="display:none;">' + data[i].uuid + '</span>'+ 
-            '</div><div class="msg-date">' + moment(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2])).format('DD MMM, YYYY') + 
+            '</div><div class="msg-date">' + moment(Date(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2]))).format('DD MMM, YYYY') + 
             '</div></div><img src="../img/me.png" alt="" class="members mail-members"></div>'  
           }   
   
