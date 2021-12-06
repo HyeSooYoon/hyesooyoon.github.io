@@ -10,7 +10,7 @@ export default {
    <div class="user-profile">
     <img src="../img/me.png" alt="" class="user-photo">
     <div class="user-name">윤혜수</div>
-    <div class="user-mail">yhs1790@naver.com</div>
+    <div class="user-mail" @click="mail">yhs1790@naver.com</div>
    </div>
    <div class="progress-status">{{now}}/365 Days</div>
    <div class="progress">
@@ -241,7 +241,7 @@ methods:{
           + datahtml;  
 
           // 오늘일자 등록된 일기가 있을 경우 다이어리 입력 불가  
-          if(i==data.length-1 && moment(new Date()).format('DD MMM, YYYY') == moment(Date(String(data[i].date[0]) + String(data[i].date[1])+ String(data[i].date[2]))).format('DD MMM, YYYY'))
+          if(i==data.length-1 && moment(new Date()).format('MM월 DD일') == moment(String(data[i].date[0]) + '-' + String(data[i].date[1]) + '-' + String(data[i].date[2])).format('MM월 DD일'))
           {
             let uuid = data[i].uuid; 
     
@@ -419,6 +419,9 @@ methods:{
     location.href = '/em'; 
   }
   ,
+  mail: function() {
+    location.href = 'mailto:yhs1790@naver.com'; 
+  },
   showEmContents: function(obj) { 
       
     if(obj === '')

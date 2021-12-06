@@ -29,17 +29,17 @@ new Vue({
           
       let i = 0;
       
-      while (i < 90) { //data.length) {
+      while (i < data.length) {
         // 임시 데이터 값 삽입 시 주석
-        // emcd = data[i].emotionCd;           
+        emcd = data[i].emotionCd;           
 
         // 3개월 까지만 감정흐름을 보여준다 
         if(i < 90)
         {
-          // emdate.push(moment(String(data[i].date[0]) + '-' + String(data[i].date[1]) + '-' + String(data[i].date[2])).format('MM월 DD일'));
+          emdate.push(moment(String(data[i].date[0]) + '-' + String(data[i].date[1]) + '-' + String(data[i].date[2])).format('MM월 DD일'));
 
           // 임시 데이터 값 삽입
-          emdate.push('12월 01일');
+          // emdate.push('12월 01일');
           actions[2].handler(myChart);       
         }
         

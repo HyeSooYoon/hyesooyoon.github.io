@@ -262,24 +262,24 @@ const actions = [
     handler(chart) {
     const data = chart.data;
     if (data.datasets.length > 0) {
-        data.labels = emdate;//['1', '2', '3'];
+        data.labels = emdate;
 
         for (let index = 0; index < data.datasets.length; ++index) {
  
         // 랜덤
-        data.datasets[index].data.push(rand(-100, 100));
+        // data.datasets[index].data.push(rand(-100, 100));
         
         // 데이터 값 입력 시작
-        // 우울감 -40%
-        // if(emcd === 'EM01') emcd = -40;        
-        // // 낙천적 40%
-        // else if(emcd === 'EM02') emcd = 40;
-        // // 다혈질 50%
-        // else if(emcd === 'EM03') emcd = 50;
-        // // 지독한우울 -80%
-        // else if(emcd === 'EM04') emcd = -80; 
+        // //우울감 -40%
+        if(emcd === 'EM01') emcd = -40;        
+        // 낙천적 40%
+        else if(emcd === 'EM02') emcd = 40;
+        // 다혈질 50%
+        else if(emcd === 'EM03') emcd = 50;
+        // 지독한우울 -80%
+        else if(emcd === 'EM04') emcd = -80; 
  
-        // data.datasets[index].data.push(emcd);
+        data.datasets[index].data.push(emcd);
         // 데이터 값 입력 끝
 
         }
