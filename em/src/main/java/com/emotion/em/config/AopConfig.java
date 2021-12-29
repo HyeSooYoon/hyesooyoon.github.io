@@ -19,13 +19,14 @@ import com.google.common.base.Joiner;
 public class AopConfig {
 
     private String paramMapToString(Map<String, String[]> paramMap) {
+
         return paramMap.entrySet().stream()
             .map(entry -> String.format("%s -> (%s)",
                 entry.getKey(), Joiner.on(",").join(entry.getValue())))
             .collect(Collectors.joining(", "));
       }
   
-    @Pointcut("within(com.emotion.em.service..*)") 
+    @Pointcut("within(com.emotion.em.RestController.*)") 
     public void onRequest() {}
   
     @Around("com.emotion.em.config.AopConfig.onRequest()") 
@@ -33,9 +34,14 @@ public class AopConfig {
       HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();  
   
       Map<String, String[]> paramMap = request.getParameterMap();
-      String params = "";
+      String params = "";      
+
       if (paramMap.isEmpty() == false) {
         params = " [" + paramMapToString(paramMap) + "]";
+      }
+
+      if ("POST".equalsIgnoreCase(request.getMethod())) {
+        params = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
       }
   
       long start = System.currentTimeMillis();

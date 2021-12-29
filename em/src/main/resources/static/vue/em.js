@@ -483,7 +483,7 @@ export const getDiaryByEmCodeApi = (obj) => {
 ***********************************************/
 export const getListDataApi = () => { 
 return new Promise((resolve) => { 
-  fetch('http://localhost:5013/list', {
+  fetch('http://localhost:5013/list?test=test12333', {
   method: 'get', 
   headers: {
   'Content-Type': 'application/json'
